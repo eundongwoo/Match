@@ -25,7 +25,7 @@ public class MemberDao {
 			Member member=null;
 			if(rs.next())
 			{
-				// 멤버객체 생성
+				member=new Member(rs.getString("id"), rs.getString("name"),rs.getString("password"),rs.getString("tel"));
 			}
 			return member;
 		}finally
@@ -35,25 +35,17 @@ public class MemberDao {
 		}
 		
 	}
-	
-	private Date toDate(Timestamp date)
-	{
-		return date==null? null:new Date(date.getTime());
-	}
-	
-//	public void insert(Connection con, Member member) throws SQLException
-//	{
-//		String sql="insert into member values(?,?,?,?)";
-//		
-//		try(PreparedStatement prst=con.prepareStatement(sql))
-//		{
-//			prst.setString(1, member.getId());
-//			prst.setString(2, member.getName());
-//			prst.setString(3, member.getPwd());
-//			prst.setTimestamp(4, new Timestamp(member.getRegDate().getTime()));
-//			prst.executeUpdate();
-//		}
-//		
-//	}
-	
+
+	public void insert(Connection con, Member member) throws SQLException {
+		String sql="insert into member values(?,?,?,?)";
+		
+		try(PreparedStatement prst=con.prepareStatement(sql))
+		{
+			prst.setString(1,member.getId());
+			prst.setString(2, member.getName());
+			prst.setString(3, member.getPassword());
+			prst.setString(4, member.getTel());
+			prst.executeUpdate();
+		}
+	}	
 }
