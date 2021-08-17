@@ -6,59 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>가입</title>
+<link rel="stylesheet" href="/Match/css/login.css">
 </head>
 <body>
-<form action="join.do" method="post">
-<table border="1">
-<tr>
-<td>아이디</td>
-<td>
-<input type="text" name="id" value="${param.id}">
+<div class="login-page">
+<div class="form">
+<form action="join.do" method="post" class="register-form">
+
+<input type="text" name="id" value="${param.id}" placeholder="ID">
 <c:if test="${errors.id}">아이디를 입력하세요.</c:if>
 <c:if test="${errors.duplicateId}">이미 사용중인 아이디 입니다.</c:if>
-</td>
 
-</tr>
-
-<tr>
-<td>이름</td>
-<td>
-<input type="text" name="name" value="${param.name}">
+<input type="text" name="name" value="${param.name}" placeholder="name">
 <c:if test="${errors.name}">이름을 입력하세요.</c:if>
-</td>
-</tr>
 
-<tr>
-<td>패스워드</td>
-<td>
-<input type="password" name="password">
+
+<input type="password" name="password" placeholder="Password">
 <c:if test="${errors.password}">패스워드를 입력하세요.</c:if>
-</td>
 
-</tr>
 
-<tr>
-<td>패스워드 확인</td>
-<td>
-<input type="password" name="confirm">
+<input type="password" name="confirm" placeholder="PasswordConfirm">
 <c:if test="${errors.confirm}">패스워드 확인을 입력하세요.</c:if>
 <c:if test="${errors.notMatch}">패스워드와 확인이 일치하지 않습니다.</c:if>
-</td>
 
-</tr>
 
-<tr>
-<td>전화번호</td>
-<td>
 <input type="text" name="tel" value="${param.tel}" placeholder="ex) 010-1234-5678">
 <c:if test="${errors.tel}">전화번호를 입력하세요.</c:if>
-</td>
-</tr>
 
-<tr>
-<td colspan="2"><input type="submit" value="가입"></td>
-</tr>
-</table>
+<input type="submit" value="가입">
 </form>
+</div>
+</div>
 </body>
 </html>
