@@ -33,5 +33,9 @@ public class ModifyRequest {
 		if(title == null || title.trim().isEmpty()){
 			errors.put("title", Boolean.TRUE);
 		}
+		
+		if(content==null || content.trim().isEmpty()) {
+			errors.put("content", Boolean.TRUE);
+		}
 	}
 }

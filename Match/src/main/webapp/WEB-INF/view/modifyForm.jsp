@@ -20,6 +20,7 @@
 <p>
 	내용:<br/>
 	<textarea name="content" rows="5" cols="30">${modReq.content}</textarea>
+	<c:if test="${errors.content}">내용을 입력하세요.</c:if>
 </p>
 <input type="submit" value="글 수정">
 </form>
