@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 	
-	
-
 	function buttonClick(x,y) {
 		alert(x);
 		alert(y);
@@ -16,7 +14,6 @@
 	};
 </script>
 <title>달력</title>
-<link rel="stylesheet" href="/Match/css/reserve.css">
 <style>
 th, td {
  	text-align: center; /* 칸 안의 글자나 숫자를 중앙으로 정렬 */ 
@@ -104,12 +101,12 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 		if(i>=date && currentMonth==month)
 		{
 			%>
-			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
+			<input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>')">
 			<% 
 		}else if(currentYear>=year && month>currentMonth)
 		{
 			%>
-			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
+			<input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>')">
 			<%
 		}
 	%>

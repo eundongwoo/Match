@@ -21,7 +21,8 @@
     		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
     	</tr>
     </table>
-    <input type="checkbox" id="toggle">  
+    <input type="checkbox" id="toggle"> 
+    <label for="toggle" onclick=""><input type="button" value="시간 조회"></label> 
     <br><br> 
     <div id="hidden_div">
     	<p>시간</p>
