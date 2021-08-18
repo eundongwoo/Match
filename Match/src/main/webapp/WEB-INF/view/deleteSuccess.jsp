@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 삭제</title>
 </head>
 <body>
-
+삭제되었습니다.<br/>
+<a href="list.do">[목록으로]</a>
 </body>
 </html>
