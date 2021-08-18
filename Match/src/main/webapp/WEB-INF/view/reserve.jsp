@@ -31,9 +31,9 @@
 	 
     <table>
     	<td>
-    		풋살장:<input type="text" name="place"><br>
-    		날짜:<input type="text" name="date"><br>
-    		시간:<input type="text" name="time">
+    		풋살장:<input type="text" name="place" id="place"><br>
+    		날짜:<input type="text" name="date" id="date"><br>
+    		시간:<input type="text" name="time" id="time">
     	</td>
     	<td>
     		<input type="submit" value="예약하기">
