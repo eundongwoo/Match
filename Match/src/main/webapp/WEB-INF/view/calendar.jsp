@@ -7,12 +7,14 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 	
-	
-
-	function buttonClick(x,y) {
+	function buttonClick(x,y,z) {
 		alert(x);
 		alert(y);
-		location.href="reserve.do?date="+x+"&year="+y;
+		alert(z);
+		location.href="reserve.do?date="+x+"&year="+y+"&month="+z;
+		
+		//여기에다 체크박스 보이게
+	
 	};
 </script>
 <title>달력</title>
@@ -104,12 +106,12 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 		if(i>=date && currentMonth==month)
 		{
 			%>
-			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
+				<input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>','<%=cal.get(Calendar.MONTH)+1%>')" ></label>
 			<% 
 		}else if(currentYear>=year && month>currentMonth)
 		{
 			%>
-			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
+				<input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>','<%=cal.get(Calendar.MONTH)+1%>')" ></label>
 			<%
 		}
 	%>

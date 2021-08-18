@@ -8,6 +8,9 @@
 	<title>메인 페이지</title>
 	<link rel="stylesheet" href="/Match/css/reserve.css">
   </head>
+  <% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일";
+  		
+  %>
   <body>
   	<nav>
     <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>  	
@@ -24,16 +27,21 @@
     <br><br> 
     <div id="hidden_div">
     	<p>시간</p>
-		<input type="button" value="09:00~12:00">			
+		<input type="button" value="09:00~12:00">		
 		<input type="button" value="12:00~15:00">
 		<input type="button" value="18:00~21:00">
 	</div>
 	 
     <table>
     	<td>
-    		풋살장:<input type="text" name="place" id="place"><br>
-    		날짜:<input type="text" name="date" id="date"><br>
-    		시간:<input type="text" name="time" id="time">
+    		풋살장:<input type="text" name="place" id="place" ><br>   	
+    		<c:if test="${empty param.year }">
+    		날짜:<input type="text" name="date" id="date" value=""><br>  
+    		</c:if>	 
+    		<c:if test="${!empty param.year }">  		
+    		날짜:<input type="text" name="date" id="date" value="<%=s%>"><br> 
+    		</c:if>   		
+    		시간:<input type="text" name="time" id="time" >
     	</td>
     	<td>
     		<input type="submit" value="예약하기">
