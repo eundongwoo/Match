@@ -5,6 +5,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript">
+	
+	
+
+	function buttonClick(x,y) {
+		alert(x);
+		alert(y);
+		location.href="reserve.do?date="+x+"&year="+y;
+	};
+</script>
 <title>달력</title>
 <link rel="stylesheet" href="/Match/css/reserve.css">
 <style>
@@ -94,12 +104,12 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 		if(i>=date && currentMonth==month)
 		{
 			%>
-			<label for="toggle" onclick><input type="button" value="예약"></label>
+			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
 			<% 
 		}else if(currentYear>=year && month>currentMonth)
 		{
 			%>
-			<label for="toggle" onclick><input type="button" value="예약"></label>
+			<label for="toggle"><input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>')" class="dateBtn"></label>
 			<%
 		}
 	%>
