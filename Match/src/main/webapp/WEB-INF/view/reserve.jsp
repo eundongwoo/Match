@@ -7,7 +7,15 @@
    	<meta charset="utf-8">
 	<title>메인 페이지</title>
 	<link rel="stylesheet" href="/Match/css/reserve.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".timeBtn").click(function(){
+				var value=$(".timeBtn").val();
+				 $("#time").val(value);
+			});
+		});
+	</script>
   </head>
   <body>
   	<nav>
@@ -26,9 +34,9 @@
     <br><br> 
     <div id="hidden_div">
     	<p>시간</p>
-		<input type="button" value="09:00~12:00">			
-		<input type="button" value="12:00~15:00">
-		<input type="button" value="18:00~21:00">
+		<input type="button" value="09:00~12:00" class="timeBtn">			
+		<input type="button" value="12:00~15:00" class="timeBtn">
+		<input type="button" value="18:00~21:00" class="timeBtn">
 	</div>
 	 
     <table>
