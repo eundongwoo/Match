@@ -1,15 +1,5 @@
 @charset "EUC-KR";
-table
-{
-	width: 100%;
-}
-
 .one
 {
-	width: 80%;
-}
-
-.two
-{
-	width: 20%;
+	background-color:#cccccc;
 }
