@@ -13,12 +13,31 @@
     <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>  	
   	</nav>
     <!-- 여기까지 메뉴바 구현 -->
-     
+    
     <table>
     	<tr>
     		<td class="one"><jsp:include page="/WEB-INF/view/map.jsp" flush="false"/></td>
     		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
     	</tr>
+    </table>
+    <input type="checkbox" id="toggle">  
+    <br><br> 
+    <div id="hidden_div">
+    	<p>시간</p>
+		<input type="button" value="09:00~12:00">			
+		<input type="button" value="12:00~15:00">
+		<input type="button" value="18:00~21:00">
+	</div>
+	 
+    <table>
+    	<td>
+    		풋살장:<input type="text" name="place"><br>
+    		날짜:<input type="text" name="date"><br>
+    		시간:<input type="text" name="time">
+    	</td>
+    	<td>
+    		<input type="submit" value="예약하기">
+    	</td>
     </table>
     
   </body>

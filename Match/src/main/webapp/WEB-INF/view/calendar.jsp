@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>달력</title>
-
+<link rel="stylesheet" href="/Match/css/reserve.css">
 <style>
 th, td {
  	text-align: center; /* 칸 안의 글자나 숫자를 중앙으로 정렬 */ 
@@ -94,12 +94,12 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 		if(i>=date && currentMonth==month)
 		{
 			%>
-			<input type="button" value="예약">
+			<label for="toggle" onclick><input type="button" value="예약"></label>
 			<% 
 		}else if(currentYear>=year && month>currentMonth)
 		{
 			%>
-			<input type="button" value="예약">
+			<label for="toggle" onclick><input type="button" value="예약"></label>
 			<%
 		}
 	%>
