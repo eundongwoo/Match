@@ -7,7 +7,8 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 	
-	function buttonClick(x,y,z) {
+	
+	function buttonClick(x,y) {
 		alert(x);
 		alert(y);
 		alert(z);

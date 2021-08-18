@@ -7,6 +7,7 @@
    	<meta charset="utf-8">
 	<title>메인 페이지</title>
 	<link rel="stylesheet" href="/Match/css/reserve.css">
+
   </head>
   <% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일";
   		
@@ -23,7 +24,8 @@
     		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
     	</tr>
     </table>
-    <input type="checkbox" id="toggle">  
+    <input type="checkbox" id="toggle"> 
+    <label for="toggle" onclick=""><input type="button" value="시간 조회"></label> 
     <br><br> 
     <div id="hidden_div">
     	<p>시간</p>
