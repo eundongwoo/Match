@@ -1,5 +1,5 @@
 drop table member;
-
+/*멤버 테이블 설정 */
 select * from member;
 
 create table member(
@@ -8,3 +8,37 @@ create table member(
 	password varchar(50) not null,
 	tel varchar(50) not null
 );
+
+/*풋살장 테이블 설정 */
+select * from place;
+
+create table place(
+	f_id int primary key,
+	f_name varchar(50) not null,
+	f_addr varchar(50) not null,
+	f_tel varchar(50) not null
+);
+
+select * from place;
+create sequence place_num increment by 1 start with 1;
+
+/*예약 테이블 설정 */
+select * from reservation;
+create table reservation(
+	reserve_num int primary key,
+	member_id varchar(50) not null CONSTRAINT fk_member_id  REFERENCES member(id),
+	place_id int not null CONSTRAINT fk_place_id  REFERENCES place(f_id),
+	reserve_date varchar(50) not null,
+	reserve_time varchar(50) not null	
+);
+
+/*예약확정 테이블 */
+select * from confirm_reservation;
+create table confirm_reservation(
+	reserve_num int primary key,
+	member_id varchar(50) not null CONSTRAINT fk_confirm_member_id  REFERENCES member(id),
+	place_id int not null CONSTRAINT fk_confirm_place_id  REFERENCES place(f_id),
+	reserve_date varchar(50) not null,
+	reserve_time varchar(50) not null	
+);
+insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 복현동 302-16','053-555-2323');
