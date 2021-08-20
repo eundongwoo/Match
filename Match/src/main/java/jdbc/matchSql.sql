@@ -31,7 +31,7 @@ create table reservation(
 	reserve_date varchar(50) not null,
 	reserve_time varchar(50) not null	
 );
-
+create sequence reserve_num increment by 1 start with 1;
 /*예약확정 테이블 */
 select * from confirm_reservation;
 create table confirm_reservation(
@@ -41,4 +41,5 @@ create table confirm_reservation(
 	reserve_date varchar(50) not null,
 	reserve_time varchar(50) not null	
 );
-insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 복현동 302-16','053-555-2323');
+create sequence confirm_num increment by 1 start with 1;
+insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 복현동 302-16','053-383-2630');

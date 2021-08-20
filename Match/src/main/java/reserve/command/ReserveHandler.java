@@ -1,8 +1,12 @@
 package reserve.command;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import map.model.Place;
+import map.service.MapService;
 import mvc.command.CommandHandler;
 import reserve.service.ReserveService;
 
@@ -10,6 +14,7 @@ public class ReserveHandler implements CommandHandler {
 
 	private static final String FORM_VIEW="/WEB-INF/view/reserve.jsp";
 	private ReserveService reserveService=new ReserveService();
+	private MapService mapService=new MapService();
 	
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -30,6 +35,10 @@ public class ReserveHandler implements CommandHandler {
 	
 	private String processForm(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		MapService mapService=new MapService();
+		List<Place> list=mapService.initMap();
+		//request.setAttribute("list", list);
+		request.getSession().setAttribute("list", list);
 		return FORM_VIEW;
 	}
 	private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
