@@ -21,6 +21,7 @@ create table place(
 
 select * from place;
 create sequence place_num increment by 1 start with 1;
+drop sequence place_num;
 
 /*예약 테이블 설정 */
 select * from reservation;
@@ -43,3 +44,6 @@ create table confirm_reservation(
 );
 create sequence confirm_num increment by 1 start with 1;
 insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 복현동 302-16','053-383-2630');
+select * from place;
+insert into place values(place_num.NEXTVAL,'lfc풋살파크','대구 달서구 달구벌대로 1820','650-81-00575');
+

@@ -50,7 +50,7 @@ List<Place> list=(List<Place>)request.getAttribute("list");
 	 
     <table>
     	<td>
-    		풋살장:<input type="text" name="place" id="place" ><br>   	
+    		풋살장:<input type="text" name="place" id="place" value="<%=request.getParameter("placeName")%>"><br>   	
     		<c:if test="${empty param.year }">
     		날짜:<input type="text" name="date" id="date" value=""><br>  
     		</c:if>	 

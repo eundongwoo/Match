@@ -12,16 +12,22 @@ System.out.println(session.getAttribute("authUser"));
 <html>
 <head>
     <meta charset="utf-8">
-    <title>주소로 장소 표시하기</title> 
+    <title>주소로 장소 표시하기</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 </head>
 <body>
+
+<form method="post" action="reserve.do" >
+<input type="hidden" id="placeName" name="placeName" value="">
+</form>
+
 <div id="map" style="width:100%;height:350px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9139ecf68b85217bc0cf45262df346ce&libraries=services"></script>
+
 <script>
 
 
-	
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -34,7 +40,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new kakao.maps.services.Geocoder();
 
-function searchLocation(address) {
+function searchLocation(address, name) {
 // 주소로 좌표를 검색합니다
 geocoder.addressSearch(address, function(result, status) {
 

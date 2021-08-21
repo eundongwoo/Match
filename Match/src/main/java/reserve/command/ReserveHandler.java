@@ -22,8 +22,13 @@ public class ReserveHandler implements CommandHandler {
 		{
 			return processForm(request,response);
 		}else if(request.getMethod().equalsIgnoreCase("POST"))
-		{
-			return processSubmit(request,response);
+		{	//System.out.println((String)request.getAttribute("placeName"));
+//			if(request.getAttribute("placeName")!=null) {
+//				return processSubmit2(request,response);
+//			}else {
+			System.out.println(request.getAttribute("placeName"));
+			return processSubmit2(request,response);
+			
 		}
 		else
 		{
@@ -33,6 +38,13 @@ public class ReserveHandler implements CommandHandler {
 	}
 
 	
+	private String processSubmit2(HttpServletRequest request, HttpServletResponse response) {
+		//request.getAttribute("placeName");
+		System.out.println("processSubmit2");
+		return FORM_VIEW;
+	}
+
+
 	private String processForm(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		MapService mapService=new MapService();
@@ -42,6 +54,7 @@ public class ReserveHandler implements CommandHandler {
 		return FORM_VIEW;
 	}
 	private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
+		
 		return null;
 	}
 
