@@ -17,7 +17,7 @@ System.out.println(session.getAttribute("authUser"));
 </head>
 <body>
 
-<form method="post" action="map.do" >
+<form id="please" method="POST" action="map.do" >
 <input type="hidden" id="placeName" name="placeName" value="">
 </form>
 
@@ -60,7 +60,7 @@ geocoder.addressSearch(address, function(result, status) {
         kakao.maps.event.addListener(marker, 'click', function() {
              	var placeName =document.getElementById('placeName');
              	placeName.setAttribute('value',name);
-             	$("form").submit();
+             	$("#please").submit();
              	
         });
      	

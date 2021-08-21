@@ -11,7 +11,8 @@ create table member(
 
 /*풋살장 테이블 설정 */
 select * from place;
-
+select * from tabs;
+select * from reservation;
 create table place(
 	f_id int primary key,
 	f_name varchar(50) not null,
@@ -47,3 +48,4 @@ insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 �
 select * from place;
 insert into place values(place_num.NEXTVAL,'lfc풋살파크','대구 달서구 달구벌대로 1820','650-81-00575');
 
+select *

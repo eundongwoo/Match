@@ -1,5 +1,6 @@
 package reserve.command;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,7 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import map.model.Place;
 import map.service.MapService;
+import member.service.User;
 import mvc.command.CommandHandler;
+import reserve.model.ReserveRequest;
 import reserve.service.ReserveService;
 
 public class ReserveHandler implements CommandHandler {
@@ -22,13 +25,8 @@ public class ReserveHandler implements CommandHandler {
 		{
 			return processForm(request,response);
 		}else if(request.getMethod().equalsIgnoreCase("POST"))
-		{	//System.out.println((String)request.getAttribute("placeName"));
-//			if(request.getAttribute("placeName")!=null) {
-//				return processSubmit2(request,response);
-//			}else {
-			System.out.println(request.getAttribute("placeName"));
-			return processSubmit2(request,response);
-			
+		{
+			return processSubmit(request, response);
 		}
 		else
 		{
@@ -53,9 +51,15 @@ public class ReserveHandler implements CommandHandler {
 		request.getSession().setAttribute("list", list);
 		return FORM_VIEW;
 	}
-	private String processSubmit(HttpServletRequest request, HttpServletResponse response) {
-		
-		return null;
+	
+	private String processSubmit(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+		User user= (User)request.getSession().getAttribute("authUser");
+		System.out.println("제발좀:"+user.getId());
+		ReserveRequest reserveRequest = new ReserveRequest(user, request.getParameter("place"), request.getParameter("date"), 
+				request.getParameter("time"));
+		System.out.println("reserveHandler 옴");
+		reserveService.reserve(reserveRequest);
+		return "/main.jsp";
 	}
 
 }
