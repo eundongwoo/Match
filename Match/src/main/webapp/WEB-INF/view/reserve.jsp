@@ -1,3 +1,4 @@
+<%@page import="calendar.model.Calendar"%>
 <%@page import="map.model.Place"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,6 +8,14 @@
 List<Place> list=(List<Place>)request.getAttribute("list");
 
 %> --%>
+<%
+Calendar cal= (Calendar)session.getAttribute("calendar");
+
+if(cal!=null) {
+	System.out.println("여기");
+System.out.println(cal.getDate());
+}
+%>
 <!doctype html>
 <html lang="en">
   <head>
@@ -50,12 +59,12 @@ List<Place> list=(List<Place>)request.getAttribute("list");
 	 
     <table>
     	<td>
-    		풋살장:<input type="text" name="place" id="place" value="<%=request.getParameter("placeName")%>"><br>   	
+    		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>"><br>   	
     		<c:if test="${empty param.year }">
     		날짜:<input type="text" name="date" id="date" value=""><br>  
     		</c:if>	 
     		<c:if test="${!empty param.year }">  		
-    		날짜:<input type="text" name="date" id="date" value="<%=s%>"><br> 
+    		날짜:<input type="text" name="date" id="date" value="<%=cal.getYear()+cal.getMonth()+cal.getDate()%>"><br> 
     		</c:if>   		
     		시간:<input type="text" name="time" id="time" >
     	</td>

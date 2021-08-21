@@ -17,7 +17,7 @@ System.out.println(session.getAttribute("authUser"));
 </head>
 <body>
 
-<form method="post" action="reserve.do" >
+<form method="post" action="map.do" >
 <input type="hidden" id="placeName" name="placeName" value="">
 </form>
 
