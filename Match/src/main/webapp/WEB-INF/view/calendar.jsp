@@ -10,10 +10,7 @@
 
 	function buttonClick(x,y,z) {
 
-		alert(x);
-		alert(y);
-		alert(z);
-		location.href="reserve.do?date="+x+"&year="+y+"&month="+z;
+		location.href="calendar.do?date="+x+"&year="+y+"&month="+z;
 		
 		//여기에다 체크박스 보이게
 	
