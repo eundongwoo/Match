@@ -7,8 +7,6 @@
 List<Place> list=(List<Place>)session.getAttribute("list");
 System.out.println(list.get(0).getF_name()+":"+list.get(0).getF_addr());
 System.out.println(session.getAttribute("authUser"));
-int i=0;
-
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +25,7 @@ int i=0;
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        level: 9 // 지도의 확대 레벨
     };  
 
 // 지도를 생성합니다    
@@ -48,12 +46,21 @@ geocoder.addressSearch(address, function(result, status) {
         // 결과값으로 받은 위치를 마커로 표시합니다
         var marker = new kakao.maps.Marker({
             map: map,
-            position: coords
+            position: coords,    
+            clickable:true
         });
-
+        
+     	// 마커에 클릭이벤트를 등록합니다
+        kakao.maps.event.addListener(marker, 'click', function() {
+             	var placeName =document.getElementById('placeName');
+             	placeName.setAttribute('value',name);
+             	$("form").submit();
+             	
+        });
+     	
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">풋살장</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
         });
         infowindow.open(map, marker);
 
@@ -67,10 +74,11 @@ geocoder.addressSearch(address, function(result, status) {
 <%
 for(int j=0; j<list.size(); j++) {
 %>
-searchLocation('<%=list.get(j).getF_addr()%>');
+searchLocation('<%=list.get(j).getF_addr()%>', '<%=list.get(j).getF_name()%>');
 <%
 }
 %>
+
 </script>
 </body>
 </html>
