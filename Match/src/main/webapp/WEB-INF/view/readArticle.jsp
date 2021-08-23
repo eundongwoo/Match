@@ -34,15 +34,28 @@
 				},
 				
 				success: function(data1){
-					
-						alert(data1.comments);
-					
-					
+						showHtml(data1.comments, 1);
+		
 				}
 			}); 
 		});
 	});
-
+	function showHtml(data, pageNum) {
+		var html="<table>";
+		html+="<tr><td>댓글 번호</td><td>id</td><td>내용</td><td>작성날짜</td></tr>"
+		$.each(data, function(index, item) {
+			
+			html += "<tr align='center'>";
+            html += "<td>" + (index+1) + "</td>";
+            html += "<td>" + item.id + "</td>";
+            html += "<td align='left'>" + item.comment_content + "</td>";          
+            html += "<td>" + item.comment_date+ "</td>";
+            html += "</tr>";
+			
+		});
+		html+="</table>"
+		$("#showContent").html(html);
+	}
 </script>
 </head>
 <body>
@@ -134,6 +147,7 @@
 			</div>
 		</td>
 	<!-- </form> -->
+	<div id="showContent"></div>
 	</c:if>
 	
 </body>
