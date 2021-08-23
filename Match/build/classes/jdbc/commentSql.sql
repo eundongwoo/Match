@@ -3,7 +3,6 @@ create table article_comment (
 	id varchar(50) not null,
 	comment_date timestamp not null,
 	comment_article int constraint fk_comment references article(article_no),
-	comment_parent int,
 	comment_content varchar(1000) not null
 	);
 
@@ -11,7 +10,7 @@ create table article_comment (
 //comment_parent는 대댓글을 위한 부모댓글이다.
 //comment_num은 article_comment_seq를 위한 자리이다.
 //아직 forien key등 설정을 덜 한 상태이다.
-
+select * from article_comment;
 drop table article_comment;
 
 create sequence article_comment_seq

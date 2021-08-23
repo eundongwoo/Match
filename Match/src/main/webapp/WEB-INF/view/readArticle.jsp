@@ -9,20 +9,36 @@
 <title>게시글 읽기</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
+/* $.ajaxSetup({
+    type:"POST",
+    async:true,
+    dataType:"json",
+    error:function(xhr) {
+       
+    }
+}); */
+
+
+
 	$(document).ready(function(){
-		$("#cmtCnt-btn").click(function(){	
-			 $.ajax({
-				url: "/article/commentInsert.do",
-				type: "POST",
-				data: {  //무슨형식으로 주는거지?
-					num: ${articleData.article.number}
+		$("#commentWrite").click(function(){	
+			alert('hello');
+			alert(${articleData.article.number});
+			$.ajax({
+				url:"/Match/comment.do",
+				dataType: "json",
+				type:"POST",
+				data: {  
+					num: "${articleData.article.number}", 
 					content : $("#cmtCmt").val()
 				},
-				dataType: "String",
-				success: function(){
-					console.log("보내기 성공");
-					location.reload()
-				},
+				
+				success: function(data1){
+					
+						alert(data1.comments);
+					
+					
+				}
 			}); 
 		});
 	});
@@ -94,7 +110,7 @@
 
 <!-- 댓글 작성 -->
 	<c:if test="${authUser != null }">
-	<form action="read.do" method="get">
+	<!-- <form id="comment"  method="POST"> -->
 		<input type="hidden" name="comment_article" value="${article.comment_no }">
 		<input type="hidden" name="id" value="${authUser.id }">
 		<!-- 아이디 -->
@@ -113,10 +129,11 @@
 		<!--댓글 등록 버튼 -->
 		<td width="100">
 			<div class="comment-button">
-				<button id="cmtCnt-btn">댓글달기</button>
+				<!-- <button id="cmtCnt-btn">댓글달기</button> -->
+				<input type="button" class="btn btn-default" value="댓글 쓰기" id="commentWrite">
 			</div>
 		</td>
-	</form>
+	<!-- </form> -->
 	</c:if>
 	
 </body>

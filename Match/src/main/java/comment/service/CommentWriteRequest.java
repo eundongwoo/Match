@@ -1,4 +1,4 @@
-package article.comment.service;
+package comment.service;
 
 
 import java.util.Map;
@@ -6,10 +6,10 @@ import java.util.Map;
 public class CommentWriteRequest {
 	private String id;
 	private String content;
-	private Integer articleNum;
+	private int articleNum;
 	//private Date date;
 	
-	public CommentWriteRequest(String id, String content, Integer articleNum) {
+	public CommentWriteRequest(String id, String content, int articleNum) {
 		super();
 		this.id = id;
 		this.content = content;
@@ -24,7 +24,7 @@ public class CommentWriteRequest {
 		return content;
 	}
 	
-	public Integer getArticleNum() {
+	public int getArticleNum() {
 		return articleNum;
 	}
 	

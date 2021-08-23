@@ -7,8 +7,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import article.comment.service.ArticleCommentService;
-import article.comment.service.CommentWriteRequest;
+import comment.service.ArticleCommentService;
+import comment.service.CommentWriteRequest;
 import article.service.ArticleData;
 import article.service.ArticleNotFoundException;
 import article.service.ReadArticleService;
