@@ -20,7 +20,7 @@ public class WriteArticleService {
 			
 			Article article = toArticle(req);
 			Article savedArticle = articleDao.insert(conn, article);
-			if(savedArticle ==null) {
+			if(savedArticle == null) {
 				throw new RuntimeException("fail to insert article");
 			}
 

@@ -8,6 +8,7 @@ public class WriteRequest {
 	private Writer writer;
 	private String title;
 	private String content;
+	
 	public WriteRequest(Writer writer, String title, String content) {
 		super();
 		this.writer = writer;

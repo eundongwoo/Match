@@ -68,7 +68,7 @@ public class ArticleDao {
 			JdbcUtil.close(stmt);
 		}
 	}
-	
+
 	public List<Article> select(Connection conn, int startRow, int size) throws SQLException{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

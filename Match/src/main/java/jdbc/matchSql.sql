@@ -22,7 +22,7 @@ create table article(
 	read_cnt int);
 //article에 content가 추가되었음.
 
-select * from article;
+select article_no from article;
 
 grant create sequence to hr;
 
