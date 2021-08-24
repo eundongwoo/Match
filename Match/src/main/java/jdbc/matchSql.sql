@@ -48,4 +48,5 @@ insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 �
 select * from place;
 insert into place values(place_num.NEXTVAL,'lfc풋살파크','대구 달서구 달구벌대로 1820','650-81-00575');
 
-select *
+alter table reservation add state varchar(25) default 'N'; /*예약 테이블에 추가하기 */
+alter table reservation add reg_time time default sysdate; /*예약 테이블에 추가하기 */

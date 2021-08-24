@@ -13,7 +13,7 @@
 <body>
  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">뭉쳐야 찬다</a>
+            <a class="navbar-brand" href="/Match/main.jsp">뭉쳐야 찬다</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -30,11 +30,8 @@
                     	</li>
                     </c:if>
                     <c:if test="${!empty authUser}">
-                    	<script>
-                    		alert(${authUser.name}+"님, 안녕하세요");
-                    	</script>
                     	 <li class="nav-item">
-                        	<a class="nav-link active" aria-current="page" href="#">회원정보수정</a>
+                        	<a class="nav-link active" aria-current="page" href="mypage.do">마이페이지</a>
                     	</li>
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="logout.do">로그아웃</a>

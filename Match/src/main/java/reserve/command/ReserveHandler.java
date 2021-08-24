@@ -34,15 +34,7 @@ public class ReserveHandler implements CommandHandler {
 			return null;
 		}
 	}
-
 	
-	private String processSubmit2(HttpServletRequest request, HttpServletResponse response) {
-		//request.getAttribute("placeName");
-		System.out.println("processSubmit2");
-		return FORM_VIEW;
-	}
-
-
 	private String processForm(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		MapService mapService=new MapService();
@@ -54,12 +46,11 @@ public class ReserveHandler implements CommandHandler {
 	
 	private String processSubmit(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		User user= (User)request.getSession().getAttribute("authUser");
-		System.out.println("제발좀:"+user.getId());
 		ReserveRequest reserveRequest = new ReserveRequest(user, request.getParameter("place"), request.getParameter("date"), 
 				request.getParameter("time"));
-		System.out.println("reserveHandler 옴");
-		reserveService.reserve(reserveRequest);
+		String message=reserveService.reserve(reserveRequest,request);
+		System.out.println(message);
+		request.setAttribute("message", message);
 		return "/main.jsp";
 	}
-
 }

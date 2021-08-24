@@ -11,7 +11,6 @@ public class CalHandler implements CommandHandler{
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if(request.getMethod().equalsIgnoreCase("GET")) {
-			System.out.println("여기 calhandler1");
 			return processForm(request, response);
 		}else
 		{
@@ -26,10 +25,6 @@ public class CalHandler implements CommandHandler{
 		String month = request.getParameter("month");
 		Calendar calendar = new Calendar(year, month, date);
 		request.getSession().setAttribute("calendar", calendar);
-		System.out.println("여기 calhandler2");
-		return FORM_VIEW;
-		
-		
+		return FORM_VIEW;	
 	}
-
 }

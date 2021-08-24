@@ -4,15 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가입완료</title>
+<title>Insert title here</title>
 </head>
 <body>
 <script>
-
-		alert(${param.name}+"님의 회원가입을 축하드립니다.");
-		location.href='/Match/index.jsp';
-
+	location.href='mypage.do';
 </script>
-
 </body>
 </html>

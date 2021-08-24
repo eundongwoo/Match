@@ -60,7 +60,7 @@ System.out.println(cal.getDate());
     <table>
     	<td>
     		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>"><br>   	
-    		<c:if test="${empty param.year }">
+    		<c:if test="${empty param.year}">
     		날짜:<input type="text" name="date" id="date" value=""><br>  
     		</c:if>	 
     		<c:if test="${!empty param.year }">  		

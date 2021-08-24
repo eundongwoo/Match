@@ -7,6 +7,7 @@ public class ReserveRequest {
 	private String date;
 	private String time;
 	private User user;
+	private String state;
 	public ReserveRequest(User user, String place, String date, String time) {
 		super();
 		this.place = place;
@@ -41,6 +42,12 @@ public class ReserveRequest {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	
-	
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
 }
