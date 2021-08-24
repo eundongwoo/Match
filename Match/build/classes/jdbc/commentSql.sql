@@ -20,7 +20,7 @@ select * from article_comment;
 
 insert into article_comment values(2, user, systimestamp, 51, 1, 123);
 
-0, req.getId(), now, 0, 0, req.getContent()
+
 
 
 

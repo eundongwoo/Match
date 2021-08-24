@@ -18,30 +18,53 @@
     }
 }); */
 
-
-
 	$(document).ready(function(){
+		
 		$("#commentWrite").click(function(){	
-			alert('hello');
 			alert(${articleData.article.number});
 			$.ajax({
 				url:"/Match/comment.do",
 				dataType: "json",
 				type:"POST",
-				data: {  
+				data: {
 					num: "${articleData.article.number}", 
 					content : $("#cmtCmt").val()
 				},
 				
 				success: function(data1){
+						x=data1;
 						showHtml(data1.comments, 1);
 		
 				}
 			}); 
+		
+		
 		});
+		
+		$("#commentRead").click(function(x) {
+			$.ajax({
+				url:"/Match/comment.do",
+				dataType: "json",
+				type:"POST",
+				data: {
+					num: "${articleData.article.number}",
+					judge:"read"
+				},				
+				success: function(data1){					
+						showHtml(data1.comments, 1);	
+				}
+			}); 
+			
+		})
+		
+		
 	});
+	
+	
 	function showHtml(data, pageNum) {
-		var html="<table>";
+		var html="<div id='showContent'><input type='button' class='btn btn-default' value='댓글 보기' id='commentRead'></div>";
+				
+		html+="<table>";
 		html+="<tr><td>댓글 번호</td><td>id</td><td>내용</td><td>작성날짜</td></tr>"
 		$.each(data, function(index, item) {
 			
@@ -51,9 +74,10 @@
             html += "<td align='left'>" + item.comment_content + "</td>";          
             html += "<td>" + item.comment_date+ "</td>";
             html += "</tr>";
-			
+            
 		});
 		html+="</table>"
+		
 		$("#showContent").html(html);
 	}
 </script>
@@ -96,7 +120,8 @@
 
 <!-- 댓글 기능 -->
 <!-- 본래 있던 댓글 -->
-<c:if test="${comment != null }">
+
+<%-- <c:if test="${comment != null }">
 <table border="1" width="50">
 	<tr>
 		<!-- 아이디, 작성날짜 -->
@@ -119,7 +144,7 @@
 		</td>
 	</tr>
 </table>
-</c:if>
+</c:if>  지금안쓰고있는 기능--%> 
 
 <!-- 댓글 작성 -->
 	<c:if test="${authUser != null }">
@@ -147,7 +172,9 @@
 			</div>
 		</td>
 	<!-- </form> -->
-	<div id="showContent"></div>
+	<div id="showContent">
+		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
+	</div>
 	</c:if>
 	
 </body>
