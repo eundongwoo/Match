@@ -50,3 +50,18 @@ insert into place values(place_num.NEXTVAL,'lfc풋살파크','대구 달서구 �
 
 alter table reservation add state varchar(25) default 'N'; /*예약 테이블에 추가하기 */
 alter table reservation add reg_time time default sysdate; /*예약 테이블에 추가하기 */
+
+/* 풋살장 시간 테이블 */
+create table operation(
+operation_num int primary key,
+place_id int not null CONSTRAINT fk_operation_id  REFERENCES place(f_id),
+operation_time varchar(50) not null);
+
+create sequence operation_num increment by 1 start with 1; /*시퀀스 */
+
+insert into operation values(operation_num.NEXTVAL,1,'09:00~12:00');
+insert into operation values(operation_num.NEXTVAL,1,'13:00~16:00');
+insert into operation values(operation_num.NEXTVAL,1,'18:00~21:00');
+insert into operation values(operation_num.NEXTVAL,2,'10:00~13:00');
+insert into operation values(operation_num.NEXTVAL,2,'14:00~17:00');
+insert into operation values(operation_num.NEXTVAL,2,'19:00~22:00');
