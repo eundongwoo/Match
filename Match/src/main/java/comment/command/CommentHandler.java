@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import comment.service.ArticleCommentService;
+import comment.service.CommentDeleteRequest;
 import comment.service.CommentReadRequest;
 import comment.service.CommentWriteRequest;
+
 import member.service.User;
 import mvc.command.CommandHandler;
 
@@ -22,10 +24,23 @@ public class CommentHandler implements CommandHandler{
 	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
-		String judge = req.getParameter("judge");
+		String judge = req.getParameter("judge");	//이걸로 요청 판단
 		System.out.println(judge);
-		if(judge.equals("read")) {
-			//댓글 보기기능
+		System.out.println("핸들러의 process진입");
+		
+		
+		//댓글 삭제
+		if(judge.equals("delete")) {
+			System.out.println("delete진입");
+			String commentNum = req.getParameter("commentNum");
+			String articleNum =req.getParameter("num");	//게시글 번호
+			CommentDeleteRequest deleteReq = new CommentDeleteRequest(Integer.parseInt(articleNum) , Integer.parseInt(commentNum));		//삭제에 필요한 것들: 댓글번호(primary key), 게시글번호
+			System.out.println("삭제할 댓글번호: "+Integer.parseInt(commentNum));
+			commentservice.delete(deleteReq);
+			return null;
+		}		//댓글 보기기능	
+		else if(judge.equals("read")) {
+			
 			res.setCharacterEncoding("utf-8"); 
 			System.out.println("handler진입read");
 			HashMap<String, Object> result = null;	//결과 해쉬맵
@@ -68,6 +83,7 @@ public class CommentHandler implements CommandHandler{
 			
 			return null;
 		}
+		
 	
 		
 	}

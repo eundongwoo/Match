@@ -10,7 +10,7 @@ public class CommentReadRequest {
 	
 	
 	public CommentReadRequest(int articleNum) {
-		super();
+		
 		this.articleNum = articleNum;
 	}
 	

@@ -2,9 +2,12 @@ create table article_comment (
 	comment_num int not null primary key,
 	id varchar(50) not null,
 	comment_date timestamp not null,
-	comment_article int constraint fk_comment references article(article_no),
+	comment_article int constraint fk_comment references article(article_no) ON DELETE CASCADE,
 	comment_content varchar(1000) not null
 	);
+	
+alter table article_comment drop constraint fk_comment;
+alter table article_comment add constraint fk_comment foreign key(comment_article) references article(article_no) on delete cascade;
 
 //comment_article은 댓글을 작성한 게시판이다. 게시판의 시퀀스..번호로 해야하나?
 //comment_parent는 대댓글을 위한 부모댓글이다.

@@ -78,4 +78,16 @@ public class ArticleCommentService {
 		
 		}
 	}
+
+
+	public void delete(CommentDeleteRequest deleteReq) throws SQLException {
+		Connection conn = null;
+		conn = ConnectionProvider.getConnection();
+		conn.setAutoCommit(false);
+		System.out.println("delte메소드 안 삭제할 댓글번호: "+deleteReq.getCommentNum());
+		commentDao.delete(conn, deleteReq);
+		conn.commit();
+		JdbcUtil.close(conn);
+		
+	}
 }

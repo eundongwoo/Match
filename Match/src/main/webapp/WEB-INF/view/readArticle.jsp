@@ -28,7 +28,8 @@
 				type:"POST",
 				data: {
 					num: "${articleData.article.number}", 
-					content : $("#cmtCmt").val()
+					content : $("#cmtCmt").val(),
+					judge:"write"
 				},
 				
 				success: function(data1){
@@ -37,7 +38,6 @@
 		
 				}
 			}); 
-		
 		
 		});
 		
@@ -55,13 +55,21 @@
 				}
 			}); 
 			
-		})
+		});
+		
+		
+		
+	/* 	 $("input:button.Delete").on('click', commentDelete) */
+	/* $(".Delete").click(function() {
+		alert('delete');
+	}); */
 		
 		
 	});
 	
 	
 	function showHtml(data, pageNum) {
+		/* alert($("#a").attr("data-val")); */
 		var html="<div id='showContent'><input type='button' class='btn btn-default' value='댓글 보기' id='commentRead'></div>";
 				
 		html+="<table>";
@@ -70,15 +78,44 @@
 			
 			html += "<tr align='center'>";
             html += "<td>" + (index+1) + "</td>";
-            html += "<td>" + item.id + "</td>";
+            html += "<td>" + item.id + "</td>";                               
             html += "<td align='left'>" + item.comment_content + "</td>";          
-            html += "<td>" + item.comment_date+ "</td>";
+            html += "<td>" + item.comment_date+ "</td>";        
+            var comment_num = item.comment_num;		
+            if(item.id=='${authUser.id}') {
+            	html+="<td><input class='Delete' type='button' data-del='"+comment_num+"' value='삭제하기'/></td>";
+            }               
             html += "</tr>";
             
 		});
 		html+="</table>"
-		
+			
 		$("#showContent").html(html);
+		
+		
+		
+		
+		 $(".Delete").click(function commentDelete() {
+				alert('삭제버튼 누름');
+			 	 var comment_num_data = $(this).attr('data-del'); 
+			 	 			 	
+			 	$.ajax({
+					url:"/Match/comment.do",
+					dataType: "json",
+					type:"POST",
+					data: {
+						num: "${articleData.article.number}",
+						judge:"delete",
+						commentNum:comment_num_data
+					},				
+					success: function(data1){					
+							/* showHtml(data1.comments, 1); */
+							alert('삭제되었습니다.');
+							document.reload();
+					}
+				});  
+		}); 
+		
 	}
 </script>
 </head>
