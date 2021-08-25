@@ -8,8 +8,11 @@
 </head>
 <body>
 <script>
-			alert(${param.name}+"님의 회원가입을 축하드립니다.");
-			location.href='/Match/test.jsp';
+
+		alert(${param.name}+"님의 회원가입을 축하드립니다.");
+		location.href='/Match/index.jsp';
+
 </script>
+
 </body>
 </html>

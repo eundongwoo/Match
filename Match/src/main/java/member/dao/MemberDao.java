@@ -47,5 +47,39 @@ public class MemberDao {
 			prst.setString(4, member.getTel());
 			prst.executeUpdate();
 		}
+	}
+
+	public void update(Connection con, Member member) throws SQLException {
+		// TODO Auto-generated method stub
+		PreparedStatement prst=null;
+		String sql="update member set password=? where id=?";
+		
+		try
+		{
+			prst=con.prepareStatement(sql);
+			prst.setString(1, member.getPassword());
+			prst.setString(2, member.getId());
+			prst.executeUpdate();
+		}finally
+		{
+			JdbcUtil.close(prst);
+		}
+	}
+
+	public void updateTel(Connection con, Member member) throws SQLException {
+		PreparedStatement prst=null;
+		String sql="update member set tel=? where id=?";
+		
+		try
+		{
+			prst=con.prepareStatement(sql);
+			prst.setString(1, member.getTel());
+			prst.setString(2, member.getId());
+			prst.executeUpdate();
+		}finally
+		{
+			JdbcUtil.close(prst);
+		}
+		
 	}	
 }

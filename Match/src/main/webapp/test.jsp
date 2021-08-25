@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<input type="text" value="<%=request.getParameter("placeName")%>">
 <% 
 try(Connection con=ConnectionProvider.getConnection())
 {

@@ -8,7 +8,6 @@
 </head>
 <body>
 <script>
-	alert('로그인 성공하였습니다');
 	location.href='/Match/main.jsp';
 </script>
 </body>

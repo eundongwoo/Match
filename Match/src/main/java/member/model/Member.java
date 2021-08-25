@@ -39,4 +39,9 @@ public class Member {
 		this.password=pwd;
 	}
 	
+	public void changeTel(String tel)
+	{
+		this.tel=tel;
+	}
+	
 }
