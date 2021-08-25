@@ -15,7 +15,7 @@ alter table article_comment add constraint fk_comment foreign key(comment_articl
 //아직 forien key등 설정을 덜 한 상태이다.
 select * from article_comment;
 drop table article_comment;
-
+//
 create sequence article_comment_seq
 increment by 1 start with 1;
 
