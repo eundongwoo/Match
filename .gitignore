@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,eclipse
+# Created by https://www.toptal.com/developers/gitignore/api/java,windows,oracleforms,eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=java,windows,oracleforms,eclipse
 
 ### Eclipse ###
 .metadata
@@ -92,6 +92,16 @@ local.properties
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
+### OracleForms ###
+# Compiled Form Modules
+*.fmx
+
+# Compiled Menu Modules
+*.mmx
+
+# Compiled Pre-Linked Libraries
+*.plx
+
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
@@ -118,4 +128,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/java,windows,eclipse
+# End of https://www.toptal.com/developers/gitignore/api/java,windows,oracleforms,eclipse

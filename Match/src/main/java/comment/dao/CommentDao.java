@@ -71,7 +71,7 @@ public class CommentDao {
 		List<Comment> comments= new ArrayList<Comment>();
 		
 		try {
-			String sql="select comment_num, id, comment_date, comment_article, comment_content from article_comment";
+			String sql="select comment_num, member_id, comment_date, comment_article, comment_content from article_comment";
 			pstmt = conn.prepareStatement(sql);		
 			rs=pstmt.executeQuery();
 			while(rs.next()) {		//comment객체에 값 넣어준다. -> 반복
@@ -100,7 +100,7 @@ public class CommentDao {
 		HashMap<String, Object> hm = new HashMap<>();	
 		
 		try {
-			String sql="select comment_num, id, comment_date, comment_article, comment_content from article_comment where comment_article=?";
+			String sql="select comment_num, member_id, comment_date, comment_article, comment_content from article_comment where comment_article=?";
 			pstmt = conn.prepareStatement(sql);		
 			pstmt.setInt(1, readReq.getArticleNum());
 			rs=pstmt.executeQuery();

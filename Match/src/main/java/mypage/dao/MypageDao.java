@@ -18,7 +18,7 @@ public class MypageDao {
 		PreparedStatement prst=null;
 		ResultSet rs=null;
 		ResultSet rs2=null;
-		String sql="select * from reservation,place where f_id= PLACE_ID and MEMBER_ID=?";
+		String sql="SELECT * FROM reservation r,place p  WHERE r.place_id=p.place_id  and member_id=?";
 		
 		SimpleDateFormat format1=new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 		String placeName=null;
@@ -30,8 +30,8 @@ public class MypageDao {
 			List<ReserveInfo> list=new ArrayList<ReserveInfo>();
 			while(rs.next())
 			{
-				String reg_time=format1.format(rs.getTimestamp("REG_TIME"));	
-				ReserveInfo reserveInfo=new ReserveInfo(rs.getInt("RESERVE_NUM"),rs.getString("MEMBER_ID"),rs.getString("F_NAME"),rs.getString("RESERVE_DATE"),rs.getString("RESERVE_TIME"),rs.getString("STATE"),reg_time);
+				String reg_time=format1.format(rs.getTimestamp("reg_time"));	
+				ReserveInfo reserveInfo=new ReserveInfo(rs.getInt("RESERVE_NUM"),rs.getString("MEMBER_ID"),rs.getString("PLACE_NAME"),rs.getString("RESERVE_DATE"),rs.getString("RESERVE_TIME"),rs.getString("STATE"),reg_time);
 				list.add(reserveInfo);
 			}
 			return list;

@@ -1,6 +1,6 @@
 create table article_comment (
 	comment_num int not null primary key,
-	id varchar(50) not null,
+	member_id varchar(50) not null,
 	comment_date timestamp not null,
 	comment_article int constraint fk_comment references article(article_no) ON DELETE CASCADE,
 	comment_content varchar(1000) not null
@@ -15,7 +15,7 @@ alter table article_comment add constraint fk_comment foreign key(comment_articl
 //아직 forien key등 설정을 덜 한 상태이다.
 select * from article_comment;
 drop table article_comment;
-
+//
 create sequence article_comment_seq
 increment by 1 start with 1;
 
