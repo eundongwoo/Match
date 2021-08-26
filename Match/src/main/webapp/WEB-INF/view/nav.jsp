@@ -28,6 +28,9 @@
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="join.do">회원가입</a>
                     	</li>
+                    	<li class="nav-item">
+                        	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
+                    	</li>
                     </c:if>
                     <c:if test="${!empty authUser}">
                     	 <li class="nav-item">
@@ -35,6 +38,9 @@
                     	</li>
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="logout.do">로그아웃</a>
+                    	</li>
+                    	<li class="nav-item">
+                        	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
                     	</li>
                     </c:if>
                     <li class="nav-item dropdown">

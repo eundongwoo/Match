@@ -34,11 +34,14 @@
   	<filter-name>LoginCheckFilter</filter-name>
   	<filter-class>filter.LoginCheckFilter</filter-class>
   </filter>
+  
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
   	<url-pattern>/changePwd.do</url-pattern>
   	<url-pattern>/article/write.do</url-pattern>
   	<url-pattern>/article/modify.do</url-pattern>
+  	<url-pattern>/reserve.do</url-pattern>
+  	<url-pattern>/article/read.do</url-pattern>
   </filter-mapping>
    
    <servlet>
@@ -53,11 +56,4 @@
 		<servlet-name>ControllerUsingURI</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
-	
-  
-  	<filter-mapping>
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<url-pattern>/reserve.do</url-pattern>
- 	</filter-mapping>  
 </web-app>

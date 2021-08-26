@@ -23,10 +23,10 @@ public class TimeSearchService {
 			
 			List<String> list=dao.getTimeList(con,place_id);
 			
-//			for(String str:list)
-//			{
-//				System.out.println("풋살장 시간"+str);
-//			}
+			for(String str:list)
+			{
+				System.out.println("풋살장 시간"+str);
+			}
 			return list;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

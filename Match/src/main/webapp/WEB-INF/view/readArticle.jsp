@@ -184,7 +184,7 @@
 </c:if>  지금안쓰고있는 기능--%> 
 
 <!-- 댓글 작성 -->
-	<c:if test="${authUser != null }">
+	<%-- <c:if test="${authUser != null }"> --%>
 	<!-- <form id="comment"  method="POST"> -->
 		<input type="hidden" name="comment_article" value="${article.comment_no }">
 		<input type="hidden" name="id" value="${authUser.id }">
@@ -212,7 +212,7 @@
 	<div id="showContent">
 		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
 	</div>
-	</c:if>
+	<%-- </c:if> --%>
 	
 </body>
 </html>

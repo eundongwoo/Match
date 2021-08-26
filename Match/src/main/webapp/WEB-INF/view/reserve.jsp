@@ -4,10 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%-- <%
-List<Place> list=(List<Place>)request.getAttribute("list");
-
-%> --%>
 <%
 Calendar cal= (Calendar)session.getAttribute("calendar");
 
@@ -16,7 +12,12 @@ if(cal!=null) {
 System.out.println(cal.getDate());
 }
 
-List<String> list=(List<String>)request.getAttribute("timeList");
+/* List<String> list=(List<String>)request.getAttribute("timeList");
+
+for(String i:list)
+{
+	System.out.print("여기가 진짜"+i);
+} */
 
 %>
 <!doctype html>

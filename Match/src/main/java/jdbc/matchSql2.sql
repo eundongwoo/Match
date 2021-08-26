@@ -3,8 +3,8 @@ drop table member;
 select * from member;
 
 create table member(
-	id varchar(50) primary key,
-	name varchar(50) not null,
+	member_id varchar(50) primary key,
+	member_name varchar(50) not null,
 	password varchar(50) not null,
 	tel varchar(50) not null
 );
@@ -14,10 +14,10 @@ select * from place;
 select * from tabs;
 select * from reservation;
 create table place(
-	f_id int primary key,
-	f_name varchar(50) not null,
-	f_addr varchar(50) not null,
-	f_tel varchar(50) not null
+	place_id int primary key,
+	place_name varchar(50) not null,
+	place_addr varchar(50) not null,
+	place_tel varchar(50) not null
 );
 
 select * from place;
@@ -52,10 +52,16 @@ alter table reservation add state varchar(25) default 'N'; /*예약 테이블에
 alter table reservation add reg_time time default sysdate; /*예약 테이블에 추가하기 */
 
 /* 풋살장 시간 테이블 */
+--create table operation(
+--operation_num int primary key,
+--place_id int not null CONSTRAINT fk_operation_id  REFERENCES place(f_id),
+--operation_time varchar(50) not null);
+
+
 create table operation(
-operation_num int primary key,
-place_id int not null CONSTRAINT fk_operation_id  REFERENCES place(f_id),
-operation_time varchar(50) not null);
+id int PRIMARY key,
+place_id int not null CONSTRAINT operation_place_id  REFERENCES place(f_id),
+operation_time varchar(50));
 
 create sequence operation_num increment by 1 start with 1; /*시퀀스 */
 
