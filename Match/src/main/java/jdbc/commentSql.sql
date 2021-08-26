@@ -1,6 +1,6 @@
 create table article_comment (
 	comment_num int not null primary key,
-	id varchar(50) not null,
+	member_id varchar(50) not null,
 	comment_date timestamp not null,
 	comment_article int constraint fk_comment references article(article_no) ON DELETE CASCADE,
 	comment_content varchar(1000) not null

@@ -15,7 +15,7 @@ public class MemberDao {
 	{
 		PreparedStatement prst=null;
 		ResultSet rs=null;
-		String sql="select * from member where id=?";
+		String sql="SELECT * FROM member WHERE member_id=?";
 		
 		try
 		{
@@ -25,7 +25,7 @@ public class MemberDao {
 			Member member=null;
 			if(rs.next())
 			{
-				member=new Member(rs.getString("id"), rs.getString("name"),rs.getString("password"),rs.getString("tel"));
+				member=new Member(rs.getString("member_id"), rs.getString("member_name"),rs.getString("member_password"),rs.getString("member_tel"));
 			}
 			return member;
 		}finally
@@ -37,7 +37,7 @@ public class MemberDao {
 	}
 
 	public void insert(Connection con, Member member) throws SQLException {
-		String sql="insert into member values(?,?,?,?)";
+		String sql="INSERT INTO member VALUES(?,?,?,?)";
 		
 		try(PreparedStatement prst=con.prepareStatement(sql))
 		{
@@ -52,7 +52,7 @@ public class MemberDao {
 	public void update(Connection con, Member member) throws SQLException {
 		// TODO Auto-generated method stub
 		PreparedStatement prst=null;
-		String sql="update member set password=? where id=?";
+		String sql="update member set member_password=? where member_id=?";
 		
 		try
 		{
@@ -68,7 +68,7 @@ public class MemberDao {
 
 	public void updateTel(Connection con, Member member) throws SQLException {
 		PreparedStatement prst=null;
-		String sql="update member set tel=? where id=?";
+		String sql="update member set member_tel=? where member_id=?";
 		
 		try
 		{

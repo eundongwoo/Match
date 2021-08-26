@@ -19,14 +19,15 @@ public class ReserveDao {
 		int place_id = 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select f_id from place where f_name= ?";
+		String sql = "select place_id from place where place_name= ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, place);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				place_id = rs.getInt(1);		//f_id(풋살장id)반환
-			}System.out.println("place_id"+place_id);
+			}
+			System.out.println("place_id"+place_id);
 			return place_id;
 		} finally {
 			JdbcUtil.close(rs);

@@ -25,7 +25,7 @@ public class MapDao {
 			System.out.println(rs);
 			while(rs.next())
 			{	
-				Place place=new Place(rs.getInt("f_id"), rs.getString("f_name"), rs.getString("f_addr"), rs.getString("f_tel"));
+				Place place=new Place(rs.getInt("place_id"), rs.getString("place_name"), rs.getString("place_addr"), rs.getString("place_tel"));
 				list.add(place);
 			}
 			

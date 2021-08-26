@@ -73,7 +73,7 @@ public class ArticleDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
-			pstmt = conn.prepareStatement("select * from (select rownum as rnum, article_no, writer_id, writer_name, title, regdate, moddate, content, read_cnt "
+			pstmt = conn.prepareStatement("select * from (select rownum as rnum, article_no, member_id, member_name, title, regdate, moddate, content, read_cnt "
 					+"from (select * from article order by article_no desc) where rownum <= ?) where rnum >= ?");
 
 			pstmt.setInt(1, startRow+size);
@@ -93,8 +93,8 @@ public class ArticleDao {
 	private Article convertArticle(ResultSet rs) throws SQLException{
 		return new Article(rs.getInt("article_no"),
 				new Writer(
-						rs.getString("writer_id"),
-						rs.getString("writer_name")),
+						rs.getString("member_id"),
+						rs.getString("member_name")),
 				rs.getString("title"),
 				toDate(rs.getTimestamp("regdate")),
 				toDate(rs.getTimestamp("moddate")),
