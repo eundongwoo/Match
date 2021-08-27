@@ -37,6 +37,9 @@ public class CommentHandler implements CommandHandler{
 			CommentDeleteRequest deleteReq = new CommentDeleteRequest(Integer.parseInt(articleNum) , Integer.parseInt(commentNum));		//삭제에 필요한 것들: 댓글번호(primary key), 게시글번호
 			System.out.println("삭제할 댓글번호: "+Integer.parseInt(commentNum));
 			commentservice.delete(deleteReq);
+			PrintWriter pw=res.getWriter();
+			JSONObject jo = new JSONObject();
+			pw.println(jo);
 			return null;
 		}		//댓글 보기기능	
 		else if(judge.equals("read")) {
