@@ -44,7 +44,7 @@ public class TimeSearchDAO {
 		PreparedStatement prst=null;
 		ResultSet rs=null;
 		List<String> list=null;
-		String sql="select OPERATION_TIME from operation where PLACE_ID=?";
+		String sql="select OPERATION_TIME from operation where PLACE_ID=? order by id";
 		
 		try
 		{

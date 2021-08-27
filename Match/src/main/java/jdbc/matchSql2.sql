@@ -71,3 +71,4 @@ insert into operation values(operation_num.NEXTVAL,1,'18:00~21:00');
 insert into operation values(operation_num.NEXTVAL,2,'10:00~13:00');
 insert into operation values(operation_num.NEXTVAL,2,'14:00~17:00');
 insert into operation values(operation_num.NEXTVAL,2,'19:00~22:00');
+insert into operation values(operation_num.NEXTVAL,2,'22:00~00:00');

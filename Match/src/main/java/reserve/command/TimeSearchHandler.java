@@ -33,10 +33,9 @@ public class TimeSearchHandler implements CommandHandler {
 		
 		List<String> list=timeSearchService.getTimeList(searchTimeRequest);
 		
-		request.setAttribute("timeList", list);
-		//서비스 클래스 만들어서 구현하면 됨
+		//request.setAttribute("timeList", list);
+		request.getSession().setAttribute("timeList", list); // 해당 풋살장의 운영시간 세션으로 만들기.
+		
 		return FORM_VIEW;
-	}
-
-	
+	}	
 }

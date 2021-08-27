@@ -6,6 +6,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 Calendar cal= (Calendar)session.getAttribute("calendar");
+List<String> list=(List<String>)request.getSession().getAttribute("timeList");
+/* if(list !=null)
+{
+	for(String s:list)
+	{
+		System.out.println(s);
+	}
+} */
+
 
 if(cal!=null) {
 	System.out.println("여기");
@@ -51,22 +60,28 @@ for(String i:list)
     		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
     	</tr>
     </table>
-    <input type="checkbox" id="toggle"> 
-    <label for="toggle" onclick><input type="button" value="시간 조회"></label> 
+   <!--  <input type="checkbox" id="toggle"> 
+    <label for="toggle" onclick><input type="button" value="시간 조회"></label>  -->
    
-   <%--  <form action="timesearch.do" method="Post">
+    <form action="timesearch.do" method="Post">
     	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
     	<input type="hidden" name="placeDate" value="<%=s%>">
     	<input type="submit" value="시간 조회">
-    </form> --%>
+    </form>
    
     <br><br> 
-    <div id="hidden_div">
+     <div id="hidden_div">
     	<p>시간</p>
-		<input type="button" value="09:00~12:00" class="timeBtn">		
+		<!-- <input type="button" value="09:00~12:00" class="timeBtn">		
 		<input type="button" value="12:00~15:00" class="timeBtn">
-		<input type="button" value="18:00~21:00" class="timeBtn">
-	</div>
+		<input type="button" value="18:00~21:00" class="timeBtn"> -->
+		
+		<c:forEach var="time" items="<%=list%>">
+			<input type="button" value="${time}" class="timeBtn"> 
+		</c:forEach>
+		
+		
+	</div> 
 	 <form action="reserve.do" method="post"> 
     <table>
     	<td>
