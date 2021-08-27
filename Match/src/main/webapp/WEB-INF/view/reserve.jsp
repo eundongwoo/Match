@@ -1,12 +1,14 @@
 <%@page import="calendar.model.Calendar"%>
 <%@page import="map.model.Place"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.HashMap" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 Calendar cal= (Calendar)session.getAttribute("calendar");
 List<String> list=(List<String>)request.getSession().getAttribute("timeList");
+HashMap<String, Integer> hm =(HashMap<String, Integer>)  request.getSession().getAttribute("timeMap");
 /* if(list !=null)
 {
 	for(String s:list)
@@ -76,9 +78,19 @@ for(String i:list)
 		<input type="button" value="12:00~15:00" class="timeBtn">
 		<input type="button" value="18:00~21:00" class="timeBtn"> -->
 		
-		<c:forEach var="time" items="<%=list%>">
+		<%--  <c:forEach var="time" items="<%=list%>">
+			<c:set target="<%=hm%>" property="${time}"/>
 			<input type="button" value="${time}" class="timeBtn"> 
-		</c:forEach>
+		</c:forEach>  --%>
+		
+	 	<%
+			for(String time: list) {
+				String a = time+":"+hm.get(time);
+		%>		
+			<input type="button" value="<%=a%>" class="timeBtn">
+		<%
+			}
+		%> 
 		
 		
 	</div> 

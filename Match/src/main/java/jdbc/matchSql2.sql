@@ -72,3 +72,19 @@ insert into operation values(operation_num.NEXTVAL,2,'10:00~13:00');
 insert into operation values(operation_num.NEXTVAL,2,'14:00~17:00');
 insert into operation values(operation_num.NEXTVAL,2,'19:00~22:00');
 insert into operation values(operation_num.NEXTVAL,2,'22:00~00:00');
+select * from reservation r, operation o where r.place_id=o.place_id;
+select * from reservation where reserve_date = '2021년8월28일';
+select place_id,reserve_time,count(MEMBER_ID) reserve_time from reservation r, operation o where r.place_id=o.place_id and r.reserve_date = '2021년8월28일' group by reserve_time;
+select * from reservation;
+select count(*), RESERVE_TIME
+from reservation
+where place_id = (
+	select place_id
+	from operation
+	group by place_id;
+
+)
+ 
+select count(member_id), reserve_time from reservation where place_id=2 and reserve_date ='2021년8월28일' group by reserve_time;
+group by reserve_time;and place_id=2;
+select member_id from reservation r, operation o where r.place_id=o.place_id and place_id=2; 
