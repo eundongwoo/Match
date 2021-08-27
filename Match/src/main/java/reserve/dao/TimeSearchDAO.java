@@ -17,7 +17,7 @@ public class TimeSearchDAO {
 		PreparedStatement prst=null;
 		ResultSet rs=null;
 		int id=0;
-		String sql="select F_ID from place where  F_NAME=?";
+		String sql="select place_id from place where  PLACE_NAME=?";
 		
 		try
 		{
@@ -27,7 +27,7 @@ public class TimeSearchDAO {
 			
 			if(rs.next())
 			{
-				id=rs.getInt("F_ID");
+				id=rs.getInt("place_id");
 			}
 			
 			return id;

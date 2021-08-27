@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import jdbc.JdbcUtil;
 import member.service.User;
+import mypage.model.CancelInfo;
 import mypage.model.ReserveInfo;
 
 public class MypageDao {
@@ -40,6 +41,25 @@ public class MypageDao {
 			JdbcUtil.close(prst);
 			JdbcUtil.close(rs);
 			JdbcUtil.close(con);
+		}
+	}
+
+	public void delete(Connection con, CancelInfo cancelInfo,int place_id) throws SQLException {
+		PreparedStatement prst=null;
+		String sql="delete from reservation where member_id=? and place_id=? and reserve_date=? and reserve_time=?";
+		
+		try
+		{
+			prst=con.prepareStatement(sql);
+			prst.setString(1, cancelInfo.getUser().getId());
+			prst.setInt(2, place_id);
+			prst.setString(3, cancelInfo.getReserve_date());
+			prst.setString(4, cancelInfo.getReserve_tiem());
+			prst.executeUpdate();
+			
+		}finally
+		{
+			JdbcUtil.close(prst);
 		}
 	}
 

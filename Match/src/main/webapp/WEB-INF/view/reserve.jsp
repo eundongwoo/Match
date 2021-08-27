@@ -51,19 +51,21 @@ for(String i:list)
     		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
     	</tr>
     </table>
-  <!--   <input type="checkbox" id="toggle">  -->
-    <!-- <label for="toggle" onclick><input type="button" value="시간 조회"></label> --> 
-    <form action="timesearch.do" method="Post">
+    <input type="checkbox" id="toggle"> 
+    <label for="toggle" onclick><input type="button" value="시간 조회"></label> 
+   
+   <%--  <form action="timesearch.do" method="Post">
     	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
     	<input type="hidden" name="placeDate" value="<%=s%>">
     	<input type="submit" value="시간 조회">
-    </form>
+    </form> --%>
+   
     <br><br> 
     <div id="hidden_div">
     	<p>시간</p>
-		<!-- <input type="button" value="09:00~12:00" class="timeBtn">		
+		<input type="button" value="09:00~12:00" class="timeBtn">		
 		<input type="button" value="12:00~15:00" class="timeBtn">
-		<input type="button" value="18:00~21:00" class="timeBtn"> -->
+		<input type="button" value="18:00~21:00" class="timeBtn">
 	</div>
 	 <form action="reserve.do" method="post"> 
     <table>

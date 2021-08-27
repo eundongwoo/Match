@@ -60,7 +60,7 @@ alter table reservation add reg_time time default sysdate; /*예약 테이블에
 
 create table operation(
 id int PRIMARY key,
-place_id int not null CONSTRAINT operation_place_id  REFERENCES place(f_id),
+place_id int not null CONSTRAINT operation_place_id  REFERENCES place(place_id),
 operation_time varchar(50));
 
 create sequence operation_num increment by 1 start with 1; /*시퀀스 */

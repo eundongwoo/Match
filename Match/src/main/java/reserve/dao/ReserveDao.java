@@ -106,4 +106,33 @@ public class ReserveDao {
 		
 	}
 
+	public String checkDoubleUser(Connection conn, ReserveRequest reserveRequest, int place_id) throws SQLException {
+		PreparedStatement prst=null;
+		ResultSet rs=null;
+		String sql="SELECT member_id FROM reservation WHERE place_id=? and reserve_date=? and reserve_time=? and member_id=?";
+		String result=null;
+		try
+		{
+			prst=conn.prepareStatement(sql);
+			prst.setInt(1, place_id);
+			prst.setString(2, reserveRequest.getDate());
+			prst.setString(3, reserveRequest.getTime());
+			prst.setString(4, reserveRequest.getUser().getId());
+			rs=prst.executeQuery();
+			
+			if(rs.next())
+			{
+				result=rs.getString("member_id");
+			}
+			
+			return result;
+		}finally
+		{
+			JdbcUtil.close(rs);
+			JdbcUtil.close(prst);
+		}
+		
+		
+	}
+
 }
