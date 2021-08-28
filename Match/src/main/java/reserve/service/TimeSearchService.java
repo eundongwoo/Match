@@ -19,7 +19,7 @@ public class TimeSearchService {
 		try {
 			con=ConnectionProvider.getConnection();
 			int place_id=dao.getPlaceId(con,obj.getPlaceName()); //풋살장 장소 아이디
-			System.out.println("오늘의 오늘의 날짜~~~~"+obj.getDate());
+			
 			List<String> list=dao.getTimeList(con,place_id); //풋살장의 운영 시간
 			
 			
