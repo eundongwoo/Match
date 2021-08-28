@@ -26,6 +26,7 @@
 <!-- 메뉴바 -->
 <nav>
 <jsp:include page="/WEB-INF/view/nav.jsp"/>
+
 </nav>
 
 <!-- 메인 body -->

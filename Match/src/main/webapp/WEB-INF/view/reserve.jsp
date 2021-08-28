@@ -1,4 +1,6 @@
 <%@page import="calendar.model.Calendar"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="map.model.Place"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.HashMap" %>
@@ -80,7 +82,7 @@ for(String i:list)
 		<input type="button" value="12:00~15:00" class="timeBtn">
 		<input type="button" value="18:00~21:00" class="timeBtn"> -->
 		
-		 <c:forEach var="time" items="<%=list%>">
+		<%--  <c:forEach var="time" items="<%=list%>">
 			
 			<input type="button" value="${time}" class="timeBtn"> 
 
@@ -89,15 +91,27 @@ for(String i:list)
 		<%-- ${fn:replace(a, newLineChar,'<br/>')} --%>
 	 	<%
 	 		if(list==null) {System.out.println("list는 null");} else {
-
+	 			
 			for(String time: list) {
 				String a = time;
-
-				int b= hm.get(time);
-				if(b<3) { 
+				String startTime = a.split("~")[0];
+				SimpleDateFormat sdf= new SimpleDateFormat("HH:mm");
+				Date reserveTime = new Date(sdf.parse(startTime).getTime());
+				java.util.Calendar cal2 = java.util.Calendar.getInstance();
+				Date currentTime = cal2.getTime();
+				reserveTime.setYear(currentTime.getYear());
+				reserveTime.setMonth(currentTime.getMonth());
+				reserveTime.setDate(currentTime.getDate());
 				
-
+							//b<3||check==false
+				boolean check = currentTime.after(reserveTime);
+					//check가 true면 지나갔다 -> 버튼 못 누르게			
+						
+				int b= hm.get(time);
+				if(b<3 && !check) { 
+				
 		%>		
+			
 			<%-- <input type="button" value="<%=a%>&#10;<%=b %>" class="timeBtn">  --%>
 			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>
 		<%
@@ -120,9 +134,6 @@ for(String i:list)
 
 	 		
 		%> 
-
-		
-		
 	</div> 
 	 <form action="reserve.do" method="post"> 
     <table>
