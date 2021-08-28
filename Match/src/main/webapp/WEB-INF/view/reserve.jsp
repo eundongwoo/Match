@@ -78,19 +78,19 @@ for(String i:list)
 		<input type="button" value="12:00~15:00" class="timeBtn">
 		<input type="button" value="18:00~21:00" class="timeBtn"> -->
 		
-		<%--  <c:forEach var="time" items="<%=list%>">
-			<c:set target="<%=hm%>" property="${time}"/>
+		 <c:forEach var="time" items="<%=list%>">
+			
 			<input type="button" value="${time}" class="timeBtn"> 
-		</c:forEach>  --%>
+		</c:forEach> 
 		
-	 	<%
+	<%--  	<%
 			for(String time: list) {
-				String a = time+":"+hm.get(time);
+				String a = time;
 		%>		
 			<input type="button" value="<%=a%>" class="timeBtn">
 		<%
 			}
-		%> 
+		%>  --%>
 		
 		
 	</div> 
