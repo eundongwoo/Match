@@ -5,9 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import jdbc.JdbcUtil;
+import reserve.model.SearchTimeRequest;
 
 public class TimeSearchDAO {
 	
@@ -62,6 +64,29 @@ public class TimeSearchDAO {
 			JdbcUtil.close(rs);
 			JdbcUtil.close(prst);
 		}
+	}
+
+	public HashMap<String, Integer> getHashMap(SearchTimeRequest searchTimeRequest, int place_id, Connection con, HashMap<String, Integer> hm) throws SQLException {
+		PreparedStatement prst=null;
+		ResultSet rs=null;
+		String sql="select count(member_id) , reserve_time from reservation where place_id=? and reserve_date =? group by reserve_time";
+		
+		try {
+			prst=con.prepareStatement(sql);
+			prst.setInt(1, place_id);
+			prst.setString(2, searchTimeRequest.getDate());
+			rs=prst.executeQuery();
+			
+			while(rs.next()) {
+				hm.put(rs.getString(2), rs.getInt(1));
+				
+			}
+			return hm;
+		}finally{
+			JdbcUtil.close(rs);
+			JdbcUtil.close(prst);
+		}
+		
 	}
 
 }

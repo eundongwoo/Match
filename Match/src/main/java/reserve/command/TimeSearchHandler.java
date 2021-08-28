@@ -1,6 +1,10 @@
 package reserve.command;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import mvc.command.CommandHandler;
@@ -33,6 +37,21 @@ public class TimeSearchHandler implements CommandHandler {
 		
 		List<String> list=timeSearchService.getTimeList(searchTimeRequest);
 		
+		HashMap<String, Integer> hm=new HashMap<String, Integer>();
+		for(String s:list) {
+			hm.put(s, 0);
+		}
+		hm= timeSearchService.makeMap(searchTimeRequest, hm);
+		Set<String> hmKeySet= hm.keySet();
+		Iterator<String> iterator= hmKeySet.iterator();
+		System.out.println("해쉬맵");
+		
+		while(iterator.hasNext()) {
+			String key= iterator.next();
+			Integer value= hm.get(key);
+			System.out.println(key+"시간대 사람수:"+value);
+		}
+		request.getSession().setAttribute("timeMap",hm);
 		//request.setAttribute("timeList", list);
 		request.getSession().setAttribute("timeList", list); // 해당 풋살장의 운영시간 세션으로 만들기.
 		
