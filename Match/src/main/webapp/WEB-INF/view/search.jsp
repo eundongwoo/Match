@@ -52,6 +52,7 @@
 		 <input type="hidden" name="reserve_date" value="${info.reserve_date}">
 		 <input type="hidden" name="reserve_time" value="${info.reserve_time}">
 		 <input type="hidden" name="reg_time" value="${info.reg_time}">
+		 <!-- info.state에 따라 예약취소 버튼 만들기 -->
 		 <input type="submit" value="예약취소">
 		</form>
 	</td>

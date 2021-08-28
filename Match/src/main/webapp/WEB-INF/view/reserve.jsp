@@ -5,6 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%
 Calendar cal= (Calendar)session.getAttribute("calendar");
 List<String> list=(List<String>)request.getSession().getAttribute("timeList");
@@ -44,7 +45,8 @@ for(String i:list)
 				var value=$($(this)).val();
 				 $("#time").val(value);
 			});
-		});
+		}	
+		);
 	</script>
   </head>
   <% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일";
@@ -81,16 +83,44 @@ for(String i:list)
 		 <c:forEach var="time" items="<%=list%>">
 			
 			<input type="button" value="${time}" class="timeBtn"> 
-		</c:forEach> 
-		
-	<%--  	<%
+
+		</c:forEach>  --%>
+		<%-- <% pageContext.setAttribute("newLineChar", "\n"); %> --%>
+		<%-- ${fn:replace(a, newLineChar,'<br/>')} --%>
+	 	<%
+	 		if(list==null) {System.out.println("list는 null");} else {
+
 			for(String time: list) {
 				String a = time;
+
+				int b= hm.get(time);
+				if(b<3) { 
+				
+
 		%>		
-			<input type="button" value="<%=a%>" class="timeBtn">
+			<%-- <input type="button" value="<%=a%>&#10;<%=b %>" class="timeBtn">  --%>
+			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>
 		<%
+				}
+			else{						
+		%>
+			<button  class="timeBtn rf" value="<%=a%>" disabled="disabled"><%=a%><br><%=b %></button>
+			<script>
+				$(".rf").css({
+					background:'red',
+					opacity:0.7
+				});
+			</script>
+		<%
+				}
+		%>
+		<%
+				}
 			}
-		%>  --%>
+
+	 		
+		%> 
+
 		
 		
 	</div> 
