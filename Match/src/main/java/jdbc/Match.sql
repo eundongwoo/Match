@@ -8,7 +8,8 @@ create table member(
 	member_password varchar(50) not null,
 	member_tel varchar(50) not null
 );
-
+alter table member add author char(1) default '0';	/*관리자 속성 author추가*/
+insert into member values('admin', '관리자', 'admin', '1234', '1');
 /*풋살장 테이블 설정 */
 select * from place;
 select * from tabs;

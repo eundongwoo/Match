@@ -42,6 +42,11 @@
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
                     	</li>
+                    		<c:if test="${authUser.author eq '1'}">
+                    			<li class="nav-item">
+                        		<a class="nav-link active" aria-current="page" href="admin/admin.do">풋살장 등록</a>
+                    		</li>
+                    	</c:if>
                     </c:if>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
