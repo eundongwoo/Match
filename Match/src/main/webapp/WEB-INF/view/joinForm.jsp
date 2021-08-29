@@ -1,14 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가입</title>
-<link rel="stylesheet" href="/Match/css/login.css">
+<title>게시판</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
+<noscript>
+	<link rel="stylesheet" href="/Match/css/noscript.css" />
+</noscript>
+<link rel="stylesheet" href="/Match/css/main.css">
 </head>
-<body>
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
+				<span>kick together</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<jsp:include page="/WEB-INF/view/nav.jsp" />
+		</nav>
 <div class="login-page">
 <div class="form">
 <form action="join.do" method="post" class="register-form">
@@ -37,5 +59,16 @@
 </form>
 </div>
 </div>
+			</div>
+		</section>
+	</div>
+	<!-- Scripts -->
+	<script src="/Match/js/jquery.min.js"></script>
+	<script src="/Match/js/jquery.scrolly.min.js"></script>
+	<script src="/Match/js/jquery.scrollex.min.js"></script>
+	<script src="/Match/js/browser.min.js"></script>
+	<script src="/Match/js/breakpoints.min.js"></script>
+	<script src="/Match/js/util.js"></script>
+	<script src="/Match/js/main.js"></script>
 </body>
 </html>

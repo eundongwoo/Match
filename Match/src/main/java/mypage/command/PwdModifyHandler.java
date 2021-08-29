@@ -40,13 +40,9 @@ public class PwdModifyHandler implements CommandHandler {
 		User user=(User)request.getSession().getAttribute("authUser");
 		Map<String , Boolean> errors=new HashMap<String, Boolean>();
 		request.setAttribute("errors", errors);
-		String curPwd=request.getParameter("curPwd");
-		String newPwd=request.getParameter("newPwd");
 		
-		if(curPwd==null || curPwd.isEmpty())
-		{
-			errors.put("curPwd", Boolean.TRUE);
-		}
+		String newPwd=request.getParameter("newPwd");
+		System.out.println("새로운 비밀번호"+newPwd);
 		if(newPwd==null || newPwd.isEmpty())
 		{
 			errors.put("newPwd", Boolean.TRUE);
@@ -58,8 +54,8 @@ public class PwdModifyHandler implements CommandHandler {
 		
 		try
 		{
-			pwdService.changePassword(user.getId(),curPwd,newPwd);
-			return "/WEB-INF/view/mypage.jsp";
+			pwdService.changePassword(user.getId(),newPwd);
+			return "/WEB-INF/view/successpwdModify.jsp";
 		}catch (InvalidPasswordException e) {
 			// TODO: handle exception
 			errors.put("badCurPwd", Boolean.TRUE);

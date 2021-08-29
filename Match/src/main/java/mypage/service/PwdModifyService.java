@@ -14,7 +14,7 @@ public class PwdModifyService {
 
 	private MemberDao dao=new MemberDao();
 	
-	public void changePassword(String id, String curPwd, String newPwd) {
+	public void changePassword(String id, String newPwd) {
 		// TODO Auto-generated method stub
 		Connection con=null;
 		try
@@ -28,10 +28,6 @@ public class PwdModifyService {
 				throw new MemberNotFoundException();
 			}
 			
-			if(!member.matchPassword(curPwd))
-			{
-				throw new InvalidPasswordException();
-			}
 			member.changePassword(newPwd);
 			dao.update(con,member);
 			con.commit();
