@@ -13,7 +13,11 @@ public class Place {
 		this.f_addr = f_addr;
 		this.f_tel = f_tel;
 	}
-
+	public Place(String f_name, String f_addr, String f_tel) {
+		this.f_name = f_name;
+		this.f_addr = f_addr;
+		this.f_tel = f_tel;
+	}
 	public int getF_id() {
 		return f_id;
 	}
