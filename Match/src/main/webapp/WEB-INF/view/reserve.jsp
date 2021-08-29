@@ -34,14 +34,18 @@ for(String i:list)
 } */
 
 %>
-<!doctype html>
-<html lang="en">
-  <head>
-   	<meta charset="utf-8">
-	<title>메인 페이지</title>
-	<link rel="stylesheet" href="/Match/css/reserve.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<noscript>
+			<link rel="stylesheet" href="/Match/css/noscript.css" />
+		</noscript>
+			<link rel="stylesheet" href="/Match/css/main.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script>
 		$(document).ready(function(){
 			$(".timeBtn").click(function(){
 				var value=$($(this)).val();
@@ -49,47 +53,73 @@ for(String i:list)
 			});
 		}	
 		);
-	</script>
-  </head>
-  <% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일";
-  		
-  %>
-  <body>
-  	<nav>
-    <jsp:include page="/WEB-INF/view/nav.jsp" flush="false"/>  	
-  	</nav>
-    <!-- 여기까지 메뉴바 구현 -->
-    
-    <table>
-    	<tr>
-    		<td class="one"><jsp:include page="/WEB-INF/view/map.jsp" flush="false"/></td>
-    		<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>
-    	</tr>
-    </table>
-   <!--  <input type="checkbox" id="toggle"> 
-    <label for="toggle" onclick><input type="button" value="시간 조회"></label>  -->
-   
-    <form action="timesearch.do" method="Post">
-    	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
-    	<input type="hidden" name="placeDate" value="<%=s%>">
-    	<input type="submit" value="시간 조회">
-    </form>
-   
-    <br><br> 
-     <div id="hidden_div">
-    	<p>시간</p>
-		<!-- <input type="button" value="09:00~12:00" class="timeBtn">		
-		<input type="button" value="12:00~15:00" class="timeBtn">
-		<input type="button" value="18:00~21:00" class="timeBtn"> -->
-		
-		<%--  <c:forEach var="time" items="<%=list%>">
-			
-			<input type="button" value="${time}" class="timeBtn"> 
+		</script>
+	</head>
+	<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
+	<body class="is-preload">
 
-		</c:forEach>  --%>
-		<%-- <% pageContext.setAttribute("newLineChar", "\n"); %> --%>
-		<%-- ${fn:replace(a, newLineChar,'<br/>')} --%>
-	 	<%
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
+				<span>kick together</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<jsp:include page="/WEB-INF/view/nav.jsp" />
+		</nav>
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>축구를 즐길 준비가 되셨나요?</h1>
+							</header>
+							<div class="content">
+								<p>구장을 선택해 주세요.</p>
+								<ul class="actions">
+									<li><a href="#one" class="button next scrolly">구장 선택</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					
+
+						<!-- One -->
+							<section id="one" class="tiles">							
+									 <table>
+					    				<tr>
+					    					<td class="one"><jsp:include page="/WEB-INF/view/map.jsp" flush="false"/></td>					    									
+					    				</tr>					    																					
+    								</table>								
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="tiles">							
+									 <table>
+					    				<tr>
+					    					<td class="two"><jsp:include page="/WEB-INF/view/calendar.jsp" flush="false"/></td>				    									
+					    				</tr>					    																					
+    								</table>								
+							</section>
+						
+						
+							<form action="timesearch.do" method="Post">
+						    	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
+						    	<input type="hidden" name="placeDate" value="<%=s%>">
+						    	<input type="submit" value="시간 조회">
+						    </form>
+						    <div id="hidden_div">
+    						<p>시간</p>
+    						<%
 	 		if(list==null) {System.out.println("list는 null");} else {
 	 			
 			for(String time: list) {
@@ -134,10 +164,10 @@ for(String i:list)
 
 	 		
 		%> 
-	</div> 
-	 <form action="reserve.do" method="post"> 
-    <table>
-    	<td>
+							</div>
+							<form action="reserve.do" method="post"> 
+   					 <table>
+    			<td>
     		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
     		<c:if test="${empty param.year}">
     		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  
@@ -151,6 +181,17 @@ for(String i:list)
     		<input type="submit" value="예약하기">
     	</td>
     </table>
-    </form> 
-  </body>
+    </form>
+			
+
+			<!-- Scripts -->
+			<script src="/Match/js/jquery.min.js"></script>
+			<script src="/Match/js/jquery.scrolly.min.js"></script>
+			<script src="/Match/js/jquery.scrollex.min.js"></script>
+			<script src="/Match/js/browser.min.js"></script>
+			<script src="/Match/js/breakpoints.min.js"></script>
+			<script src="/Match/js/util.js"></script>
+			<script src="/Match/js/main.js"></script>
+
+	</body>
 </html>

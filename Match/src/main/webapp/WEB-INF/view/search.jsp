@@ -15,9 +15,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
+<noscript>
+	<link rel="stylesheet" href="/Match/css/noscript.css" />
+</noscript>
+<link rel="stylesheet" href="/Match/css/main.css">
 </head>
-<body>
-<jsp:include page="/WEB-INF/view/nav.jsp"/>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
+				<span>kick together</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<jsp:include page="/WEB-INF/view/nav.jsp" />
+		</nav>
 
 <c:set var="vals" value="<%=list%>"/>
 
@@ -62,5 +83,14 @@
 </c:forEach>
 </tbody>
 </table>
+</div>
+<!-- Scripts -->
+	<script src="/Match/js/jquery.min.js"></script>
+	<script src="/Match/js/jquery.scrolly.min.js"></script>
+	<script src="/Match/js/jquery.scrollex.min.js"></script>
+	<script src="/Match/js/browser.min.js"></script>
+	<script src="/Match/js/breakpoints.min.js"></script>
+	<script src="/Match/js/util.js"></script>
+	<script src="/Match/js/main.js"></script>
 </body>
 </html>

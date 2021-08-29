@@ -18,7 +18,7 @@ System.out.println(session.getAttribute("authUser"));
 <body>
 
 <form id="please" method="POST" action="map.do" >
-<input type="hidden" id="placeName" name="placeName" value="">
+<input type="text" id="placeName" name="placeName" value="">
 </form>
 
 <div id="map" style="width:100%;height:350px;"></div>

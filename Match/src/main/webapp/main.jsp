@@ -25,12 +25,6 @@
 </head>
 
 <body>
-<!-- 메뉴바 -->
-<nav>
-<jsp:include page="/WEB-INF/view/nav.jsp"/>
-
-</nav>
-
 
 	<!-- Wrapper -->
 	<div id="wrapper">
