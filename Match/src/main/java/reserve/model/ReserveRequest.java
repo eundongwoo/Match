@@ -8,6 +8,8 @@ public class ReserveRequest {
 	private String time;
 	private User user;
 	private String state;
+	
+	
 	public ReserveRequest(User user, String place, String date, String time) {
 		super();
 		this.place = place;

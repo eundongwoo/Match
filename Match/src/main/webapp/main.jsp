@@ -23,7 +23,14 @@
 </noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
-<body class="is-preload">
+
+<body>
+<!-- 메뉴바 -->
+<nav>
+<jsp:include page="/WEB-INF/view/nav.jsp"/>
+
+</nav>
+
 
 	<!-- Wrapper -->
 	<div id="wrapper">

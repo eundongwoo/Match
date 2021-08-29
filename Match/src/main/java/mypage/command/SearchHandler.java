@@ -1,5 +1,6 @@
 package mypage.command;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,7 @@ public class SearchHandler implements CommandHandler {
 		}
 	}
 
-	private String processForm(HttpServletRequest request, HttpServletResponse response) {
+	private String processForm(HttpServletRequest request, HttpServletResponse response) throws ParseException {
 		User user=(User)request.getSession().getAttribute("authUser");
 //		System.out.println("장소명장소명:"+request.getParameter("place_name"));
 //		System.out.println("날짜날짜:"+request.getParameter("reserve_date"));

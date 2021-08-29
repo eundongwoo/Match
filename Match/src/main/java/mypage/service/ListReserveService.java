@@ -2,6 +2,7 @@ package mypage.service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.List;
 import jdbc.JdbcUtil;
 import jdbc.connection.ConnectionProvider;
@@ -13,7 +14,7 @@ public class ListReserveService {
 
 	private MypageDao dao=new MypageDao();
 
-	public List<ReserveInfo> getReserveList(User user) {
+	public List<ReserveInfo> getReserveList(User user) throws ParseException {
 		// TODO Auto-generated method stub
 		Connection con=null;
 		

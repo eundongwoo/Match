@@ -23,19 +23,17 @@
 <script src="/Match/js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-/* $.ajaxSetup({
-    type:"POST",
-    async:true,
-    dataType:"json",
-    error:function(xhr) {
-       
-    }
-}); */
 
+
+	//document.ready----
 	$(document).ready(function(){
-		
+		//댓글쓰기 클릭 이벤트 걸기1
 		$("#commentWrite").click(function(){	
-			alert(${articleData.article.number});
+			
+			 if($("#cmtCmt").val()=="") {
+				 alert('댓글 내용을 입력해주세요');
+				 return null;
+			 }
 			$.ajax({
 				url:"/Match/comment.do",
 				dataType: "json",
@@ -54,8 +52,8 @@
 			}); 
 		
 		});
-		
-		$("#commentRead").click(function(x) {
+		//function인자에 x지움
+		$("#commentRead").click(function() {
 			$.ajax({
 				url:"/Match/comment.do",
 				dataType: "json",
@@ -71,18 +69,45 @@
 			
 		});
 		
-		
-		
-	/* 	 $("input:button.Delete").on('click', commentDelete) */
-	/* $(".Delete").click(function() {
-		alert('delete');
-	}); */
-		
-		
+		$(".Delete").click(function commentDelete() {
+			alert('삭제버튼 누름');
+		 	 var comment_num_data = $(this).attr('data-del'); 
+		 	 			 	
+		 	$.ajax({
+				url:"/Match/comment.do",
+				dataType: "json", 
+				type:"POST",
+				data: {
+					num: "${articleData.article.number}",
+					judge:"delete",
+					commentNum:comment_num_data
+				},				
+				 success: function(data){					
+						 //showHtml(data1.comments, 1); 
+						alert('삭제되었습니다.');
+						$.ajax({
+							url:"/Match/comment.do",
+							dataType: "json",
+							type:"POST",
+							data: {
+								num: "${articleData.article.number}",
+								judge:"read"
+							},				
+							success: function(data1){					
+									showHtml(data1.comments, 1);	
+							}
+						}); 
+				} 
+				
+		 	});  
+		 			 
+	}); 			
 	});
+	//----document.ready
 	
 	
-	function showHtml(data, pageNum) {
+	//메소드 선언---
+	var showHtml = function showHtml(data, pageNum) {
 		/* alert($("#a").attr("data-val")); */
 		var html="<div id='showContent'><input type='button' class='btn btn-default' value='댓글 보기' id='commentRead'></div>";
 				
@@ -122,12 +147,18 @@
 						judge:"delete",
 						commentNum:comment_num_data
 					},				
-					success: function(data1){					
-							/* showHtml(data1.comments, 1); */
-							alert('삭제되었습니다.');
-							document.reload();
-					}
-				});  
+					 success: function(data){					
+							 //showHtml(data1.comments, 1); 
+							
+							$(document).ready(function(){
+								alert('삭제되었습니다.!!');
+								history.go();
+							});
+							
+							
+					} 
+					
+			 	});  
 		}); 
 		
 	}
@@ -222,36 +253,38 @@
 </table>
 </c:if>  지금안쓰고있는 기능--%>
 
-					<!-- 댓글 작성 -->
-					<%-- <c:if test="${authUser != null }"> --%>
-					<!-- <form id="comment"  method="POST"> -->
-					<input type="hidden" name="comment_article"
-						value="${article.comment_no }"> <input type="hidden"
-						name="id" value="${authUser.id }">
-					<!-- 아이디 -->
-					<td width="150">
-						<div>${authUser.id}</div>
-					</td>
-					<!-- 본문 작성 -->
-					<td width="550">
-						<div>
-							<textarea id="cmtCmt" name="cmtCmt" placeholder="댓글을 입력해주세요."></textarea>
-							<%--<c:if test="${errors.content}">내용을 입력해주세요.</c:if> --%>
-						</div>
-					</td>
-					<!--댓글 등록 버튼 -->
-					<td width="100">
-						<div class="comment-button">
-							<!-- <button id="cmtCnt-btn">댓글달기</button> -->
-							<input type="button" class="btn btn-default" value="댓글 쓰기"
-								id="commentWrite">
-						</div>
-					</td>
-					<!-- </form> -->
-					<div id="showContent">
-						<input type="button" class="btn btn-default" value="댓글 보기"
-							id="commentRead">
-					</div>
-					<%-- </c:if> --%>
+
+<!-- 댓글 작성 -->
+	<%-- <c:if test="${authUser != null }"> --%>
+	<!-- <form id="comment"  method="POST"> -->
+		<input type="hidden" name="comment_article" value="${article.comment_no }">
+		<input type="hidden" name="id" value="${authUser.id }">
+		<!-- 아이디 -->
+		<td width="150">
+			<div>
+				${authUser.id}
+			</div>
+		</td>
+		<!-- 본문 작성 -->
+		<td width="550">
+			<div>
+				<textarea id="cmtCmt" name="cmtCmt"  placeholder="댓글을 입력해주세요."></textarea>
+				<%--<c:if test="${errors.content}">내용을 입력해주세요.</c:if> --%>
+			</div>
+		</td>
+		<!--댓글 등록 버튼 -->
+		<td width="100">
+			<div class="comment-button">
+				<!-- <button id="cmtCnt-btn">댓글달기</button> -->
+				<input type="button" class="btn btn-default" value="댓글 쓰기" id="commentWrite">
+			</div>
+		</td>
+	<!-- </form> -->
+	<div id="showContent">
+		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
+	</div>
+	<%-- </c:if> --%>
+	
+
 </body>
 </html>
