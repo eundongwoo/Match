@@ -11,7 +11,7 @@
 게시글을 등록했습니다.
 <br>
 ${ctxPath = pageContext.request.contextPath;''}
-<a href="${ctxPath}/article/list.do">[게시글목록보기]</a>
+<a href="${ctxPath}/article/list.do" onclick="return confirm('목록보시겠습니까?');">[게시글목록보기]</a>
 <a href="${ctxPath}/article/read.do?no=${newArticleNo}">[게시글내용보기]</a>
 </body>
 </html>

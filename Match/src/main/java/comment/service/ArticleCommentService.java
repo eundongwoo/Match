@@ -61,8 +61,8 @@ public class ArticleCommentService {
 			conn=ConnectionProvider.getConnection(); 			
 			conn.setAutoCommit(false);
 			HashMap<String, Object> result = null;			
-				
-			result = commentDao.read(conn, readReq,1);	
+			
+			result = commentDao.read(conn, readReq, 1);	
 			conn.commit();
 			return result;
 		
