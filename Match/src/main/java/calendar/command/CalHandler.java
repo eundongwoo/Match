@@ -12,10 +12,11 @@ public class CalHandler implements CommandHandler{
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		if(request.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(request, response);
-		}else
+		}else 
 		{
-			response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-			return null;
+			//response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+			
+			return processForm(request, response);
 		}
 		
 	}

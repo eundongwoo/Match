@@ -132,8 +132,7 @@ for(String i:list)
 			<%-- <input type="button" value="<%=a%>&#10;<%=b %>" class="timeBtn">  --%>
 			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>		
 		
-			
-			
+					
 		<%
 				}
 			else{						
