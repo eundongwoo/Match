@@ -10,9 +10,11 @@
 <body>
 
 <table border="1">
+	<c:if test="${authUser.author eq '1'}">
 	<tr>
 		<td colspan ="4"><a href="write.do">[공지글쓰기]</a></td>
 	</tr>
+	</c:if>
 	<tr>
 		<td>번호</td>
 		<td>제목</td>

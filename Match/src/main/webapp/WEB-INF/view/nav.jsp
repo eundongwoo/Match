@@ -42,6 +42,9 @@
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
                     	</li>
+                    	<li class="nav-item">
+                        	<a class="nav-link active" aria-current="page" href="notice/list.do">공지게시판</a>
+                    	</li>
                     		<c:if test="${authUser.author eq '1'}">
                     			<li class="nav-item">
                         		<a class="nav-link active" aria-current="page" href="admin.do">풋살장 등록</a>
