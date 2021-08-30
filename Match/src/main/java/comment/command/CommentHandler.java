@@ -46,13 +46,14 @@ public class CommentHandler implements CommandHandler{
 			HashMap<String, Object> result = null;	//결과 해쉬맵
 			CommentReadRequest readReq = new CommentReadRequest(Integer.parseInt(req.getParameter("num"))); 	//게시글번호 들어감
 			
-		
+			
 			User user = (User) req.getSession(false).getAttribute("authUser");
 			result = commentservice.read(readReq);  //result 해시맵 객체 받음
 			System.out.println("여기 10");
 			JSONObject jo = new JSONObject(result);		//JsonObject로 받음.
 			PrintWriter pw = res.getWriter();
 			pw.println(jo);
+			
 			return null;
 		} else {
 			//댓글쓰기 기능

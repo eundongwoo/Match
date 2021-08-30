@@ -35,7 +35,7 @@
         <p class="lead">저희 웹페이지가 뭉쳐드립니다.</p>
         <hr class="my-4">
         <p class="lead">
-            <a class="btn btn-primary btn-lg" href="reserve.do" role="button">예약하기</a>
+            <a class="btn btn-primary btn-lg" href="reserve.do" role="button" onclick="return confirm('예약하시겠습니까?');">예약하기</a>
         </p>
 </div>
 </body>

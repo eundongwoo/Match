@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%-- <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,7 @@
 <title>게시글 읽기</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
+
 /* $.ajaxSetup({
     type:"POST",
     async:true,
@@ -35,10 +36,8 @@
 				success: function(data1){
 						x=data1;
 						showHtml(data1.comments, 1);
-		
 				}
 			}); 
-		
 		});
 		
 		$("#commentRead").click(function(x) {
@@ -54,7 +53,6 @@
 						showHtml(data1.comments, 1);	
 				}
 			}); 
-			
 		});
 		
 		
@@ -91,8 +89,6 @@
 		html+="</table>"
 			
 		$("#showContent").html(html);
-		
-		
 		
 		
 		 $(".Delete").click(function commentDelete() {
@@ -137,7 +133,7 @@
 </tr>
 <tr>
 	<td>내용</td>
-	<td><u:pre value="${articleData.article.content}"/></td>
+	<td>${articleData.article.content}</td>
 </tr>
 <tr>
 	<td colspan="2">

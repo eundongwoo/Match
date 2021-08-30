@@ -5,6 +5,7 @@ create table article_comment (
 	comment_article int constraint fk_comment references article(article_no) ON DELETE CASCADE,
 	comment_content varchar(1000) not null
 	);
+
 	
 alter table article_comment drop constraint fk_comment;
 alter table article_comment add constraint fk_comment foreign key(comment_article) references article(article_no) on delete cascade;
@@ -14,6 +15,7 @@ alter table article_comment add constraint fk_comment foreign key(comment_articl
 //comment_num은 article_comment_seq를 위한 자리이다.
 //아직 forien key등 설정을 덜 한 상태이다.
 select * from article_comment;
+
 drop table article_comment;
 //
 create sequence article_comment_seq
