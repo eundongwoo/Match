@@ -25,6 +25,7 @@ public class CalHandler implements CommandHandler{
 		String month = request.getParameter("month");
 		Calendar calendar = new Calendar(year, month, date);
 		request.getSession().setAttribute("calendar", calendar);
+		
 		return FORM_VIEW;	
 	}
 }
