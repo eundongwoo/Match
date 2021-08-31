@@ -68,7 +68,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="#" class="link">공지사항</a>
+							<a href="notice/list.do" class="link">공지사항</a>
 						</h3>
 						<p></p>
 					</header>
@@ -78,33 +78,14 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="elements.html" class="link">Tempus</a>
+							<a href="#" class="link">렌탈샵</a>
 						</h3>
-						<p>feugiat amet tempus</p>
+						<p>축구용품 대여</p>
 					</header>
-				</article>
-
-				<!-- Two -->
-				<section id="two">
-					<div class="inner">
-						<header class="major">
-							<h2>Massa libero</h2>
-						</header>
-						<p>Nullam et orci eu lorem consequat tincidunt vivamus et
-							sagittis libero. Mauris aliquet magna magna sed nunc rhoncus
-							pharetra. Pellentesque condimentum sem. In efficitur ligula tate
-							urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum
-							dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et
-							sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet
-							pharetra et feugiat tempus.</p>
-						<ul class="actions">
-							<li><a href="landing.html" class="button next">Get
-									Started</a></li>
-						</ul>
+				</article>				
 					</div>
 				</section>
 		</div>
-	</div>
 
 	
 	<!-- Scripts -->

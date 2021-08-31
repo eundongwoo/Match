@@ -6,8 +6,36 @@
 <head>
 <meta charset="UTF-8">
 <title>공지글 읽기</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
+<noscript>
+	<link rel="stylesheet" href="/Match/css/noscript.css" />
+</noscript>
+<link rel="stylesheet" href="/Match/css/main.css">
 </head>
-<body>
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
+				<span>kick together</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<jsp:include page="/WEB-INF/view/nav.jsp" />
+		</nav>
+		<!-- One -->
+				<header class="major">
+					<h1 align="center">공지게시판</h1>
+				</header>
+				</div>
 <table border="1" width="50%">
 
 <tr>
@@ -34,10 +62,18 @@
 		<!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
 		<c:if test="${authUser.id == notice.writer.id}">
 		<a href="modify.do?no=${notice.number}">[게시글수정]</a>
-		<a href="delete.do?no=${notice.number}">[게시글삭제]</a>
+		<a href="delete.do?no=${notice.number}" onclick = "return confirm('삭제 하시겠습니까?')";>[게시글삭제]</a>
 		</c:if>
 	</td>
 </tr>
 </table>
+<!-- Scripts -->
+	<script src="/Match/js/jquery.min.js"></script>
+	<script src="/Match/js/jquery.scrolly.min.js"></script>
+	<script src="/Match/js/jquery.scrollex.min.js"></script>
+	<script src="/Match/js/browser.min.js"></script>
+	<script src="/Match/js/breakpoints.min.js"></script>
+	<script src="/Match/js/util.js"></script>
+	<script src="/Match/js/main.js"></script>
 </body>
 </html>

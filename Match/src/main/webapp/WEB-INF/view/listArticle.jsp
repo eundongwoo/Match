@@ -37,7 +37,7 @@
 				<header class="major">
 					<h1 align="center">자유게시판</h1>
 				</header>
-				<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+				
 				<table border="1">
 					<tr>
 						<td colspan="4"><a href="write.do">[게시글쓰기]</a></td>

@@ -41,6 +41,7 @@ create sequence reserve_num increment by 1 start with 1;
 
 insert into place values(place_num.NEXTVAL,'북현풋살구장','대구 북구 복현동 302-16','053-383-2630');
 select * from place;
+delete from PLACE where place_name = '태우풋살구장';
 insert into place values(place_num.NEXTVAL,'lfc풋살파크','대구 달서구 달구벌대로 1820','650-81-00575');
 
 alter table reservation add state varchar(25) default '예약대기'; /*예약 테이블에 추가하기 */
