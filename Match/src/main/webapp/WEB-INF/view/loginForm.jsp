@@ -1,3 +1,4 @@
+<%@page import="member.service.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -53,11 +54,11 @@
 		<!-- One -->
 		<section id="one">
 				<header class="major">
-					<h1 align="center">로그인</h1>
+					<h1 align="center" >로그인</h1>
 				</header>
 				<div class="login-page">
-<div class="wrap" style="text-align: right">
-<form action="login.do" method="post" class="login-form">
+<div class="wrap" style="text-align: right" width="50%">
+<form action="login.do" method="post" class="login-form" >
 <c:if test="${errors.idOrPwNotMatch}">
 </c:if>
 <p>
@@ -73,7 +74,7 @@
 	암호를 입력하세요.
 	</c:if>
 </p>
-<input type="submit" value="로그인" onclick="return confirm('님 안녕하세요')">
+<input type="submit" value="로그인" onclick="return confirm('환영합니다.')">
 </form>
 </div>
 </div>

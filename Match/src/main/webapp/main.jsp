@@ -9,7 +9,7 @@
 %>
 <script>
 			alert("<%=message%>");
-		</script>
+</script>
 <%} %>
 <!DOCTYPE html>
 <html>

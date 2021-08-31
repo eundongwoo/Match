@@ -82,10 +82,12 @@
  			<tr colspan="2">
                 <td id="title">이름</td>
                 <td><%=user.getName() %></td>
+                <td></td>
             </tr> 	
             <tr colspan="2">
                 <td width="30%" id="title">아이디</td>
                 <td><%=user.getId() %></td>
+                <td></td>
             </tr>          
                             
             <tr>
@@ -93,6 +95,7 @@
                 <td><form action="pwdmodify.do" method="post">
              	<input type="password" name="newPwd" placeholder="변경할 암호를 입력.">
              	<input type="submit" value="변경"></form></td>
+             	<td></td>
              	
             </tr>
             <tr>

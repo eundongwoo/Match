@@ -58,7 +58,7 @@
 							<td>${article.number}</td>
 							<td><a
 								href="read.do?no=${article.number}&pageNo=${articlePage.currentPage}">
-									<c:out value="${article.title }" />
+									<c:out value="${article.title }"/>
 							</a></td>
 							<td>${article.writer.name }</td>
 							<td>${article.readCount }</td>

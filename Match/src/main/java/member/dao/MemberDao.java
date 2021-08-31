@@ -38,7 +38,7 @@ public class MemberDao {
 	}
 
 	public void insert(Connection con, Member member) throws SQLException {
-		String sql="INSERT INTO member VALUES(?,?,?,?)";
+		String sql="INSERT INTO member(member_id,member_name,member_password,member_tel) VALUES(?,?,?,?)";
 		
 		try(PreparedStatement prst=con.prepareStatement(sql))
 		{
