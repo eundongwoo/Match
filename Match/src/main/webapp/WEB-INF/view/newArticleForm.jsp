@@ -45,10 +45,10 @@
 					<header class="major">
 						<h1 align="center">자유게시판</h1>
 					</header>
-					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
 					
 					
-					<form action="write.do" method="post">
+					
+					<form action="article_write.do" method="post">
 						<p>
 							제목:<br />
 							<input type="text" name="title" value="${param.title }">

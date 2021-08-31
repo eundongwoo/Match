@@ -39,14 +39,12 @@
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
   	<url-pattern>/changePwd.do</url-pattern>
-  	<url-pattern>/article/write.do</url-pattern>
-  	<url-pattern>/article/modify.do</url-pattern>
+  	<url-pattern>/article_write.do</url-pattern>
+  	<url-pattern>/article_modify.do</url-pattern>
   	<url-pattern>/reserve.do</url-pattern>
-
-  	<url-pattern>/article/read.do</url-pattern>
-
-  	<url-pattern>/notice/write.do</url-pattern>
-  	<url-pattern>/notice/modify.do</url-pattern>
+  	<url-pattern>/article_read.do</url-pattern>
+  	<url-pattern>/notice_write.do</url-pattern>
+  	<url-pattern>/notice_modify.do</url-pattern>
 
   </filter-mapping>
    

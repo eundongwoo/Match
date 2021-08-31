@@ -39,8 +39,8 @@
 공지글을 수정했습니다.
 <br>
 ${ctxPath = pageContext.request.contextPath;""}
-<a href="${ctxPath}/notice/list.do">[공지글목록보기]</a>
-<a href="${ctxPath}/notice/read.do?no=${modReq.noticeNumber}">[공지글내용보기]</a>
+<a href="${ctxPath}/notice_list.do">[공지글목록보기]</a>
+<a href="${ctxPath}/notice_read.do?no=${modReq.noticeNumber}">[공지글내용보기]</a>
 <!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>

@@ -40,7 +40,7 @@
 				
 				<table border="1">
 					<tr>
-						<td colspan="4"><a href="write.do">[게시글쓰기]</a></td>
+						<td colspan="4"><a href="article_write.do">[게시글쓰기]</a></td>
 					</tr>
 					<tr>
 						<td>번호</td>
@@ -57,8 +57,10 @@
 						<tr>
 							<td>${article.number}</td>
 							<td><a
-								href="read.do?no=${article.number}&pageNo=${articlePage.currentPage}">
-									<c:out value="${article.title }"/>
+
+								href="article_read.do?no=${article.number}&pageNo=${articlePage.currentPage}">
+									<c:out value="${article.title }" />
+
 							</a></td>
 							<td>${article.writer.name }</td>
 							<td>${article.readCount }</td>
@@ -68,12 +70,12 @@
 					<c:if test="${articlePage.hasArticles()}">
 						<tr>
 							<td colspan="4"><c:if test="${articlepage.startPage > 5 }">
-									<a href="list.do?pageNo=${articlePage.startPage - 5}">[이전]</a>
+									<a href="article_list.do?pageNo=${articlePage.startPage - 5}">[이전]</a>
 								</c:if> <c:forEach var="pNo" begin="${articlePage.startPage }"
 									end="${articlePage.endPage}">
-									<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+									<a href="article_list.do?pageNo=${pNo}">[${pNo}]</a>
 								</c:forEach> <c:if test="${articlePage.endPage < articlePage.totalPages}">
-									<a href="list.do?pageNo=${articlePage.startPage + 5 }">[다음]</a>
+									<a href="article_list.do?pageNo=${articlePage.startPage + 5 }">[다음]</a>
 								</c:if></td>
 						</tr>
 					</c:if>
