@@ -44,7 +44,7 @@
 					<h1 align="center">공지게시판</h1>
 				</header>
 				</div>
-<form action="modify.do" method="post">
+<form action="notice_modify.do" method="post">
 <input type= "hidden" name="no" value="${modReq.noticeNumber}">
 <p>
 	번호:<br/>${modReq.noticeNumber}
@@ -58,7 +58,7 @@
 	<script type="text/javascript">
  	CKEDITOR.replace('p_content'
                 , {height: 500,
-                	filebrowserUploadUrl: '/Match/notice/upload.do'
+                	filebrowserUploadUrl: '/Match/notice_upload.do'
                  });
  	</script>
 </p>

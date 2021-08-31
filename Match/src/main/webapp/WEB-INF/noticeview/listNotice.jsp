@@ -32,14 +32,16 @@
 			<jsp:include page="/WEB-INF/view/nav.jsp" />
 		</nav>
 		<!-- One -->
-				<header class="major">
-					<h1 align="center">공지게시판</h1>
-				</header>
-		</div>
+			<section id="one">
+				<div class="inner">
+					<header class="major">
+						<h1 align="center">공지게시판</h1>
+					</header>
+		
 <table border="1">
 	<c:if test="${authUser.author eq '1'}">
 	<tr>
-		<td colspan ="4"><a href="write.do">[공지글쓰기]</a></td>
+		<td colspan ="4"><a href="notice_write.do">[공지글쓰기]</a></td>
 	</tr>
 	</c:if>
 	<tr>
@@ -58,7 +60,7 @@
 	<tr>
 		<td>${notice.number}</td>
 		<td>
-		<a href="read.do?no=${notice.number}&pageNo=${noticePage.currentPage}">
+		<a href="notice_read.do?no=${notice.number}&pageNo=${noticePage.currentPage}">
 			<c:out value="${notice.title }" />
 		</a>
 		</td>
@@ -71,18 +73,21 @@
 	<tr>
 		<td colspan="4">
 			<c:if test="${noticepage.startPage > 5 }">
-			<a href="list.do?pageNo=${noticePage.startPage - 5}">[이전]</a>
+			<a href="notice_list.do?pageNo=${noticePage.startPage - 5}">[이전]</a>
 			</c:if>
 			<c:forEach var="pNo" begin="${noticePage.startPage }" end="${noticePage.endPage}">
-				<a href="list.do?pageNo=${pNo}">[${pNo}]</a>
+				<a href="notice_list.do?pageNo=${pNo}">[${pNo}]</a>
 			</c:forEach>
 			<c:if test="${noticePage.endPage < noticePage.totalPages}">
-			<a href="list.do?pageNo=${noticePage.startPage + 5 }">[다음]</a>
+			<a href="notice_list.do?pageNo=${noticePage.startPage + 5 }">[다음]</a>
 			</c:if>
 		</td>
 	</tr>
 </c:if>
 </table>
+</div>
+</section>
+</div>
 <!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>

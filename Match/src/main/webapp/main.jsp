@@ -68,7 +68,7 @@
 					</span>
 					<header class="major">
 						<h3>
-							<a href="notice/list.do" class="link">공지사항</a>
+							<a href="notice_list.do" class="link">공지사항</a>
 						</h3>
 						<p></p>
 					</header>

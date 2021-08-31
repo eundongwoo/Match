@@ -42,7 +42,7 @@
 						<h1 align="center">자유게시판</h1>
 					</header>
 					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-					삭제되었습니다.<br /> <a href="list.do">[목록으로]</a>
+					삭제되었습니다.<br /> <a href="article_list.do">[목록으로]</a>
 			</section>
 		</div>
 

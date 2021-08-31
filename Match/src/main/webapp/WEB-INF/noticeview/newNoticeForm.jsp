@@ -43,7 +43,7 @@
 					<h1 align="center">공지게시판</h1>
 				</header>
 				</div>
-<form action="write.do" method="post" >
+<form action="notice_write.do" method="post" >
 	<p>
 		제목:<br/><input type="text" name="title" value="${param.title }">
 		<c:if test="${errors.title }">제목을 입력하세요.</c:if>
@@ -53,7 +53,7 @@
 	<script type="text/javascript">
  	CKEDITOR.replace('p_content'
                 , {height: 500,
-                	filebrowserUploadUrl: '/Match/notice/upload.do'
+                	filebrowserUploadUrl: '/Match/notice_upload.do'
                  });
 	</script>
 

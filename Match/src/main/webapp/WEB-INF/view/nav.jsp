@@ -16,7 +16,7 @@
                         	<a class="nav-link active" aria-current="page" href="/Match/main.jsp">HOME</a>
                     	</li>               
                     	<li class="nav-item">
-                        	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
+                        	<a class="nav-link active" aria-current="page" href="article_list.do">자유게시판</a>
                     	</li>
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="reserve.do">예약페이지</a>
@@ -42,7 +42,7 @@
                         	<a class="nav-link active" aria-current="page" href="reserve.do">예약페이지</a>
                     	</li>                
                     	<li class="nav-item">
-                        	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
+                        	<a class="nav-link active" aria-current="page" href="article_list.do">자유게시판</a>
                     	</li>
 
                      

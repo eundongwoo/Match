@@ -200,7 +200,7 @@
 					<header class="major">
 						<h1 align="center">자유게시판</h1>
 					</header>
-					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+					
 					<table border="1" width="50%">
 
 
@@ -224,14 +224,18 @@
 						<tr>
 							<td colspan="2"><c:set var="pageNo"
 									value="${empty param.pageNo ?'1': param.pageNo}" /> <a
-								href="list.do?pageNo=${pageNo}">[목록]</a> <!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
+								href="article_list.do?pageNo=${pageNo}">[목록]</a> <!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
 								<c:if test="${authUser.id == articleData.article.writer.id}">
-									<a href="modify.do?no=${articleData.article.number}">[게시글수정]</a>
-									<a href="delete.do?no=${articleData.article.number}">[게시글삭제]</a>
+									<a href="article_modify.do?no=${articleData.article.number}">[게시글수정]</a>
+									<a href="article_delete.do?no=${articleData.article.number}">[게시글삭제]</a>
 								</c:if></td>
 						</tr>
 					</table>
-
+				</div>
+			</section>
+			</div>
+		</div>
+		
 <%-- <tr>
 	<td>번호</td>
 	<td>${articleData.article.number}</td>

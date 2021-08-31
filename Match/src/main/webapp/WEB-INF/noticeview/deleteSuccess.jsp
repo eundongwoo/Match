@@ -8,6 +8,6 @@
 </head>
 <body>
 삭제되었습니다.<br/>
-<a href="list.do">[목록으로]</a>
+<a href="notice_list.do">[목록으로]</a>
 </body>
 </html>

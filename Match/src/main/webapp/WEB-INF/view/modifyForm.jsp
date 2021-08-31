@@ -42,7 +42,7 @@
 						<h1 align="center">자유게시판</h1>
 					</header>
 					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
-					<form action="modify.do" method="post">
+					<form action="article_modify.do" method="post">
 						<input type="hidden" name="no" value="${modReq.articleNumber}">
 						<p>
 							번호:<br />${modReq.articleNumber}
