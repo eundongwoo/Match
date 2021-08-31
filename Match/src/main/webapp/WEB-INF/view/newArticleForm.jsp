@@ -53,7 +53,7 @@
 							<textarea name="content" rows="5" cols="30">${param.content}</textarea>
 							<c:if test="${errors.content }">내용을 입력하세요.</c:if>
 						</p>
-						<input type="submit" value="새 글 등록" onclick=>
+						<input type="submit" value="새 글 등록" onclick="return confirm('게시글을 등록하시겠습니까?')">
 					</form>
 				</div>
 			</section>

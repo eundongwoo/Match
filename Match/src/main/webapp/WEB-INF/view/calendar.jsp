@@ -21,6 +21,7 @@
 th, td {
  	text-align: center; /* 칸 안의 글자나 숫자를 중앙으로 정렬 */ 
  }
+
 </style> 
 </head>
 <body>
@@ -59,7 +60,7 @@ th, td {
 
 %>
 
-<table width="20%" cellpadding="2" cellspacing="0" border="1" align="right">
+<table width="50%" cellpadding="2" cellspacing="0" border="1" align="right">
 <th> <!-- 표의 제목 셀 생성 (일반 셀(td)과의 차이는 bold체로 출력)  -->
 <input type="button" value="←" onclick="location.href='?month=<%=month-1%>'" > <!-- location.href 파라미터(페이지 이동)를 이용하여 표현식을 사용해 자바 값을 넘겨줄 수 있음  -->
 </th>
@@ -87,7 +88,7 @@ th, td {
 <% 	
 }
 for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
-	String bgcolor = (today.equals(year + " : " + (month) + " : " + i)) ? "#FFE400" : "#FFFFFF"; /* 오늘 날짜와 일치하면 배경색을 노란색으로, 아니면 흰색으로 출력   */
+	String bgcolor = (today.equals(year + " : " + (month) + " : " + i)) ? "#FFE400" : "#242943"; /* 오늘 날짜와 일치하면 배경색을 노란색으로, 아니면 흰색으로 출력   */
 	
 	String color = "";
 	if(count % 7 == 0) { /* 일요일은 빨간색으로 표시  */
@@ -95,7 +96,7 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 	} else if(count % 7 == 6) { /* 토요일은 파란색으로 표시  */
 		color = "blue";
 	} else {					/* 평일은 검정색으로 표시  */
-		color = "black";
+		color = "white";
 	}
 	count++;
 %>

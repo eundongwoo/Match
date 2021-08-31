@@ -2,6 +2,7 @@
 <%@page import="map.model.Place"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 List<Place> list=(List<Place>)session.getAttribute("list");
@@ -21,11 +22,11 @@ System.out.println(session.getAttribute("authUser"));
 <input type="text" id="placeName" name="placeName" value="">
 </form>
 
-<div id="map" style="width:100%;height:350px;"></div>
+<div id="map" style="width:100%;height:550px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9139ecf68b85217bc0cf45262df346ce&libraries=services"></script>
 
-<script>
+<script style="color:red">
 
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -66,7 +67,7 @@ geocoder.addressSearch(address, function(result, status) {
      	
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+name+'</div>'
+            content: '<div style="width:150px;text-align:center;padding:6px 0;color:black;">'+name+'</div>'
         });
         infowindow.open(map, marker);
 

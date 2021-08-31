@@ -103,55 +103,9 @@
 					</div>
 				</section>
 		</div>
-		<section class="split">
-			<section>
-				<div class="contact-method">
-					<span class="icon solid alt fa-envelope"></span>
-					<h3>Email</h3>
-					<a href="#">showth1720@naver.com</a>
-				</div>
-			</section>
-			<section>
-				<div class="contact-method">
-					<span class="icon solid alt fa-phone"></span>
-					<h3>Phone</h3>
-					<span>대표전화 : 053-655-5600 / 팩스 : 053-655-3501</span>
-				</div>
-			</section>
-			<section>
-				<div class="contact-method">
-					<span class="icon solid alt fa-home"></span>
-					<h3>Address</h3>
-					<span>대구 수성구 알파시티1로 170(대흥동) <br /> 대구디지털산업진흥원 402호<br />
-						Republic of Korea
-					</span>
-				</div>
-			</section>
-		</section>
 	</div>
 
-	<!-- Footer -->
-	<footer id="footer">
-		<div class="inner">
-			<ul class="icons">
-				<li><a href="#" class="icon brands alt fa-twitter"><span
-						class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon brands alt fa-facebook-f"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon brands alt fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon brands alt fa-github"><span
-						class="label">GitHub</span></a></li>
-				<li><a href="#" class="icon brands alt fa-linkedin-in"><span
-						class="label">LinkedIn</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled</li>
-				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
-
+	
 	<!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>

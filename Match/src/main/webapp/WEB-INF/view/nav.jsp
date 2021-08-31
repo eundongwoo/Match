@@ -44,7 +44,7 @@
                     	</li>
                    </ul>
                  <ul class="actions stacked">
-						<li><a href="logout.do" class="button primary fit">로그아웃</a></li>
+						<li><a href="logout.do" class="button primary fit" onclick="return confirm('정말 로그아웃 하시겠습니까?')">로그아웃</a></li>
 				 </ul>
                     </c:if> 
                 </ul>

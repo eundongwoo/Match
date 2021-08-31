@@ -8,6 +8,7 @@
 </head>
 <body>
 <script>
+
 	location.href='/Match/main.jsp';
 </script>
 </body>

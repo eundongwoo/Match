@@ -20,7 +20,7 @@
 <style>
 #wrap
 {
-	width: 50%;
+	width: 70%;
 	overflow: hidden;
 }
 #wrap div:first-child {
@@ -30,20 +30,22 @@
 	float: left;
 }
 #wrap div:last-child {
-	width: 50%;
+	width: 70%;
 	
 	box-sizing:border-box;
 	float: left;
 }    
            table {
-    width: 80%; height: 100px; margin:auto;
+    width: 70%; height: 50px; margin:150px;
     border: 1px solid #444444;
     text-align: center;
   }
   th, td {
     border: 1px solid #444444;
-    vertical-align : middle;
+    vertical-align : under;
   }
+  #box1{ text-align: left;		 
+  		 padding:150px;	}
         
 
 </style>
@@ -52,7 +54,7 @@
 <body class="is-preload">
 	<!-- Wrapper -->
 	<div id="wrapper">
-
+	
 		<!-- Header -->
 		<header id="header" class="alt">
 			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
@@ -73,10 +75,10 @@
 				</header>
 			</div>
 		</section>
+		
 <div id="wrap">
-
  <table border="1">
- 	<tbody>	
+ 	<tbody>	 
  			<tr colspan="2">
                 <td id="title">이름</td>
                 <td><%=user.getName() %></td>
@@ -85,7 +87,7 @@
                 <td width="30%" id="title">아이디</td>
                 <td><%=user.getId() %></td>
             </tr>          
-                             
+                            
             <tr>
                 <td id="title">비밀번호</td>
                 <td><form action="pwdmodify.do" method="post">
@@ -103,10 +105,6 @@
           
      </tbody>
      </table>      
-	<div>
-     <button type="button" onclick="location.href='search.do'">예약조회</button>
-     </div> 
-
 </div>
 	</div>
 	<!-- Scripts -->

@@ -5,13 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>회원가입</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
 <noscript>
 	<link rel="stylesheet" href="/Match/css/noscript.css" />
 </noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
+<style>
+#wrap
+{
+	width: 70%;
+	overflow: hidden;
+}
+#wrap div:first-child {
+	width: 50%;
+	
+	box-sizing:border-box;
+	float: left;
+}
+#wrap div:last-child {
+	width: 50%;
+	
+	box-sizing:border-box;
+	float: left;
+}
+</style>
 </head>
 <body class="is-preload">
 
@@ -31,10 +50,12 @@
 		<nav id="menu">
 			<jsp:include page="/WEB-INF/view/nav.jsp" />
 		</nav>
-<div class="login-page">
-<div class="form">
-<form action="join.do" method="post" class="register-form">
+		<header class="major">
+			<h1 align="center">회원가입</h1>
+		</header>
 
+<div class="wrap" style="text-align: center">
+<form action="join.do" method="post" class="register-form">
 <input type="text" name="id" value="${param.id}" placeholder="ID">
 <c:if test="${errors.id}">아이디를 입력하세요.</c:if>
 <c:if test="${errors.duplicateId}">이미 사용중인 아이디 입니다.</c:if>
@@ -55,13 +76,12 @@
 <input type="text" name="tel" value="${param.tel}" placeholder="ex) 010-1234-5678">
 <c:if test="${errors.tel}">전화번호를 입력하세요.</c:if>
 
-<input type="submit" value="가입">
+<input type="submit" value="가입하기">
 </form>
 </div>
 </div>
-			</div>
-		</section>
-	</div>
+
+	
 	<!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>
