@@ -3,6 +3,7 @@ package article.model;
 import java.util.Date;
 
 public class Article {
+	
 	private Integer number;
 	private Writer writer;
 	private String title;
@@ -12,7 +13,6 @@ public class Article {
 	private String content;
 	
 	public Article(Integer number, Writer writer, String title, Date regDate, Date modifiedDate, String content, int readCount ) {
-		super();
 		this.number = number;
 		this.writer = writer;
 		this.title = title;

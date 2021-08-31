@@ -37,6 +37,9 @@ public class CommentHandler implements CommandHandler{
 			CommentDeleteRequest deleteReq = new CommentDeleteRequest(Integer.parseInt(articleNum) , Integer.parseInt(commentNum));		//삭제에 필요한 것들: 댓글번호(primary key), 게시글번호
 			System.out.println("삭제할 댓글번호: "+Integer.parseInt(commentNum));
 			commentservice.delete(deleteReq);
+			PrintWriter pw=res.getWriter();
+			JSONObject jo = new JSONObject();
+			pw.println(jo);
 			return null;
 		}		//댓글 보기기능	
 		else if(judge.equals("read")) {
@@ -46,13 +49,14 @@ public class CommentHandler implements CommandHandler{
 			HashMap<String, Object> result = null;	//결과 해쉬맵
 			CommentReadRequest readReq = new CommentReadRequest(Integer.parseInt(req.getParameter("num"))); 	//게시글번호 들어감
 			
-		
+			
 			User user = (User) req.getSession(false).getAttribute("authUser");
 			result = commentservice.read(readReq);  //result 해시맵 객체 받음
 			System.out.println("여기 10");
 			JSONObject jo = new JSONObject(result);		//JsonObject로 받음.
 			PrintWriter pw = res.getWriter();
 			pw.println(jo);
+			
 			return null;
 		} else {
 			//댓글쓰기 기능

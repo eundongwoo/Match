@@ -16,7 +16,7 @@
          poolName=match
       </param-value>
    </context-param>
-   
+ 
    <filter>
 	   <filter-name>encodingFilter</filter-name>
 	   <filter-class>filter.CharacterEncodingFilter</filter-class>
@@ -29,12 +29,25 @@
 	   <filter-name>encodingFilter</filter-name>
 	   <url-pattern>/*</url-pattern>
    </filter-mapping>
-  
+
+
+   
+   <filter>
+  	<filter-name>LoginCheckFilter</filter-name>
+  	<filter-class>filter.LoginCheckFilter</filter-class>
+  </filter> 
   <filter-mapping>
   	<filter-name>LoginCheckFilter</filter-name>
   	<url-pattern>/changePwd.do</url-pattern>
   	<url-pattern>/article/write.do</url-pattern>
   	<url-pattern>/article/modify.do</url-pattern>
+  	<url-pattern>/reserve.do</url-pattern>
+
+  	<url-pattern>/article/read.do</url-pattern>
+
+  	<url-pattern>/notice/write.do</url-pattern>
+  	<url-pattern>/notice/modify.do</url-pattern>
+
   </filter-mapping>
    
    <servlet>
@@ -49,15 +62,5 @@
 		<servlet-name>ControllerUsingURI</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
-	
-		
-	<filter> 	
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<filter-class>filter.LoginCheckFilter</filter-class>
-  	</filter>
-  
-  	<filter-mapping>
-  	<filter-name>LoginCheckFilter</filter-name>
-  	<url-pattern>/reserve.do</url-pattern>
- 	</filter-mapping>  
+
 </web-app>

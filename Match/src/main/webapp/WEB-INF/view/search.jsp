@@ -31,8 +31,8 @@
 <th>예약 날짜</th>
 <th>예약 시간</th>
 <th>신청 날짜</th>
+<th></th>
 <th>예약 상태</th>
-
 </tr>
 </thead>
 <tbody>
@@ -46,7 +46,23 @@
 	<td>${info.reserve_date}</td>
 	<td>${info.reserve_time}</td>
 	<td>${info.reg_time}</td>
+	<td>
+		<form action="search.do" method="get">
+		 <input type="hidden" name="place_name" value="${info.place_name}">
+		 <input type="hidden" name="reserve_date" value="${info.reserve_date}">
+		 <input type="hidden" name="reserve_time" value="${info.reserve_time}">
+		 <input type="hidden" name="reg_time" value="${info.reg_time}">
+		 <!-- info.state에 따라 예약취소 버튼 만들기 -->
+		
+		<c:if test="${info.state ne '매칭실패'}">
+		 <input type="submit" value="예약취소">		 				
+		</c:if>
+		
+		
+		</form>
+	</td>
 	<td>${info.state}</td>
+	
 </tr>
 </c:forEach>
 </tbody>

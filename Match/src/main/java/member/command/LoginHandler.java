@@ -1,12 +1,12 @@
 package member.command;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import member.service.LoginFailException;
 import member.service.LoginService;
 import member.service.User;
@@ -48,9 +48,10 @@ public class LoginHandler implements CommandHandler{
 		}
 		
 		try {
-			User user = loginService.login(id, password);																		
+			User user = loginService.login(id, password);	
 			request.getSession().setAttribute("authUser", user);  //session객체 가져와서 user에 대한 정보 속성을 추가해준다
-			response.sendRedirect(request.getContextPath()+"/index.jsp");	//--->이상 없으면 여기로 redirect해준다.
+			response.sendRedirect(request.getContextPath()+"/index.jsp");	//--->이상 없으면 여기로 redirect해준다.				
+			
 			return null;
 		}catch(LoginFailException e) {		
 			errors.put("idOrPwNotMatch", Boolean.TRUE);

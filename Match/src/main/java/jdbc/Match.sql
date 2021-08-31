@@ -1,14 +1,15 @@
 drop table member;
 /*멤버 테이블 설정 */
 select * from member;
-
+SELECT * FROM reservation r,place p  WHERE r.place_id=p.place_id  and member_id=2;
 create table member(
 	member_id varchar(50) primary key,
 	member_name varchar(50) not null,
 	member_password varchar(50) not null,
 	member_tel varchar(50) not null
 );
-
+alter table member add author char(1) default '0';	/*관리자 속성 author추가*/
+insert into member values('admin', '관리자', 'admin', '1234', '1');
 /*풋살장 테이블 설정 */
 select * from place;
 select * from tabs;
@@ -26,6 +27,9 @@ drop sequence place_num;
 
 /*예약 테이블 설정 */
 select * from reservation;
+delete from reservation;
+insert into RESERVATION values(reserve_num.nextval, '2', 2, '2021년8월27일', '19:00~22:00', '예약대기',sysdate);
+
 create table reservation(
 	reserve_num int primary key,
 	member_id varchar(50) not null CONSTRAINT fk_member_id  REFERENCES member(member_id) ON DELETE CASCADE,

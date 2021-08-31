@@ -38,21 +38,12 @@ public class CommentDao {
 //			List<Comment> comments = commentList(conn,comment.getComment_article(), 10);	잠깐 주석---!			
 //			hm.put("result", insertedCount);		
 //			hm.put("comments", comments);		//hashmap에 comments리스트 넣어줌.			잠깐 주석---!
-			CommentReadRequest temp = new CommentReadRequest(comment.getComment_article());
+			
+			CommentReadRequest temp = new CommentReadRequest(comment.getComment_article()); // request에 article number만 들어잇음.
 			hm=read(conn, temp, 1);
 			
-//			if(insertedCount >0) {
-//				stmt = conn.createStatement();
-//				rs = stmt.executeQuery("select ");
-//				if(rs.next()) {
-//					Integer newNum = rs.getInt(1);
-//					return new Comment(newNum, comment.getId(), comment.getComment_date(), 
-//							comment.getComment_article(), comment.getComment_parent(), comment.getComment_content() 
-//							);
-//				}
-//			}
 			return hm;
-	
+			
 		}finally {
 		
 			JdbcUtil.close(pstmt);
@@ -82,7 +73,7 @@ public class CommentDao {
 				comment.setComment_article(rs.getInt(4));
 				comment.setComment_content(rs.getString(5));					
 				comments.add(comment);		//comments리스트에 comment객체 넣어줌
-									
+				
 			}
 			
 		}finally {
@@ -133,7 +124,6 @@ public class CommentDao {
 		
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, deleteReq.getCommentNum());
-		//pstmt.setInt(2, deleteReq.getCommentNum());
 		int result= pstmt.executeUpdate();
 		System.out.println("삭제된 행의 개수"+result);
 		System.out.println("삭제가 완료되었습니다.");

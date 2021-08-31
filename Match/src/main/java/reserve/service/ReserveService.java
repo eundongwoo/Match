@@ -24,8 +24,15 @@ public class ReserveService {
 			int place_id = reserveDao.selectF_id(conn, reserveRequest);		//int place_id
 			int preCount=reserveDao.getReserveCount(conn,place_id,reserveRequest);
 			System.out.println("삽입 전 예약테이블 안에 있는 값:"+preCount);
-			if(preCount<=2)
+			String checkUser=reserveDao.checkDoubleUser(conn,reserveRequest,place_id); // 한 사람이 똑같은 장소 똑같은 시간 날짜에 중복 예약 불가능하게.
+			
+			if(checkUser!=null)
 			{
+				message="이미 예약 되었습니다.";
+			}
+			else if(preCount<=2)
+			{
+				
 				reserveDao.insert(conn, place_id, reserveRequest);		//예약테이블에 값 삽입
 				request.setAttribute("info", "예약되었습니다.");
 				//예약되었습니다 메세지

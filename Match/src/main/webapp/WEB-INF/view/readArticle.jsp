@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="u" tagdir="/WEB-INF/tags" %>
+<%-- <%@ taglib prefix="u" tagdir="/WEB-INF/tags" %> --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +9,8 @@
 <title>게시글 읽기</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
+
+
 /* $.ajaxSetup({
     type:"POST",
     async:true,
@@ -18,10 +20,17 @@
     }
 }); */
 
+
+
+	//document.ready----
 	$(document).ready(function(){
-		
+		//댓글쓰기 클릭 이벤트 걸기1
 		$("#commentWrite").click(function(){	
-			alert(${articleData.article.number});
+			
+			 if($("#cmtCmt").val()=="") {
+				 alert('댓글 내용을 입력해주세요');
+				 return null;
+			 }
 			$.ajax({
 				url:"/Match/comment.do",
 				dataType: "json",
@@ -35,13 +44,11 @@
 				success: function(data1){
 						x=data1;
 						showHtml(data1.comments, 1);
-		
 				}
 			}); 
-		
 		});
-		
-		$("#commentRead").click(function(x) {
+		//function인자에 x지움
+		$("#commentRead").click(function() {
 			$.ajax({
 				url:"/Match/comment.do",
 				dataType: "json",
@@ -54,21 +61,47 @@
 						showHtml(data1.comments, 1);	
 				}
 			}); 
-			
 		});
 		
-		
-		
-	/* 	 $("input:button.Delete").on('click', commentDelete) */
-	/* $(".Delete").click(function() {
-		alert('delete');
-	}); */
-		
-		
+		$(".Delete").click(function commentDelete() {
+			alert('삭제버튼 누름');
+		 	 var comment_num_data = $(this).attr('data-del'); 
+		 	 			 	
+		 	$.ajax({
+				url:"/Match/comment.do",
+				dataType: "json", 
+				type:"POST",
+				data: {
+					num: "${articleData.article.number}",
+					judge:"delete",
+					commentNum:comment_num_data
+				},				
+				 success: function(data){					
+						 //showHtml(data1.comments, 1); 
+						alert('삭제되었습니다.');
+						$.ajax({
+							url:"/Match/comment.do",
+							dataType: "json",
+							type:"POST",
+							data: {
+								num: "${articleData.article.number}",
+								judge:"read"
+							},				
+							success: function(data1){					
+									showHtml(data1.comments, 1);	
+							}
+						}); 
+				} 
+				
+		 	});  
+		 			 
+	}); 			
 	});
+	//----document.ready
 	
 	
-	function showHtml(data, pageNum) {
+	//메소드 선언---
+	var showHtml = function showHtml(data, pageNum) {
 		/* alert($("#a").attr("data-val")); */
 		var html="<div id='showContent'><input type='button' class='btn btn-default' value='댓글 보기' id='commentRead'></div>";
 				
@@ -93,8 +126,6 @@
 		$("#showContent").html(html);
 		
 		
-		
-		
 		 $(".Delete").click(function commentDelete() {
 				alert('삭제버튼 누름');
 			 	 var comment_num_data = $(this).attr('data-del'); 
@@ -108,12 +139,18 @@
 						judge:"delete",
 						commentNum:comment_num_data
 					},				
-					success: function(data1){					
-							/* showHtml(data1.comments, 1); */
-							alert('삭제되었습니다.');
-							document.reload();
-					}
-				});  
+					 success: function(data){					
+							 //showHtml(data1.comments, 1); 
+							
+							$(document).ready(function(){
+								alert('삭제되었습니다.!!');
+								history.go();
+							});
+							
+							
+					} 
+					
+			 	});  
 		}); 
 		
 	}
@@ -137,7 +174,7 @@
 </tr>
 <tr>
 	<td>내용</td>
-	<td><u:pre value="${articleData.article.content}"/></td>
+	<td>${articleData.article.content}</td>
 </tr>
 <tr>
 	<td colspan="2">
@@ -184,7 +221,7 @@
 </c:if>  지금안쓰고있는 기능--%> 
 
 <!-- 댓글 작성 -->
-	<c:if test="${authUser != null }">
+	<%-- <c:if test="${authUser != null }"> --%>
 	<!-- <form id="comment"  method="POST"> -->
 		<input type="hidden" name="comment_article" value="${article.comment_no }">
 		<input type="hidden" name="id" value="${authUser.id }">
@@ -197,7 +234,7 @@
 		<!-- 본문 작성 -->
 		<td width="550">
 			<div>
-				<textarea id="cmtCmt" name="cmtCmt" placeholder="댓글을 입력해주세요."></textarea>
+				<textarea id="cmtCmt" name="cmtCmt"  placeholder="댓글을 입력해주세요."></textarea>
 				<%--<c:if test="${errors.content}">내용을 입력해주세요.</c:if> --%>
 			</div>
 		</td>
@@ -212,7 +249,7 @@
 	<div id="showContent">
 		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
 	</div>
-	</c:if>
+	<%-- </c:if> --%>
 	
 </body>
 </html>
