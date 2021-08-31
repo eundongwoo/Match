@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="u" tagdir="/WEB-INF/tags"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +25,17 @@
 <script src="/Match/js/main.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
+
+
+/* $.ajaxSetup({
+    type:"POST",
+    async:true,
+    dataType:"json",
+    error:function(xhr) {
+       
+    }
+}); */
+
 
 
 	//document.ready----
@@ -47,10 +60,8 @@
 				success: function(data1){
 						x=data1;
 						showHtml(data1.comments, 1);
-		
 				}
 			}); 
-		
 		});
 		//function인자에 x지움
 		$("#commentRead").click(function() {
@@ -66,7 +77,6 @@
 						showHtml(data1.comments, 1);	
 				}
 			}); 
-			
 		});
 		
 		$(".Delete").click(function commentDelete() {
@@ -132,8 +142,6 @@
 		$("#showContent").html(html);
 		
 		
-		
-		
 		 $(".Delete").click(function commentDelete() {
 				alert('삭제버튼 누름');
 			 	 var comment_num_data = $(this).attr('data-del'); 
@@ -196,6 +204,7 @@
 					<table border="1" width="50%">
 
 
+
 						<tr>
 							<td>번호</td>
 							<td>${articleData.article.number}</td>
@@ -222,6 +231,37 @@
 								</c:if></td>
 						</tr>
 					</table>
+
+<%-- <tr>
+	<td>번호</td>
+	<td>${articleData.article.number}</td>
+</tr>
+<tr>
+	<td>작성자</td>
+	<td>${articleData.article.writer.name}</td>
+</tr>
+<tr>
+	<td>제목</td>
+	<td><c:out value="${articleData.article.title}" /></td>
+</tr>
+<tr>
+	<td>내용</td>
+	<td>${articleData.article.content}</td>
+</tr>
+<tr>
+	<td colspan="2">
+	<c:set var="pageNo" value="${empty param.pageNo ?'1': param.pageNo}" />
+		<a href="list.do?pageNo=${pageNo}">[목록]</a>
+		
+		<!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
+		<c:if test="${authUser.id == articleData.article.writer.id}">
+		<a href="modify.do?no=${articleData.article.number}">[게시글수정]</a>
+		<a href="delete.do?no=${articleData.article.number}">[게시글삭제]</a>
+		</c:if>
+	</td>
+</tr>
+</table> --%>
+
 
 
 

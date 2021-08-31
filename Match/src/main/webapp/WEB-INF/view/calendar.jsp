@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <meta charset="UTF-8">
 <script type="text/javascript">
 	
@@ -62,13 +63,32 @@ th, td {
 
 <table width="50%" cellpadding="2" cellspacing="0" border="1" align="right">
 <th> <!-- 표의 제목 셀 생성 (일반 셀(td)과의 차이는 bold체로 출력)  -->
-<input type="button" value="←" onclick="location.href='?month=<%=month-1%>'" > <!-- location.href 파라미터(페이지 이동)를 이용하여 표현식을 사용해 자바 값을 넘겨줄 수 있음  -->
+
+<input class="monthMove" type="button" value="←" > <!-- location.href 파라미터(페이지 이동)를 이용하여 표현식을 사용해 자바 값을 넘겨줄 수 있음  -->
 </th>
 <th id="title" colspan="5">
 <%=cal.get(Calendar.YEAR) %>년 <%=cal.get(Calendar.MONTH)+1 %>월 <!-- 버튼 눌러서 년도와 월이 바뀌도록 하는 역할 -->
 </th>
-<th>
-<input type="button" value="→" onclick="location.href='?month=<%=month+1%>'">
+<th>	
+<input class="monthMove" type="button" value="→" >
+<form id="moveInputForm" action="calendar.do" method="POST"> 
+	<input name="month" type="hidden" id="moveInput">
+</form>
+<script>
+	$(document).ready(function() {
+		
+		$(".monthMove").click(function() {
+			if($(this).val()=="←") {
+				$("#moveInput").val("<%=month-1%>");
+				$("#moveInputForm").submit();
+			} 
+			if($(this).val()=="→") {
+				$("#moveInput").val("<%=month+1%>");
+				$("#moveInputForm").submit();
+			}
+		});
+	});
+</script>
 </th>
 <tr>
 	<td>일</td>

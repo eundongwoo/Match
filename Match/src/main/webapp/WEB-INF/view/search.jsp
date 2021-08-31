@@ -74,7 +74,12 @@
 		 <input type="hidden" name="reserve_time" value="${info.reserve_time}">
 		 <input type="hidden" name="reg_time" value="${info.reg_time}">
 		 <!-- info.state에 따라 예약취소 버튼 만들기 -->
-		 <input type="submit" value="예약취소">
+		
+		<c:if test="${info.state ne '매칭실패'}">
+		 <input type="submit" value="예약취소">		 				
+		</c:if>
+		
+		
 		</form>
 	</td>
 	<td>${info.state}</td>

@@ -4,15 +4,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+
 <title>자유게시판</title>
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
+<script type="text/javascript" src="/Match/ckeditor/ckeditor.js"></script> 	<!--merge할 때 이부분 추가됨  -->
 <noscript>
 	<link rel="stylesheet" href="/Match/css/noscript.css" />
 </noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
+
 </head>
+
 <body class="is-preload">
 
 	<!-- Wrapper -->
@@ -42,6 +46,8 @@
 						<h1 align="center">자유게시판</h1>
 					</header>
 					<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+					
+					
 					<form action="write.do" method="post">
 						<p>
 							제목:<br />
@@ -69,5 +75,31 @@
 		<script src="/Match/js/breakpoints.min.js"></script>
 		<script src="/Match/js/util.js"></script>
 		<script src="/Match/js/main.js"></script>
+
+<%-- <body>
+<form action="write.do" method="post" >
+<p>
+	제목:<br/><input type="text" name="title" value="${param.title }">
+	<c:if test="${errors.title }">제목을 입력하세요.</c:if>
+</p>
+<p>
+	내용:<br/>
+	<textarea name="content" rows="5" cols="30">${param.content}</textarea>
+	<c:if test="${errors.content }">내용을 입력하세요.</c:if> --%>
+	
+	<!-- <textarea class="form-control" id="p_content" name="content"></textarea>
+	<script type="text/javascript">
+ 	CKEDITOR.replace('p_content'
+                , {height: 500,
+                	filebrowserUploadUrl: '/Match/article/upload.do'
+                 });
+ 	<c:if test="${errors.content }">내용을 입력하세요.</c:if>
+	</script> -->
+	
+<!-- </p> -->
+
+
+
+
 </body>
 </html>

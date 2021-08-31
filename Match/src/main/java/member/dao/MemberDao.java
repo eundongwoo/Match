@@ -25,7 +25,8 @@ public class MemberDao {
 			Member member=null;
 			if(rs.next())
 			{
-				member=new Member(rs.getString("member_id"), rs.getString("member_name"),rs.getString("member_password"),rs.getString("member_tel"));
+				member=new Member(rs.getString("member_id"), rs.getString("member_name"),rs.getString("member_password"),rs.getString("member_tel"),
+						rs.getString("author"));
 			}
 			return member;
 		}finally

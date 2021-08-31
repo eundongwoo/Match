@@ -42,11 +42,37 @@
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="article/list.do">자유게시판</a>
                     	</li>
-                   </ul>
+
+                <%--    </ul>
                  <ul class="actions stacked">
 						<li><a href="logout.do" class="button primary fit" onclick="return confirm('정말 로그아웃 하시겠습니까?')">로그아웃</a></li>
 				 </ul>
-                    </c:if> 
+                    </c:if>  --%>
+
+                    	<li class="nav-item">
+                        	<a class="nav-link active" aria-current="page" href="notice/list.do">공지게시판</a>
+                    	</li>
+                    		<c:if test="${authUser.author eq '1'}">
+                    			<li class="nav-item">
+                        		<a class="nav-link active" aria-current="page" href="admin.do">풋살장 등록</a>
+                    		</li>
+                    	</c:if>
+                    </c:if>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            필요 있음 쓸게
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
             </div>
     </nav>

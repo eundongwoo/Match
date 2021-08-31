@@ -38,6 +38,7 @@
 			</nav>
 		</header>
 
+
 		<!-- Menu -->
 		<nav id="menu">
 			<jsp:include page="/WEB-INF/view/nav.jsp" />
@@ -114,6 +115,16 @@
 	<script src="/Match/js/breakpoints.min.js"></script>
 	<script src="/Match/js/util.js"></script>
 	<script src="/Match/js/main.js"></script>
+
+
+<!-- <div class="jumbotron one">
+        <h1 class="display-4">뭉쳐야 찬다</h1>
+        <p class="lead">저희 웹페이지가 뭉쳐드립니다.</p>
+        <hr class="my-4">
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="reserve.do" role="button" onclick="return confirm('예약하시겠습니까?');">예약하기</a>
+        </p>
+</div> -->
 
 </body>
 </html>

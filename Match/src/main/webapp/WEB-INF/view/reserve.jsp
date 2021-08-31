@@ -1,3 +1,4 @@
+<%@page import="java.util.concurrent.Callable"%>
 <%@page import="calendar.model.Calendar"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -12,6 +13,7 @@
 Calendar cal= (Calendar)session.getAttribute("calendar");
 List<String> list=(List<String>)request.getSession().getAttribute("timeList");
 HashMap<String, Integer> hm =(HashMap<String, Integer>)  request.getSession().getAttribute("timeMap");
+
 /* if(list !=null)
 {
 	for(String s:list)
@@ -57,6 +59,7 @@ for(String i:list)
 	</head>
 	<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
 	<body class="is-preload">
+
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -120,6 +123,9 @@ for(String i:list)
 						    <div id="hidden_div">
     						<p>시간</p>
     						<%
+
+		/* <%-- </c:forEach>   	<!--  이부분 check--> */
+
 	 		if(list==null) {System.out.println("list는 null");} else {
 	 			
 			for(String time: list) {
@@ -131,30 +137,47 @@ for(String i:list)
 				Date currentTime = cal2.getTime();
 				reserveTime.setYear(currentTime.getYear());
 				reserveTime.setMonth(currentTime.getMonth());
-				reserveTime.setDate(currentTime.getDate());
+				reserveTime.setDate(currentTime.getDate());		//reserveTime완성
 				
 							//b<3||check==false
 				boolean check = currentTime.after(reserveTime);
 					//check가 true면 지나갔다 -> 버튼 못 누르게			
-						
+				
+					
+				java.util.Calendar cal3 =java.util.Calendar.getInstance();
+				if(cal!=null) {
+					System.out.println("받아온 날짜"+cal.getYear()+"년"+cal.getMonth()+"월"+cal.getDate()+"일");
+					System.out.println("setting전날짜"+cal3.getTime());
+					cal3.set(Integer.parseInt(cal.getYear()), Integer.parseInt(cal.getMonth())-1, Integer.parseInt(cal.getDate()));
+					System.out.println("setting후 받아온 날짜"+cal3.getTime());		//예약시점의 날짜 (시간은 현재시점과 같음)
+					System.out.println("boolean값:"+(cal3.getTime()!=currentTime));
+				}
+				
+				System.out.println(cal3.getTime()+"::::"+currentTime);
 				int b= hm.get(time);
-				if(b<3 && !check) { 
+				System.out.println("!check"+!check);
+				System.out.println("cal3.getTime()"+cal3.getTime());
+				System.out.println("currentTime"+currentTime);
+				System.out.println("cal3.getTime()!=currentTime"+(cal3.getTime().after(currentTime)));
+				if(b<3 && (!check || (cal3.getTime().after(currentTime)))) { 
 				
 		%>		
-			
 			<%-- <input type="button" value="<%=a%>&#10;<%=b %>" class="timeBtn">  --%>
-			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>
+			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>		
+		
+					
 		<%
 				}
 			else{						
 		%>
-			<button  class="timeBtn rf" value="<%=a%>" disabled="disabled"><%=a%><br><%=b %></button>
+				<button  class="timeBtn rf" value="<%=a%>" disabled="disabled"><%=a%><br><%=b %></button>
 			<script>
 				$(".rf").css({
 					background:'red',
 					opacity:0.7
 				});
-			</script>
+			</script>	
+			
 		<%
 				}
 		%>
