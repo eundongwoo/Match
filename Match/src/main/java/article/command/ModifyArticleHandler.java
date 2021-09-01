@@ -80,7 +80,8 @@ public class ModifyArticleHandler implements CommandHandler{
 		
 		try {
 			modifyService.modify(modReq);
-			return "/WEB-INF/view/modifySuccess.jsp";
+			return "article_read.do?no="+no;
+			//return "/WEB-INF/view/modifySuccess.jsp";
 		}catch (ArticleNotFoundException e) {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
