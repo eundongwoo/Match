@@ -58,9 +58,9 @@ for(String i:list)
 		</script>
 	</head>
 	<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
-	<body class="is-preload">
-
-
+	
+	<body class="is-preload">	
+	
 	<!-- Wrapper -->
 	<div id="wrapper">
 
@@ -215,6 +215,7 @@ for(String i:list)
 			<script src="/Match/js/breakpoints.min.js"></script>
 			<script src="/Match/js/util.js"></script>
 			<script src="/Match/js/main.js"></script>
-
+	</div>	
 	</body>
+	
 </html>
