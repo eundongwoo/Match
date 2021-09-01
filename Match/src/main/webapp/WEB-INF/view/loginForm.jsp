@@ -16,21 +16,21 @@
 <style>
 #wrap
 {
-	width: 40%;
+	width: 70%;
 	overflow: hidden;
 }
 #wrap div:first-child {
-	width: 50%;
+	width: 70%;
 	
 	box-sizing:border-box;
 	float: left;
 }
 #wrap div:last-child {
-	width: 50%;
+	width: 70%;
 	
 	box-sizing:border-box;
-	float: left;
-}
+	float: center;
+}  
 </style>
 </head>
 <body class="is-preload">

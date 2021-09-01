@@ -8,6 +8,7 @@ create table member(
 	password varchar(50) not null,
 	tel varchar(50) not null
 );
+delete from place where PLACE_id = 21;
 
 /*풋살장 테이블 설정 */
 select * from place;
@@ -59,7 +60,8 @@ alter table reservation add reg_time time default sysdate; /*예약 테이블에
 --place_id int not null CONSTRAINT fk_operation_id  REFERENCES place(f_id),
 --operation_time varchar(50) not null);
 select * from operation;
-delete from OPERATION where place_id=6;
+
+delete from OPERATION where place_id=21;
 create table operation(
 id int PRIMARY key,
 place_id int not null CONSTRAINT operation_place_id  REFERENCES place(place_id),

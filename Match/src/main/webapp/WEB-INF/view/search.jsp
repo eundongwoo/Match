@@ -44,7 +44,7 @@
 
 <h1>${authUser.name}님 예약조회</h1>
 
-
+<br>
 <table class="table table-striped">
 <thead>
 <tr>
@@ -77,9 +77,7 @@
 		
 		<c:if test="${info.state ne '매칭실패'}">
 		 <input type="submit" value="예약취소">		 				
-		</c:if>
-		
-		
+		</c:if>		
 		</form>
 	</td>
 	<td>${info.state}</td>
@@ -88,6 +86,7 @@
 </c:forEach>
 </tbody>
 </table>
+<button type="button" onclick="location.href='mypage.do'">뒤로가기</button>
 </div>
 <!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>

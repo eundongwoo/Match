@@ -188,9 +188,11 @@ for(String i:list)
 	 		
 		%> 
 							</div>
-							<form action="reserve.do" method="post"> 
-   					 <table>
+							<br><br>
+				<form action="reserve.do" method="post"> 
+   				 <table>
     			<td>
+    	
     		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
     		<c:if test="${empty param.year}">
     		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  

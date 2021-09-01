@@ -21,8 +21,14 @@
 <style>
 th, td {
  	text-align: center; /* 칸 안의 글자나 숫자를 중앙으로 정렬 */ 
+ 	/* border: 1px solid red; */
  }
-
+ 
+ .title
+ {
+ 	padding-top:20px;
+ 	text-align: center;
+ }
 </style> 
 </head>
 <body>
@@ -61,15 +67,17 @@ th, td {
 
 %>
 
-<table width="50%" cellpadding="2" cellspacing="0" border="1" align="right">
-<th> <!-- 표의 제목 셀 생성 (일반 셀(td)과의 차이는 bold체로 출력)  -->
-
+<table width="50%" cellpadding="2" cellspacing="0" border="1" align="center">
+<tr>
+<th colspan="2" class="title"> <!-- 표의 제목 셀 생성 (일반 셀(td)과의 차이는 bold체로 출력)  -->
 <input class="monthMove" type="button" value="←" > <!-- location.href 파라미터(페이지 이동)를 이용하여 표현식을 사용해 자바 값을 넘겨줄 수 있음  -->
 </th>
-<th id="title" colspan="5">
-<%=cal.get(Calendar.YEAR) %>년 <%=cal.get(Calendar.MONTH)+1 %>월 <!-- 버튼 눌러서 년도와 월이 바뀌도록 하는 역할 -->
+
+<th class="title" colspan="3">
+<h1><%=cal.get(Calendar.YEAR) %>년 <%=cal.get(Calendar.MONTH)+1 %>월</h1> <!-- 버튼 눌러서 년도와 월이 바뀌도록 하는 역할 -->
 </th>
-<th>	
+
+<th colspan="2" class="title">	
 <input class="monthMove" type="button" value="→" >
 <form id="moveInputForm" action="calendar.do" method="POST"> 
 	<input name="month" type="hidden" id="moveInput">
@@ -90,14 +98,15 @@ th, td {
 	});
 </script>
 </th>
+</tr>
 <tr>
-	<td>일</td>
+	<td width="50">일</td>
 	<td width="50">월</td>
 	<td width="50">화</td>
 	<td width="50">수</td>
 	<td width="50">목</td>
 	<td width="50">금</td>
-	<td>토</td>
+	<td width="50">토</td>
 </tr>
 <tr>
 <%
@@ -125,14 +134,14 @@ for(int i=startDate; i<=lastDate; i++) {  /* 날짜 출력 */
 		if(i>=date && currentMonth==month)
 		{
 			%>
-
+				<br>
 				<input type="button" value="예약" onclick="buttonClick('<%=i%>','<%=cal.get(Calendar.YEAR) %>','<%=cal.get(Calendar.MONTH)+1%>')" ></label>
 
 			<% 
 		}else if(currentYear>=year && month>currentMonth)
 		{
 			%>
-
+				<br>
 				<input type="button" value="예약" onclick="buttonClick('<%=i%>', '<%=cal.get(Calendar.YEAR) %>','<%=cal.get(Calendar.MONTH)+1%>')" ></label>
 
 			<%
