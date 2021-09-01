@@ -80,7 +80,8 @@ public class ModifyNoticeHandler implements CommandHandler{
 		
 		try {
 			modifyService.modify(modReq);
-			return "/WEB-INF/noticeview/modifySuccess.jsp";
+			return "notice_read.do?no="+no;
+			//return "/WEB-INF/noticeview/modifySuccess.jsp";
 		}catch (NoticeNotFoundException e) {
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
