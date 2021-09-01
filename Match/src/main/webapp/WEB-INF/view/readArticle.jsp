@@ -10,23 +10,12 @@
 <title>자유게시판</title>
 <meta charset="utf-8" />
 <meta name="viewport"
-	content="width=device-width, initial-scale=1, user-scalable=no" />
+	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
 <noscript>
 	<link rel="stylesheet" href="/Match/css/noscript.css" />
 </noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
-<!-- Scripts -->
-<script src="/Match/js/jquery.min.js"></script>
-<script src="/Match/js/jquery.scrolly.min.js"></script>
-<script src="/Match/js/jquery.scrollex.min.js"></script>
-<script src="/Match/js/browser.min.js"></script>
-<script src="/Match/js/breakpoints.min.js"></script>
-<script src="/Match/js/util.js"></script>
-<script src="/Match/js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-
-
 /* $.ajaxSetup({
     type:"POST",
     async:true,
@@ -186,11 +175,6 @@
 			</nav>
 		</header>
 
-		<!-- Menu -->
-		<nav id="menu">
-			<jsp:include page="/WEB-INF/view/nav.jsp" />
-		</nav>
-
 		<!-- Main -->
 		<div id="main" class="alt">
 
@@ -328,7 +312,16 @@
 		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
 	</div>
 	<%-- </c:if> --%>
-	
+	<!-- Scripts -->
+<script src="/Match/js/jquery.min.js"></script>
+<script src="/Match/js/jquery.scrolly.min.js"></script>
+<script src="/Match/js/jquery.scrollex.min.js"></script>
+<script src="/Match/js/browser.min.js"></script>
+<script src="/Match/js/breakpoints.min.js"></script>
+<script src="/Match/js/util.js"></script>
+<script src="/Match/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 
 </body>
 </html>

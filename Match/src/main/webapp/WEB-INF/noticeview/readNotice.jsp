@@ -12,14 +12,6 @@
 	<link rel="stylesheet" href="/Match/css/noscript.css" />
 </noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
-<!-- Scripts -->
-		<script src="/Match/js/jquery.min.js"></script>
-		<script src="/Match/js/jquery.scrolly.min.js"></script>
-		<script src="/Match/js/jquery.scrollex.min.js"></script>
-		<script src="/Match/js/browser.min.js"></script>
-		<script src="/Match/js/breakpoints.min.js"></script>
-		<script src="/Match/js/util.js"></script>
-		<script src="/Match/js/main.js"></script>
 </head>
 <body class="is-preload">
 
@@ -87,6 +79,13 @@
 		</section>
 		</div>
 	</div>
-	
+	<!-- Scripts -->
+		<script src="/Match/js/jquery.min.js"></script>
+		<script src="/Match/js/jquery.scrolly.min.js"></script>
+		<script src="/Match/js/jquery.scrollex.min.js"></script>
+		<script src="/Match/js/browser.min.js"></script>
+		<script src="/Match/js/breakpoints.min.js"></script>
+		<script src="/Match/js/util.js"></script>
+		<script src="/Match/js/main.js"></script>
 </body>
 </html>

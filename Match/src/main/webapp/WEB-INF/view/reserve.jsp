@@ -53,8 +53,23 @@ for(String i:list)
 				var value=$($(this)).val();
 				 $("#time").val(value);
 			});
-		}	
-		);
+			
+			
+			$(function() {
+				var topNum=$("#place").offset().top;
+				$(window).scrollTop(topNum);
+			});
+			
+			$("#lookTotal").click(function() {
+				var topNum=$("#banner").offset().top;
+				$(window).scrollTop(topNum);
+			});
+				
+			
+			});
+			
+		
+			
 		</script>
 	</head>
 	<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
@@ -114,11 +129,11 @@ for(String i:list)
     								</table>								
 							</section>
 						
-						
+							
 							<form action="timesearch.do" method="Post">
 						    	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
 						    	<input type="hidden" name="placeDate" value="<%=s%>">
-						    	<input type="submit" value="시간 조회">
+						    	<input id="timelook" type="submit" value="시간 조회">
 						    </form>
 						    <div id="hidden_div">
     						<p>시간</p>
@@ -188,10 +203,21 @@ for(String i:list)
 	 		
 		%> 
 							</div>
-							<form action="reserve.do" method="post"> 
-   					 <table>
+							<br><br>
+				<form action="reserve.do" method="post"> 
+   				 <table>
     			<td>
-    		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
+
+    			
+    		
+    		풋살장:
+    		<%if((String)session.getAttribute("placeName")!=null) {%>
+    		
+    		<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
+    		<%} else {%>
+    		<input type="text" name="place" id="place" value="" readonly="readonly"><br>
+    		<%} %>
+
     		<c:if test="${empty param.year}">
     		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  
     		</c:if>	 
@@ -199,12 +225,19 @@ for(String i:list)
     		날짜:<input type="text" name="date" id="date" value="<%=cal.getYear()+"년"+cal.getMonth()+"월"+cal.getDate()+"일"%>" readonly="readonly"><br> 
     		</c:if>   		
     		시간:<input type="text" name="time" id="time" readonly="readonly">
+    		 <div id="locationss"></div>	
     	</td>
+    	<td>
+    		<input type="button" id="lookTotal" value="구장선택하기">
+    	</td>
+    	
     	<td>
     		<input type="submit" value="예약하기">
     	</td>
     </table>
+    	<!--  스크롤-->
     </form>
+   
 			
 
 			<!-- Scripts -->
@@ -215,7 +248,17 @@ for(String i:list)
 			<script src="/Match/js/breakpoints.min.js"></script>
 			<script src="/Match/js/util.js"></script>
 			<script src="/Match/js/main.js"></script>
-	</div>	
+
+	<script>	
+			/* $(function() {
+				alert('hello');
+				var topNum=$("#place").offset().top;
+				$(window).scrollTop(topNum);
+			}); */
+			
+				
+	</script>
+
 	</body>
 	
 </html>
