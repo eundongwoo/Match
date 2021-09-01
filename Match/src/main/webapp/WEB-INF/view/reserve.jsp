@@ -206,7 +206,15 @@ for(String i:list)
 							<form action="reserve.do" method="post"> 
    					 <table>
     			<td>
-    		풋살장:<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
+    			
+    		
+    		풋살장:
+    		<%if((String)session.getAttribute("placeName")!=null) {%>
+    		
+    		<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
+    		<%} else {%>
+    		<input type="text" name="place" id="place" value="" readonly="readonly"><br>
+    		<%} %>
     		<c:if test="${empty param.year}">
     		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  
     		</c:if>	 
