@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <title>자유게시판</title>
 <meta charset="utf-8" />
 <meta name="viewport"
@@ -320,7 +321,7 @@
 <script src="/Match/js/breakpoints.min.js"></script>
 <script src="/Match/js/util.js"></script>
 <script src="/Match/js/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
 
 
 </body>

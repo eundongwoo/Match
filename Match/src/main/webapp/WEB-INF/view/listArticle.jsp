@@ -36,7 +36,7 @@
 			<div class="inner">
 				<header class="major">
 					<h1 align="center">자유게시판</h1>
-				</header>
+				</header> 	
 				
 				<table border="1">
 					<tr>

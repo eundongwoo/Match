@@ -37,7 +37,7 @@ public class ModifyArticleHandler implements CommandHandler{
 	
 	private String processForm(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		try {
-			String noVal = req.getParameter("no");
+			String noVal = req.getParameter("no"); //null처리
 			int no = Integer.parseInt(noVal);
 			ArticleData articleData = readService.getArticle(no, false);
 			User authUser = (User) req.getSession().getAttribute("authUser");

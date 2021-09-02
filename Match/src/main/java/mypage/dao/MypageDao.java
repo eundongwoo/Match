@@ -44,7 +44,7 @@ public class MypageDao {
 		PreparedStatement prst=null;
 		ResultSet rs=null;
 		ResultSet rs2=null;
-		String sql="SELECT * FROM reservation r,place p  WHERE r.place_id=p.place_id  and member_id=?";
+		String sql="SELECT * FROM reservation r,place p  WHERE r.place_id=p.place_id  and member_id=? order by reserve_num";
 		
 		SimpleDateFormat format1=new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분");
 		String placeName=null;

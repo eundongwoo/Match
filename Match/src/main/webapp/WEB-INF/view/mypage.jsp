@@ -13,10 +13,10 @@
 {
 	width: 70%;
 	overflow: hidden;
+	margin: 0 auto;
 }
 #wrap div:first-child {
 	width: 70%;
-	
 	box-sizing:border-box;
 	float: left;
 }
@@ -27,10 +27,15 @@
 	float: center;
 }  
 	table {
-    width: 70%; margin:100px;
+    width: 100%; margin:100px;
     border: 1px solid #444444;
     text-align: center;
-}	
+}
+.change
+{
+	vertical-align: middle;
+}
+
   </style>
 	
 	<head>	
@@ -75,30 +80,34 @@
 							 	<tbody>	 							 								 		
 							 			<tr>
 							                <td id="title">이름</td>
-							                <td ><%=user.getName() %></td>
+							                <td><%=user.getName() %></td>
 							                <td><button type="button" onclick="location.href='search.do' ">예약조회</button></td>
 							            </tr> 	
 							            <tr >
 							                <td width="40%" id="title">아이디</td>
-							                <td ><%=user.getId() %></td>
+							                <td><%=user.getId() %></td>
 							                <td></td>
 							            </tr>          
 							                            
 							            <tr>
-							                <td id="title">비밀번호</td>
-							                <td ><form action="pwdmodify.do" method="post">
-							             	<input type="password" name="newPwd" placeholder="변경할 암호를 입력.">
+							                <td id="title" class="change">비밀번호</td>
+							                <td colspan="2" ><form action="pwdmodify.do" method="post">
+							             	<input type="password" name="newPwd" placeholder="변경할 암호를 입력."><br><br>
+							             	<input type="submit" value="변경"></form>
 							             	</td>
-							             	<td><input type="submit" value="변경"></form></td>  	
+							             	
 							            </tr>
 							            <tr>
-							                <td id="title">전화번호</td> 
-							                <td><%=user.getTel() %>         
-							               <form action="telmodify.do" method="post">
-							                <input type="text" name="newTel" placeholder="ex)010-1234-5678">
+							                <td rowspan="2" id="title" class="change">전화번호</td> 
+							                <td colspan="2"><%=user.getTel() %></td>
+							                        
+							            </tr> 
+							            <tr>
+							            	<td colspan="2"><form action="telmodify.do" method="post">
+							                <input type="text" name="newTel" placeholder="ex)010-1234-5678"><br><br>
+							                <input type="submit" value="변경"></form>
 							                </td>
-							                <td><input type="submit" value="변경"></form></td>
-							            </tr>         
+							            </tr>        
 							     </tbody>
 							   </table>        
 							</div>

@@ -74,7 +74,7 @@
 	암호를 입력하세요.
 	</c:if>
 </p>
-<input type="submit" value="로그인" onclick="return confirm('환영합니다.')">
+<input type="submit" value="로그인">
 </form>
 </div>
 </div>
