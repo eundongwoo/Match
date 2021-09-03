@@ -17,9 +17,6 @@
 <title>Insert title here</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
 <body class="is-preload">

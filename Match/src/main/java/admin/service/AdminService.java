@@ -19,11 +19,7 @@ public class AdminService {
 				conn.setAutoCommit(false);
 				AdminDao adminDao = new AdminDao();
 				int place_id = adminDao.insertPlace(conn, place);
-				System.out.println("plad_ID"+place_id);
-				System.out.println("addPlace종료");
 				
-			
-		
 				for(int i=1; i<=rowNum; i++) {
 				adminDao.insertTime(conn, i, place_id, hm);	//시간대 넣기
 				}

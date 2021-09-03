@@ -10,20 +10,14 @@
 	
 
 	function buttonClick(x,y,z) {
-
-		location.href="calendar.do?date="+x+"&year="+y+"&month="+z;
-		
-		//여기에다 체크박스 보이게
-	
+			location.href="calendar.do?date="+x+"&year="+y+"&month="+z;
 	};
 </script>
 <title>달력</title>
 <style>
 th, td {
  	text-align: center; /* 칸 안의 글자나 숫자를 중앙으로 정렬 */ 
- 	/* border: 1px solid red; */
  }
- 
  .title
  {
  	padding-top:20px;

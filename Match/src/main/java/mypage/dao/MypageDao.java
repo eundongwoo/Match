@@ -75,9 +75,6 @@ public class MypageDao {
 				String reg_time=format1.format(rs.getTimestamp("reg_time"));
 				String state = rs.getString("STATE");
 				ReserveRequest resereveRequest = new ReserveRequest(user, rs.getString("PLACE_NAME"),rs.getString("RESERVE_DATE"), rs.getString("RESERVE_TIME"));
-				
-				System.out.println("nowDate:"+nowDate);
-				System.out.println("reserveDate:"+reserveDate);
 				if(a==true) {
 					if(state.equals("예약대기")) {
 						state="매칭실패";

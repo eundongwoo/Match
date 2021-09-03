@@ -18,36 +18,36 @@ System.out.println(session.getAttribute("authUser"));
 <style>
 /* #wrap
 {
-	width: 70%;
-	overflow: hidden;
-	margin: 0 auto;
+   width: 70%;
+   overflow: hidden;
+   margin: 0 auto;
 }
 #wrap div:first-child {
-	width: 50%;
-	box-sizing:border-box;
-	float: left;
+   width: 50%;
+   box-sizing:border-box;
+   float: left;
 }
 #wrap div:last-child {
-	width: 50%;
-	
-	box-sizing:border-box;
-	float: center;
+   width: 50%;
+   
+   box-sizing:border-box;
+   float: center;
 } 
 #map div{
-		 /* width:100%; */ 
-		/* color:black; */	
+       /* width:100%; */ 
+      /* color:black; */   
 } */
 
-#hello
+/* #hello
 {
-	background-color: red;
-	color: black;
-}
+   background-color: red;
+   color: black;
+} */
 
 </style> 
 </head>
 <body>
-<!-- <div id="wrap" style="text-align: center"> -->	
+<!-- <div id="wrap" style="text-align: center"> -->   
 
  <form id="please" method="POST" action="map.do" >
 <input type="hidden" id="placeName" name="placeName" value="">
@@ -88,17 +88,17 @@ geocoder.addressSearch(address, function(result, status) {
             clickable:true
         });
         
-     	// 마커에 클릭이벤트를 등록합니다
+        // 마커에 클릭이벤트를 등록합니다
         kakao.maps.event.addListener(marker, 'click', function() {
-             	var placeName =document.getElementById('placeName');
-             	placeName.setAttribute('value',name);
-             	$("#please").submit();
-             	
+                var placeName =document.getElementById('placeName');
+                placeName.setAttribute('value',name);
+                $("#please").submit();
+                
         });
-     	
+        
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div id="hello" style="color:black;">'+name+'</div>'
+            content: '<span style="color:black; text-align:center; margin-left:25px;">'+name+'</span>'
         });
         infowindow.open(map, marker);
 

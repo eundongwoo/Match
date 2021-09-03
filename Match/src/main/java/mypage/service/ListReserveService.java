@@ -20,12 +20,7 @@ public class ListReserveService {
 		
 		try {
 			con=ConnectionProvider.getConnection();
-			List<ReserveInfo> list=dao.getReserveList(con,user);
-//			for(ReserveInfo i:list)
-//			{
-//				System.out.println(i.getMember_id()+":"+i.getPlace_id()+":"+i.getReserve_date()+":"+i.getReserve_time());
-//			}
-			
+			List<ReserveInfo> list=dao.getReserveList(con,user);			
 			return list;
 			
 		} catch (SQLException e) {

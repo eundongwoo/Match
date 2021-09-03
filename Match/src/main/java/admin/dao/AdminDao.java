@@ -32,7 +32,7 @@ public class AdminDao {
 			rs=pstmt2.executeQuery();
 			if(rs.next()) {
 				place_id = rs.getInt(1);
-				System.out.println(place_id);
+				
 			}
 			return place_id;	//place_id반환
 			

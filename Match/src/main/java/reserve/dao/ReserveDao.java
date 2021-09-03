@@ -27,7 +27,6 @@ public class ReserveDao {
 			if(rs.next()) {
 				place_id = rs.getInt(1);		//f_id(풋살장id)반환
 			}
-			System.out.println("place_id"+place_id);
 			return place_id;
 		} finally {
 			JdbcUtil.close(rs);

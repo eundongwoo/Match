@@ -17,7 +17,7 @@ select * from reservation;
 create table place(
 	place_id int primary key,
 	place_name varchar(50) not null,
-	place_addr varchar(50) not null,
+	place_addr varchar(200) not null,
 	place_tel varchar(50) not null
 );
 delete from place where place_id=3;

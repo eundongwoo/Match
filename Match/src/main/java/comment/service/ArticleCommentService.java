@@ -23,15 +23,7 @@ public class ArticleCommentService {
 			HashMap<String, Object> result = null;			
 			Comment comment = toComment(commentRequest);	//Comment객체			
 			result = commentDao.insert(conn, comment);		//result해시맵 안에 comments리스트 들어있음.
-			
-//			Comment savedComment = commentDao.commentList(conn, 0, 0)
-//			if(savedComment == null) {
-//				throw new RuntimeException("fail to insert Comment");
-//			}
-			
 			conn.commit();
-			
-//			return savedComment.getComment_num();
 			return result;
 		}catch(SQLException	e) {
 			JdbcUtil.rollback(conn);
@@ -84,7 +76,6 @@ public class ArticleCommentService {
 		Connection conn = null;
 		conn = ConnectionProvider.getConnection();
 		conn.setAutoCommit(false);
-		System.out.println("delte메소드 안 삭제할 댓글번호: "+deleteReq.getCommentNum());
 		commentDao.delete(conn, deleteReq);
 		conn.commit();
 		JdbcUtil.close(conn);

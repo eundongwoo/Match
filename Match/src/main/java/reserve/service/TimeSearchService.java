@@ -21,12 +21,8 @@ public class TimeSearchService {
 		try {
 			con=ConnectionProvider.getConnection();
 			int place_id=dao.getPlaceId(con,obj.getPlaceName()); //풋살장 장소 아이디
-			
 			List<String> list=dao.getTimeList(con,place_id); //풋살장의 운영 시간
-			
-			
-			//해쉬 맵 리턴?
-			
+					
 			for(String str:list)
 			{
 				System.out.println("풋살장 시간"+str);
@@ -51,10 +47,6 @@ public class TimeSearchService {
 			throw new RuntimeException(e);
 		}finally {
 			JdbcUtil.close(con);
-		}
-		
-		
+		}	
 	}
-	
-	
 }

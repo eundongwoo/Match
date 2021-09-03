@@ -27,7 +27,6 @@ public class DeleteNoticeHandler implements CommandHandler{
 		try {
 			deleteService.delete(delReq);
 			return "notice_list.do";
-			//return "/WEB-INF/noticeview/deleteSuccess.jsp";
 		}catch(NoticeNotFoundException e) {
 			resp.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;

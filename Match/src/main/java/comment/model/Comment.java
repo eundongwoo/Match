@@ -9,7 +9,6 @@ public class Comment {
 	private int comment_article; //게시글 번호
 	
 	private String comment_content; //댓글 내용
-//	private int comment_level; //댓글- 답변글
 	
 	public Comment(Integer comment_num, String id, Date comment_date, int comment_article,
 			String comment_content) {
@@ -62,12 +61,5 @@ public class Comment {
 
 	public void setComment_content(String comment_content) {
 		this.comment_content = comment_content;
-	}
-	
-	
-
-//	public int getComment_level() {
-//		return comment_level;
-//	}
-	
+	}	
 }

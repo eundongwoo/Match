@@ -16,7 +16,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MainPage</title>
-<meta name="viewport"
+<meta name="viewport"	
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
@@ -83,8 +83,6 @@
 					</div>
 				</section>
 		</div>
-
-	
 	<!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>
@@ -93,16 +91,5 @@
 	<script src="/Match/js/breakpoints.min.js"></script>
 	<script src="/Match/js/util.js"></script>
 	<script src="/Match/js/main.js"></script>
-
-
-<!-- <div class="jumbotron one">
-        <h1 class="display-4">뭉쳐야 찬다</h1>
-        <p class="lead">저희 웹페이지가 뭉쳐드립니다.</p>
-        <hr class="my-4">
-        <p class="lead">
-            <a class="btn btn-primary btn-lg" href="reserve.do" role="button" onclick="return confirm('예약하시겠습니까?');">예약하기</a>
-        </p>
-</div> -->
-
 </body>
 </html>

@@ -21,11 +21,6 @@ public class ListNoticeHandler implements CommandHandler{
 		NoticePage noticePage = listService.getNoticePage(pageNo);
 		req.setAttribute("noticePage", noticePage);
 		
-		return "/WEB-INF/noticeview/listNotice.jsp";
-		
-		
+		return "/WEB-INF/noticeview/listNotice.jsp";	
 	}
-	
-	
-	
 }

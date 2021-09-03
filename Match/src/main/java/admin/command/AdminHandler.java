@@ -2,10 +2,8 @@ package admin.command;
 
 import java.sql.SQLException;
 import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import admin.service.AdminService;
 import map.model.Place;
 import member.service.JoinService;

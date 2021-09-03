@@ -40,16 +40,13 @@ public class ControllerUsingURI extends HttpServlet {
 			String command=(String)keyIter.next();
 			String handlerClassName=prop.getProperty(command);
 			System.out.println(command+" : "+handlerClassName);
-			System.out.println("여기1222222dfdsfsa");
 			try {
 				
 				Class<?> handlerClass=Class.forName(handlerClassName);
 				CommandHandler handlerInstance=(CommandHandler)handlerClass.newInstance();
 				commandHandlerMap.put(command, handlerInstance);
-				System.out.println("여기12222222"+command);
 			}catch(ClassNotFoundException | InstantiationException |
 					IllegalAccessException e){
-				System.out.println("여기+++++++++");
 				throw new ServletException(e);
 			}
 		}

@@ -45,11 +45,8 @@ public class WriteNoticeHandler implements CommandHandler{
 			return FORM_VIEW;
 		}
 		
-		int newNoticeNo = writeService.write(writeReq);  //글번호를 받아오게 된다.
-		//req.setAttribute("newNoticeNo", newNoticeNo);
-		
+		int newNoticeNo = writeService.write(writeReq);  //글번호를 받아오게 된다.		
 		return "notice_read.do?no="+newNoticeNo;
-		//return "/WEB-INF/noticeview/newNoticeSuccess.jsp";
 	}
 
 	private WriteRequest createWriteRequest(User user, HttpServletRequest req) {
@@ -58,5 +55,4 @@ public class WriteNoticeHandler implements CommandHandler{
 				req.getParameter("title"),
 				req.getParameter("content"));
 	}
-	
 }

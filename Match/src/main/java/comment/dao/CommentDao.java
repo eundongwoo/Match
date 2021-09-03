@@ -33,12 +33,6 @@ public class CommentDao {
 			pstmt.setString(4, comment.getComment_content());
 			
 			int insertedCount = pstmt.executeUpdate();		//insertedCount 행 몇개 추가 했는지 반환.
-			System.out.println("insertedCount : "+insertedCount);
-			
-//			List<Comment> comments = commentList(conn,comment.getComment_article(), 10);	잠깐 주석---!			
-//			hm.put("result", insertedCount);		
-//			hm.put("comments", comments);		//hashmap에 comments리스트 넣어줌.			잠깐 주석---!
-			
 			CommentReadRequest temp = new CommentReadRequest(comment.getComment_article()); // request에 article number만 들어잇음.
 			hm=read(conn, temp, 1);
 			
@@ -125,11 +119,6 @@ public class CommentDao {
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, deleteReq.getCommentNum());
 		int result= pstmt.executeUpdate();
-		System.out.println("삭제된 행의 개수"+result);
-		System.out.println("삭제가 완료되었습니다.");
 		JdbcUtil.close(pstmt);
 	}
-	
-	
-	
 }

@@ -25,17 +25,12 @@ public class CommentHandler implements CommandHandler{
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		String judge = req.getParameter("judge");	//이걸로 요청 판단
-		System.out.println(judge);
-		System.out.println("핸들러의 process진입");
-		
-		
+	
 		//댓글 삭제
 		if(judge.equals("delete")) {
-			System.out.println("delete진입");
 			String commentNum = req.getParameter("commentNum");
 			String articleNum =req.getParameter("num");	//게시글 번호
 			CommentDeleteRequest deleteReq = new CommentDeleteRequest(Integer.parseInt(articleNum) , Integer.parseInt(commentNum));		//삭제에 필요한 것들: 댓글번호(primary key), 게시글번호
-			System.out.println("삭제할 댓글번호: "+Integer.parseInt(commentNum));
 			commentservice.delete(deleteReq);
 			PrintWriter pw=res.getWriter();
 			JSONObject jo = new JSONObject();
@@ -45,14 +40,12 @@ public class CommentHandler implements CommandHandler{
 		else if(judge.equals("read")) {
 			
 			res.setCharacterEncoding("utf-8"); 
-			System.out.println("handler진입read");
 			HashMap<String, Object> result = null;	//결과 해쉬맵
 			CommentReadRequest readReq = new CommentReadRequest(Integer.parseInt(req.getParameter("num"))); 	//게시글번호 들어감
 			
 			
 			User user = (User) req.getSession(false).getAttribute("authUser");
 			result = commentservice.read(readReq);  //result 해시맵 객체 받음
-			System.out.println("여기 10");
 			JSONObject jo = new JSONObject(result);		//JsonObject로 받음.
 			PrintWriter pw = res.getWriter();
 			pw.println(jo);
@@ -61,7 +54,6 @@ public class CommentHandler implements CommandHandler{
 		} else {
 			//댓글쓰기 기능
 			res.setCharacterEncoding("utf-8"); 
-			System.out.println("handler진입write");
 			HashMap<String, Object> result = null;	//결과 해쉬맵
 			
 			Map<String, Boolean> errors = new HashMap<>();
@@ -70,21 +62,16 @@ public class CommentHandler implements CommandHandler{
 			
 			CommentWriteRequest writeReq = createCommentRequest(user, req);		//댓글 객체(CommentWriteRequest) 생성
 			writeReq.validate(errors);
-			System.out.println("여기 3");
 			if(!errors.isEmpty()) {
-				//return FORM_VIEW;
 				System.out.println("에러가있어요.");
-			}//책의 에러 처리 부분.
+			}//에러 처리 부분.
 			
-			System.out.println("여기 4");
+
 			result = commentservice.write(writeReq);  //result 해시맵 객체 받음
-			System.out.println("여기 10");
 			JSONObject jo = new JSONObject(result);		//JsonObject로 받음.
 			PrintWriter pw = res.getWriter();
 			pw.println(jo);
-			//req.setAttribute("Comments", <);
-			//req.setAttribute("newCommentNo", newCommentNo);
-			
+		
 			return null;
 		}
 		

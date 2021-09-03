@@ -26,7 +26,6 @@ public class ReadNoticeHandler implements CommandHandler{
 			req.getServletContext().log("no notice", e);
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
-		}
-		
+		}	
 	}
 }

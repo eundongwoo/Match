@@ -39,7 +39,6 @@ public class ReserveHandler implements CommandHandler {
 		// TODO Auto-generated method stub
 		MapService mapService=new MapService();
 		List<Place> list=mapService.initMap();
-		//request.setAttribute("list", list);
 		request.getSession().setAttribute("list", list);
 		return FORM_VIEW;
 	}
@@ -49,7 +48,6 @@ public class ReserveHandler implements CommandHandler {
 		ReserveRequest reserveRequest = new ReserveRequest(user, request.getParameter("place"), request.getParameter("date"), 
 				request.getParameter("time"));
 		String message=reserveService.reserve(reserveRequest,request);
-		System.out.println(message);
 		request.setAttribute("message", message);
 		return "/main.jsp";
 	}

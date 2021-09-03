@@ -33,6 +33,4 @@ public class MypageHandler implements CommandHandler {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 }

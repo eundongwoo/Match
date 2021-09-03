@@ -134,7 +134,6 @@ public class ArticleDao {
 	
 	public int update(Connection conn, int no, String title, String content) throws SQLException{
 		try(PreparedStatement pstmt = conn.prepareStatement("update article set title = ?, moddate =systimestamp, content= ? where article_no = ?")){
-			//systimestamp 대신 now() //mariaDB
 			pstmt.setString(1, title);
 			pstmt.setString(2, content);
 			pstmt.setInt(3, no);

@@ -42,7 +42,6 @@ public class PwdModifyHandler implements CommandHandler {
 		request.setAttribute("errors", errors);
 		
 		String newPwd=request.getParameter("newPwd");
-		System.out.println("새로운 비밀번호"+newPwd);
 		if(newPwd==null || newPwd.isEmpty())
 		{
 			errors.put("newPwd", Boolean.TRUE);

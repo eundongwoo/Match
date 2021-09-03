@@ -45,10 +45,8 @@ public class WriteArticleHandler implements CommandHandler{
 		}
 		
 		int newArticleNo = writeService.write(writeReq);  //글번호를 받아오게 된다.
-		//req.setAttribute("newArticleNo", newArticleNo);
-		
 		return "article_read.do?no="+newArticleNo;
-		//return "/WEB-INF/view/newArticleSuccess.jsp";
+	
 	}
 
 	private WriteRequest createWriteRequest(User user, HttpServletRequest req) {

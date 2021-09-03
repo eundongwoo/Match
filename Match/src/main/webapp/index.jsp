@@ -9,7 +9,7 @@
 <body>
 <script>
 
-	location.href='/Match/main.jsp';
+	location.href='/Match/main.jsp'; //메인페이지로 이동
 </script>
 </body>
 </html>

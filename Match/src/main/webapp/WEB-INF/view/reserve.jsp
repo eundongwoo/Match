@@ -115,23 +115,7 @@ System.out.println(cal.getDate());
     		</td>     	   		
 		    </table>   	
 		    </form>
-			</div> 
-
-				<!-- Banner 
-					<section id="banner" class="major">
-						<div class="inner">
-							<header class="major">
-								<h1>축구를 즐길 준비가 되셨나요?</h1>
-							</header>
-							<div class="content">
-								<p>구장을 선택해 주세요.</p>
-								<ul class="actions">
-									<li><a href="#one" class="button next scrolly">구장 선택</a></li>
-								</ul>
-							</div>
-						</div>
-					</section> --> 
-			
+			</div> 			
 				<!-- Main -->
 					 
 						<!-- One -->
@@ -161,8 +145,6 @@ System.out.println(cal.getDate());
 						    <div id="hidden_div" style="text-align: center">
     						<p>시간</p>
     						<%
-
-		/* <%-- </c:forEach>   	<!--  이부분 check--> */
 
 	 		if(list==null) {System.out.println("list는 null");} else {
 	 			
@@ -200,7 +182,7 @@ System.out.println(cal.getDate());
 				if(b<3 && (!check || (cal3.getTime().after(currentTime)))) { 
 				
 		%>		
-			<%-- <input type="button" value="<%=a%>&#10;<%=b %>" class="timeBtn">  --%>
+			
 			<button class="timeBtn" value="<%=a%>"><%=a%><br><%=b %></button>		
 		
 					
@@ -228,38 +210,6 @@ System.out.println(cal.getDate());
 							</div>
 						
 							<br><br>
-			 <%-- <form action="reserve.do" method="post"> 
-   			<table>
-    		<td>  		
-    		풋살장:
-    		<%if((String)session.getAttribute("placeName")!=null) {%>
-    		
-    		<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
-    		<%} else {%>
-    		<input type="text" name="place" id="place" value="" readonly="readonly"><br>
-    		<%} %>
-
-    		<c:if test="${empty param.year}">
-    		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  
-    		</c:if>	 
-    		<c:if test="${!empty param.year }">  		
-    		날짜:<input type="text" name="date" id="date" value="<%=cal.getYear()+"년"+cal.getMonth()+"월"+cal.getDate()+"일"%>" readonly="readonly"><br> 
-    		</c:if>   		
-    		시간:<input type="text" name="time" id="time" readonly="readonly">
-    		 <div id="locationss"></div>	
-    		</td>
-    		<td>
-    		<input type="button" id="lookTotal" value="구장선택하기">
-    		</td>
-    	
-    	<td> 
-    		<input type="submit" value="예약하기" onclick="return confirm('예약하시겠습니까?')">
-    	</td>
-    </table>   	
-    </form>   --%>
-   
-			
-
 			<!-- Scripts -->
 			<script src="/Match/js/jquery.min.js"></script>
 			<script src="/Match/js/jquery.scrolly.min.js"></script>
@@ -268,17 +218,6 @@ System.out.println(cal.getDate());
 			<script src="/Match/js/breakpoints.min.js"></script>
 			<script src="/Match/js/util.js"></script>
 			<script src="/Match/js/main.js"></script>
-
-	<script>	
-			/* $(function() {
-				alert('hello');
-				var topNum=$("#place").offset().top;
-				$(window).scrollTop(topNum);
-			}); */
-			
-				
-	</script>
-
 	</body>
 	
 </html>

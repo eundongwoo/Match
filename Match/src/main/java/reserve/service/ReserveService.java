@@ -23,7 +23,6 @@ public class ReserveService {
 			conn.setAutoCommit(false);
 			int place_id = reserveDao.selectF_id(conn, reserveRequest);		//int place_id
 			int preCount=reserveDao.getReserveCount(conn,place_id,reserveRequest);
-			System.out.println("삽입 전 예약테이블 안에 있는 값:"+preCount);
 			String checkUser=reserveDao.checkDoubleUser(conn,reserveRequest,place_id); // 한 사람이 똑같은 장소 똑같은 시간 날짜에 중복 예약 불가능하게.
 			
 			if(checkUser!=null)
@@ -39,7 +38,6 @@ public class ReserveService {
 				message="예약되었습니다.";
 				//예약확정시켜주기
 				int postCount=reserveDao.getReserveCount(conn,place_id,reserveRequest);
-				System.out.println("삽입 후 예약테이블 안에 있는 값:"+postCount);
 				if(postCount==3)
 				{
 					reserveDao.confirm(conn,place_id,reserveRequest);

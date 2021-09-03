@@ -13,9 +13,7 @@ public class CalHandler implements CommandHandler{
 		if(request.getMethod().equalsIgnoreCase("GET")) {
 			return processForm(request, response);
 		}else 
-		{
-			//response.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
-			
+		{	
 			return processForm(request, response);
 		}
 		

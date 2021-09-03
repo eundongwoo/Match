@@ -44,22 +44,16 @@ public class FileUploadHandler implements CommandHandler{
 		
 		names = multi.getFileNames();
 		while(names.hasMoreElements()) {
-			name = (String) names.nextElement();
-			System.out.println("input name: " + name);
-			
+			name = (String) names.nextElement();		
 			originalFileName = multi.getOriginalFileName(name);
 			fileSystemName = multi.getFilesystemName(name);
 			fileType = multi.getContentType(name);
-			
-			fileUrl = request.getContextPath() + "/" + SAVE_URL + "/" + fileSystemName;
-			System.out.println("fileURL: " + fileUrl);
-			
+			fileUrl = request.getContextPath() + "/" + SAVE_URL + "/" + fileSystemName;	
 		}
 		
 		String jsonString = "{\"filename\" : \"" + fileSystemName + "\", \"uploaded\" : 1, \"url\":\"" + fileUrl + "\"}";
 		
 		try {
-			// request.setAttribute("fileUrl", fileUrl);
 			response.setContentType("application/json; charset=UTF-8");
 			response.getWriter().write(jsonString);
 		} catch(Exception e) {
@@ -68,5 +62,4 @@ public class FileUploadHandler implements CommandHandler{
 		
 		return null;
 	}
-
 }

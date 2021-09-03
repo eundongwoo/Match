@@ -41,7 +41,11 @@
 } 
 </style>
 </head>
-<body>
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
 		<!-- Header -->
 		<header id="header" class="alt">
 			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
@@ -55,11 +59,11 @@
 		<nav id="menu">
 			<jsp:include page="/WEB-INF/view/nav.jsp" />
 		</nav>
-	
-	<!-- One -->
-					<header class="major">
-						<h1 align="center">풋살장추가</h1>
-					</header>
+		<section id="one">
+			<div id="wrap">
+		<header style= "text-align: center">
+			<h1 align="center">풋살장추가</h1>
+		</header>
 
 	<div id="wrap">
 	<form action="admin.do" method="post">
@@ -90,6 +94,8 @@
 	</form>
 	</div>
 	
+	</section>
+	</div>
 	<script src="/Match/js/jquery.min.js"></script>
 		<script src="/Match/js/jquery.scrolly.min.js"></script>
 		<script src="/Match/js/jquery.scrollex.min.js"></script>

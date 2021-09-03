@@ -21,18 +21,12 @@ public class ReadArticleHandler implements CommandHandler{
 		int articleNumber = Integer.parseInt(noVal);
 		try {
 			ArticleData articleData = readService.getArticle(articleNumber, true);
-			req.setAttribute("articleData", articleData);
-			
+			req.setAttribute("articleData", articleData);	
 			return FORM_VIEW;
-			
 		}catch(ArticleNotFoundException e) {
 			req.getServletContext().log("no article", e);
 			res.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
-		}
-		
+		}	
 	}
-
-	
-	
 }

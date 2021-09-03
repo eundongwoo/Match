@@ -212,68 +212,6 @@
 			</div>
 		</div>
 		
-<%-- <tr>
-	<td>번호</td>
-	<td>${articleData.article.number}</td>
-</tr>
-<tr>
-	<td>작성자</td>
-	<td>${articleData.article.writer.name}</td>
-</tr>
-<tr>
-	<td>제목</td>
-	<td><c:out value="${articleData.article.title}" /></td>
-</tr>
-<tr>
-	<td>내용</td>
-	<td>${articleData.article.content}</td>
-</tr>
-<tr>
-	<td colspan="2">
-	<c:set var="pageNo" value="${empty param.pageNo ?'1': param.pageNo}" />
-		<a href="list.do?pageNo=${pageNo}">[목록]</a>
-		
-		<!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
-		<c:if test="${authUser.id == articleData.article.writer.id}">
-		<a href="modify.do?no=${articleData.article.number}">[게시글수정]</a>
-		<a href="delete.do?no=${articleData.article.number}">[게시글삭제]</a>
-		</c:if>
-	</td>
-</tr>
-</table> --%>
-
-
-
-
-					<!-- 댓글 기능 -->
-					<!-- 본래 있던 댓글 -->
-
-					<%-- <c:if test="${comment != null }">
-<table border="1" width="50">
-	<tr>
-		<!-- 아이디, 작성날짜 -->
-		<td width="150">
-			<div>
-				${comment.comment_id }	<br/>
-				${comment.comment_date }
-			</div>
-		</td>
-		<!-- 본문 내용 -->
-		<td width="550">
-			<div class="">
-				${comment.comment_content}
-			</div>
-		</td>
-			<!-- 작성자만 삭제 -->
-			<c:if test="${authUser.id == comment.comment_id  }">
-				<a href="#">[삭제]</a>
-			</c:if>
-		</td>
-	</tr>
-</table>
-</c:if>  지금안쓰고있는 기능--%>
-
-
 <!-- 댓글 작성 -->
 	<%-- <c:if test="${authUser != null }"> --%>
 	<!-- <form id="comment"  method="POST"> -->
@@ -303,7 +241,6 @@
 	<div id="showContent">
 		<input type="button" class="btn btn-default" value="댓글 보기" id="commentRead">
 	</div>
-	<%-- </c:if> --%>
 	<!-- Scripts -->
 <script src="/Match/js/jquery.min.js"></script>
 <script src="/Match/js/jquery.scrolly.min.js"></script>
