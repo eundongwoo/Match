@@ -41,6 +41,7 @@ public class ControllerUsingURI extends HttpServlet {
 			String handlerClassName=prop.getProperty(command);
 			System.out.println(command+" : "+handlerClassName);
 			try {
+				
 				Class<?> handlerClass=Class.forName(handlerClassName);
 				CommandHandler handlerInstance=(CommandHandler)handlerClass.newInstance();
 				commandHandlerMap.put(command, handlerInstance);
