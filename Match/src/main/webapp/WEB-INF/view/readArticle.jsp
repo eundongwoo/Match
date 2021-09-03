@@ -12,21 +12,8 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 <script type="text/javascript">
-/* $.ajaxSetup({
-    type:"POST",
-    async:true,
-    dataType:"json",
-    error:function(xhr) {
-       
-    }
-}); */
-
-
 
 	//document.ready----
 	$(document).ready(function(){
@@ -161,6 +148,7 @@
 		
 	}
 </script>
+
 </head>
 <body class="is-preload">
 
@@ -175,6 +163,11 @@
 				<a href="#menu">Menu</a>
 			</nav>
 		</header>
+		
+		<!-- Menu -->
+		<nav id="menu">
+			<jsp:include page="/WEB-INF/view/nav.jsp" />
+		</nav>
 
 		<!-- Main -->
 		<div id="main" class="alt">
@@ -186,10 +179,7 @@
 						<h1 align="center">자유게시판</h1>
 					</header>
 					
-					<table border="1" width="50%">
-
-
-
+					<table border="1">
 						<tr>
 							<td>번호</td>
 							<td>${articleData.article.number}</td>
@@ -212,11 +202,12 @@
 								href="article_list.do?pageNo=${pageNo}">[목록]</a> <!-- authUser과 article writer id가 같을때 수정 삭제가 보인다. -->
 								<c:if test="${authUser.id == articleData.article.writer.id}">
 									<a href="article_modify.do?no=${articleData.article.number}">[게시글수정]</a>
-									<a href="article_delete.do?no=${articleData.article.number}">[게시글삭제]</a>
+									<a href="article_delete.do?no=${articleData.article.number}" onclick="return confirm('게시글을 삭제하시겠습니까?')">[게시글삭제]</a>
 								</c:if></td>
 						</tr>
 					</table>
-				</div>
+					</div>
+				
 			</section>
 			</div>
 		</div>

@@ -8,17 +8,9 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
 <body class="is-preload">
-
-
-	<!-- Wrapper -->
-	<div id="wrapper">
-
 		<!-- Header -->
 		<header id="header" class="alt">
 			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
@@ -46,10 +38,7 @@
 					${ctxPath = pageContext.request.contextPath;''}
 					
 					<a href="${ctxPath}/article_list.do" onclick="return confirm('목록보시겠습니까?');">[게시글목록보기]</a>
-					 <a	href="${ctxPath}/article_read.do?no=${newArticleNo}">[게시글내용보기]</a>
-					
-					
-					 
+					 <a	href="${ctxPath}/article_read.do?no=${newArticleNo}">[게시글내용보기]</a>							 
 				</div>
 			</section>
 		</div>

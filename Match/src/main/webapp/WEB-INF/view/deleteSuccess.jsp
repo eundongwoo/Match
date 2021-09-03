@@ -8,15 +8,12 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
 <body class="is-preload">
 
 	<!-- Wrapper -->
-	<div id="wrapper">
+	
 
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -36,8 +33,7 @@
 		<div id="main" class="alt">
 
 			<!-- One -->
-			<section id="one">
-				<div class="inner">
+			<section id="one">				
 					<header class="major">
 						<h1 align="center">자유게시판</h1>
 					</header>

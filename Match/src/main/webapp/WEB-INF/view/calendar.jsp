@@ -29,6 +29,23 @@ th, td {
  	padding-top:20px;
  	text-align: center;
  }
+ #wrap
+{
+	width: 70%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#wrap div:first-child {
+	width: 70%;
+	box-sizing:border-box;
+	float: left;
+}
+#wrap div:last-child {
+	width: 70%;
+	
+	box-sizing:border-box;
+	float: center;
+}  
 </style> 
 </head>
 <body>
@@ -66,7 +83,7 @@ th, td {
 	int count = 0; 
 
 %>
-
+<div id="wrap" style="text-align: center">
 <table width="50%" cellpadding="2" cellspacing="0" border="1" align="center">
 <tr>
 <th colspan="2" class="title"> <!-- 표의 제목 셀 생성 (일반 셀(td)과의 차이는 bold체로 출력)  -->
@@ -166,5 +183,6 @@ count++;
 
 </tr>	
 </table>
+</div>
 </body>
 </html>

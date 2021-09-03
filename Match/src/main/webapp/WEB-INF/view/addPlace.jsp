@@ -6,12 +6,9 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>풋살장추가</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
 <script>
 
@@ -23,14 +20,28 @@
 			i++;  
 		});
 	});
-	
-	
 </script>
+<style>
+#wrap
+{
+	width: 70%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#wrap div:first-child {
+	width: 70%;
+	box-sizing:border-box;
+	float: left;
+}
+#wrap div:last-child {
+	width: 70%;
+	
+	box-sizing:border-box;
+	float: center;
+} 
+</style>
 </head>
 <body>
-	<!-- Wrapper -->
-	<div id="wrapper">
-
 		<!-- Header -->
 		<header id="header" class="alt">
 			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
@@ -50,7 +61,7 @@
 						<h1 align="center">풋살장추가</h1>
 					</header>
 
-	
+	<div id="wrap">
 	<form action="admin.do" method="post">
 	<table>
 		<tr>
@@ -77,7 +88,7 @@
 	<input type="submit" value="제출">
 	<input type="hidden" name="timeRowNum" id="timeRowNum">
 	</form>
-	
+	</div>
 	
 	<script src="/Match/js/jquery.min.js"></script>
 		<script src="/Match/js/jquery.scrolly.min.js"></script>

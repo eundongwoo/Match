@@ -8,16 +8,10 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=no" />
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
 <body class="is-preload">
-
-	<!-- Wrapper -->
-	<div id="wrapper">
-
+		
 		<!-- Header -->
 		<header id="header" class="alt">
 			<a href="/Match/main.jsp" class="logo"><strong>matching</strong>
@@ -37,7 +31,7 @@
 
 			<!-- One -->
 			<section id="one">
-				<div class="inner">
+				
 					<header class="major">
 						<h1 align="center">자유게시판</h1>
 					</header>
@@ -56,7 +50,7 @@
 							<textarea name="content" rows="5" cols="30">${modReq.content}</textarea>
 							<c:if test="${errors.content}">내용을 입력하세요.</c:if>
 						</p>
-						<input type="submit" value="글 수정">
+						<input type="submit" value="글 수정" onclick="return confirm('수정하겠습니까?')">
 					</form>
 			</section>
 		</div>

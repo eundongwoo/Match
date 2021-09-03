@@ -14,15 +14,46 @@ System.out.println(session.getAttribute("authUser"));
 <head>
     <meta charset="utf-8">
     <title>주소로 장소 표시하기</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+/* #wrap
+{
+	width: 70%;
+	overflow: hidden;
+	margin: 0 auto;
+}
+#wrap div:first-child {
+	width: 50%;
+	box-sizing:border-box;
+	float: left;
+}
+#wrap div:last-child {
+	width: 50%;
+	
+	box-sizing:border-box;
+	float: center;
+} 
+#map div{
+		 /* width:100%; */ 
+		/* color:black; */	
+} */
+
+#hello
+{
+	background-color: red;
+	color: black;
+}
+
+</style> 
 </head>
 <body>
+<!-- <div id="wrap" style="text-align: center"> -->	
 
  <form id="please" method="POST" action="map.do" >
 <input type="hidden" id="placeName" name="placeName" value="">
 </form> 
 
-<div id="map" style="width:100%;height:550px;"></div>
+<div id="map" style="width:70%;height:400px; margin: 0 auto;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9139ecf68b85217bc0cf45262df346ce&libraries=services"></script>
 
@@ -67,7 +98,7 @@ geocoder.addressSearch(address, function(result, status) {
      	
         // 인포윈도우로 장소에 대한 설명을 표시합니다
         var infowindow = new kakao.maps.InfoWindow({
-            content: '<div style="width:150px;text-align:center;padding:6px 0;color:black;">'+name+'</div>'
+            content: '<div id="hello" style="color:black;">'+name+'</div>'
         });
         infowindow.open(map, marker);
 
@@ -87,5 +118,6 @@ searchLocation('<%=list.get(j).getF_addr()%>', '<%=list.get(j).getF_name()%>');
 %>
 
 </script>
+<!-- </div> -->
 </body>
 </html>

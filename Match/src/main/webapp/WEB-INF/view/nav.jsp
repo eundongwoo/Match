@@ -43,9 +43,7 @@
                     	</li>                
                     	<li class="nav-item">
                         	<a class="nav-link active" aria-current="page" href="article_list.do">자유게시판</a>
-                    	</li>
-
-                     
+                    	</li>                 
                                     
                     	<c:if test="${authUser.author eq '1'}">
                     		<li class="nav-item">
@@ -53,7 +51,9 @@
                     		</li>
                     	</c:if> 
                     	 <ul class="actions stacked">
-								<li><a href="logout.do" class="button primary fit" onclick="return confirm('정말 로그아웃 하시겠습니까?')">로그아웃</a></li>
+								<li>
+								<a href="logout.do" class="button primary fit">로그아웃</a>
+								</li>
 						 </ul>         
                     </c:if>
                 </ul>                                                         

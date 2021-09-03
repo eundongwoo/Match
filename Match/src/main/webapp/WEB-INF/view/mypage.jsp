@@ -42,7 +42,6 @@
 		<title>마이페이지</title>
 		<meta charset="UTF-8">
 		<meta name="viewport"content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
-		<noscript><link rel="stylesheet" href="/Match/css/noscript.css" /></noscript>
 		<link rel="stylesheet" href="/Match/css/main.css">
 	</head>
 	<body class="is-preload">
@@ -71,7 +70,7 @@
 				<section id="one">
 					<div class="inner">
 						<header class="major">
-							<h1 align="left">회원정보수정</h1>
+							<h1 align="center">회원정보수정</h1>
 						</header>	
 						
 						<!-- Content -->			
@@ -99,7 +98,7 @@
 							            </tr>
 							            <tr>
 							                <td rowspan="2" id="title" class="change">전화번호</td> 
-							                <td colspan="2"><%=user.getTel() %></td>
+							                <td colspan="2">현재 : <%=user.getTel() %></td>
 							                        
 							            </tr> 
 							            <tr>

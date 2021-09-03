@@ -13,39 +13,19 @@
 Calendar cal= (Calendar)session.getAttribute("calendar");
 List<String> list=(List<String>)request.getSession().getAttribute("timeList");
 HashMap<String, Integer> hm =(HashMap<String, Integer>)  request.getSession().getAttribute("timeMap");
-
-/* if(list !=null)
-{
-	for(String s:list)
-	{
-		System.out.println(s);
-	}
-} */
-
-
 if(cal!=null) {
 	System.out.println("여기");
 System.out.println(cal.getDate());
 }
-
-/* List<String> list=(List<String>)request.getAttribute("timeList");
-
-for(String i:list)
-{
-	System.out.print("여기가 진짜"+i);
-} */
-
 %>
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Forty by HTML5 UP</title>
+		<title>Forty by HTML5 UP</title>	
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<noscript>
-			<link rel="stylesheet" href="/Match/css/noscript.css" />
-		</noscript>
 			<link rel="stylesheet" href="/Match/css/main.css">
+			<link rel="stylesheet" href="/Match/qcss/quick.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script>
 		$(document).ready(function(){
@@ -66,18 +46,35 @@ for(String i:list)
 			});
 				
 			
-			});
-			
-		
-			
+			});		
 		</script>
-	</head>
-	<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
-	
+		<!-- 퀵메뉴 -->
+		<script type="text/javascript">
+			$(document).ready(function(){
+				  var currentPosition = parseInt($(".quickmenu").css("top"));
+				  $(window).scroll(function() {
+				    var position = $(window).scrollTop(); 
+				    $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},250);
+				  });
+				});
+		</script> 
+		<script type="text/javascript">
+	var quickBox = $('.quickBox'); //퀵메뉴 코딩한 div의 클래스 네임 - 자신의 이름에 맞게 수정하세요
+	var quick_top = 120; // 기준이 되는 높이 값입니다. 수정해서 테스트 해보시면 감이 오실꺼에요.
+	quickBox.css('top', $(window).height() );
+	$(document).ready(function(){
+	quickBox.animate( { "top": $(document).scrollTop() + quick_top +"px" },  500 ); //숫자값을 변경하시면 속도변화
+	 $(window).scroll(function(){
+	  quickBox.stop();
+	  quickBox.animate( { "top": $(document).scrollTop() + quick_top + "px" }, 500 ); //숫자값을 변경하시면 속도변화
+	 });
+	});
+	</script> 
+		</head>
+		<% String s = request.getParameter("year")+"년"+request.getParameter("month")+"월"+request.getParameter("date")+"일"; %>
+		
 	<body class="is-preload">	
 	
-	<!-- Wrapper -->
-	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header" class="alt">
@@ -92,8 +89,35 @@ for(String i:list)
 		<nav id="menu">
 			<jsp:include page="/WEB-INF/view/nav.jsp" />
 		</nav>
+		
+		
+		 <div class="quickmenu">
+		   <form action="reserve.do" method="post"> 
+   			<table>
+    		<td>  		
+    		풋살장:
+    		<%if((String)session.getAttribute("placeName")!=null) {%>
+    		
+    		<input type="text" name="place" id="place" value="<%=(String)session.getAttribute("placeName")%>" readonly="readonly"><br>   	
+    		<%} else {%>
+    		<input type="text" name="place" id="place" value="" readonly="readonly"><br>
+    		<%} %>
 
-				<!-- Banner -->
+    		<c:if test="${empty param.year}">
+    		날짜:<input type="text" name="date" id="date" value="" readonly="readonly"><br>  
+    		</c:if>	 
+    		<c:if test="${!empty param.year }">  		
+    		날짜:<input type="text" name="date" id="date" value="<%=cal.getYear()+"년"+cal.getMonth()+"월"+cal.getDate()+"일"%>" readonly="readonly"><br> 
+    		</c:if>   		
+    		시간:<input type="text" name="time" id="time" readonly="readonly">
+    		 <div id="locationss"></div>	  		
+    		<input type="submit" value="예약하기" onclick="return confirm('예약하시겠습니까?')">  	
+    		</td>     	   		
+		    </table>   	
+		    </form>
+			</div> 
+
+				<!-- Banner 
 					<section id="banner" class="major">
 						<div class="inner">
 							<header class="major">
@@ -106,11 +130,10 @@ for(String i:list)
 								</ul>
 							</div>
 						</div>
-					</section>
-
+					</section> --> 
+			
 				<!-- Main -->
-					
-
+					 
 						<!-- One -->
 							<section id="one" class="tiles">							
 									 <table>
@@ -130,12 +153,12 @@ for(String i:list)
 							</section>
 						
 							
-							<form action="timesearch.do" method="Post">
+							<form action="timesearch.do" method="Post" style="text-align: center">								
 						    	<input type="hidden" name="placeName" value="<%=(String)session.getAttribute("placeName")%>">
 						    	<input type="hidden" name="placeDate" value="<%=s%>">
 						    	<input id="timelook" type="submit" value="시간 조회">
-						    </form>
-						    <div id="hidden_div">
+						    </form>						   
+						    <div id="hidden_div" style="text-align: center">
     						<p>시간</p>
     						<%
 
@@ -203,13 +226,11 @@ for(String i:list)
 	 		
 		%> 
 							</div>
+						
 							<br><br>
-				<form action="reserve.do" method="post"> 
-   				 <table>
-    			<td>
-
-    			
-    		
+			 <%-- <form action="reserve.do" method="post"> 
+   			<table>
+    		<td>  		
     		풋살장:
     		<%if((String)session.getAttribute("placeName")!=null) {%>
     		
@@ -226,17 +247,16 @@ for(String i:list)
     		</c:if>   		
     		시간:<input type="text" name="time" id="time" readonly="readonly">
     		 <div id="locationss"></div>	
-    	</td>
-    	<td>
+    		</td>
+    		<td>
     		<input type="button" id="lookTotal" value="구장선택하기">
-    	</td>
+    		</td>
     	
-    	<td>
-    		<input type="submit" value="예약하기">
+    	<td> 
+    		<input type="submit" value="예약하기" onclick="return confirm('예약하시겠습니까?')">
     	</td>
-    </table>
-    	<!--  스크롤-->
-    </form>
+    </table>   	
+    </form>   --%>
    
 			
 

@@ -16,9 +16,6 @@
 <title>공지글 수정</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
 </head>
 <body class="is-preload">
@@ -62,7 +59,7 @@
                  });
  	</script>
 </p>
-<input type="submit" value="글 수정">
+<input type="submit" value="글 수정" onclick="return confirm('수정하시겠습니까?')">
 </form>
 <!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>

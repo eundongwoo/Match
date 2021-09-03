@@ -6,22 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시판</title>
+<title>로그인</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1 nitial-scale=1, user-scalable=no">
-<noscript>
-	<link rel="stylesheet" href="/Match/css/noscript.css" />
-</noscript>
 <link rel="stylesheet" href="/Match/css/main.css">
-<style>
+<style type="text/css">
 #wrap
 {
 	width: 70%;
 	overflow: hidden;
+	margin: 0 auto;
 }
 #wrap div:first-child {
 	width: 70%;
-	
 	box-sizing:border-box;
 	float: left;
 }
@@ -53,14 +50,16 @@
 		</nav>
 		<!-- One -->
 		<section id="one">
-				<header class="major">
+			<div id="wrap">
+				<header style= "text-align: center">
 					<h1 align="center" >로그인</h1>
 				</header>
-				<div class="login-page">
-<div class="wrap" style="text-align: right" width="50%">
+						
+<div id="wrap" style="text-align: center">
 <form action="login.do" method="post" class="login-form" >
 <c:if test="${errors.idOrPwNotMatch}">
 </c:if>
+
 <p>
 	<input type="text" name="id" value="${param.id}" placeholder="ID">
 	<c:if test="${errors.idOrPwNotMatch }">
@@ -79,7 +78,7 @@
 </div>
 </div>
 </section>
-			</div>
+</div>
 	<!-- Scripts -->
 	<script src="/Match/js/jquery.min.js"></script>
 	<script src="/Match/js/jquery.scrolly.min.js"></script>
